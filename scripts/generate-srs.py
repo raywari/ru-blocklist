@@ -58,10 +58,8 @@ def build_rules_json():
     with open(CIDR_FILE) as f:
         cidrs = [c.strip() for c in f if c.strip()]
 
-    # подстановка ".ua"
     domains_all = {".ua" if d == "ua" else d for d in domains_all}
 
-    # читаем исключения no-yt
     if DOMAINS_NOYT_FILE.exists():
         with open(DOMAINS_NOYT_FILE) as f:
             domains_noyt = {d.strip() for d in f if d.strip()}
@@ -69,7 +67,6 @@ def build_rules_json():
     else:
         domains_noyt = set()
 
-    # payload для всех доменов
     payload_all = {
         "version": 3,
         "rules": [
@@ -80,7 +77,6 @@ def build_rules_json():
         ]
     }
 
-    # payload для no-yt (исключаем домены)
     domains_filtered = domains_all - domains_noyt
 
     if domains_filtered:
@@ -97,7 +93,6 @@ def build_rules_json():
         payload_noyt = None
         print("Внимание: после исключения доменов no-yt список пуст, rules-no-yt.json не будет создан.")
 
-    # Записываем файлы
     with open(RULES_JSON, "w") as f:
         json.dump(payload_all, f, indent=2)
 
@@ -117,11 +112,9 @@ def compile_srs():
 
     print("Компилируем SRS правила")
 
-    # Создаем уникальные временные файлы
     temp_srs_all = WORK_DIR / "temp_rules_all.srs"
     temp_srs_noyt = WORK_DIR / "temp_rules_noyt.srs"
 
-    # Компиляция обычного rules.json
     subprocess.run(
         [str(bin_path), "rule-set", "compile", str(RULES_JSON), "-o", str(temp_srs_all)],
         check=True
@@ -134,7 +127,6 @@ def compile_srs():
         print(f"Файл {temp_srs_all} не найден после первой компиляции", file=sys.stderr)
         sys.exit(1)
 
-    # Компиляция no-yt версии (если есть)
     if RULES_JSON_NOYT.exists():
         print("\nКомпилируем no-yt правила:")
         print(f"Файл {RULES_JSON_NOYT} размер: {RULES_JSON_NOYT.stat().st_size} байт")
@@ -159,7 +151,6 @@ def cleanup():
             p.unlink()
     if EXTRACT_DIR.exists():
         shutil.rmtree(EXTRACT_DIR)
-    # Удаляем временные SRS файлы, если остались
     for temp in [WORK_DIR / "temp_rules_all.srs", WORK_DIR / "temp_rules_noyt.srs"]:
         if temp.exists():
             temp.unlink()

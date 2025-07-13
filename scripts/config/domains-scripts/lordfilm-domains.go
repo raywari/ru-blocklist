@@ -21,7 +21,6 @@ domains = ["%s"]`
 )
 
 func main() {
-	// Получаем абсолютный путь к TOML файлу (на два уровня выше для scripts/config/domain-scripts/)
 	scriptDir, err := os.Getwd()
 	if err != nil {
 		log.Fatalf("Ошибка получения текущей директории: %v", err)

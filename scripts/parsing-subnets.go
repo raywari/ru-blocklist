@@ -26,21 +26,15 @@ const (
 	MAX_RETRIES    = 3
 	RETRY_DELAY    = 2 * time.Second
 	BACKOFF_FACTOR = 2
-	
-	// Path constants
 	BASE_CATEGORIES_DIR = "data"
 	CIDRS_DIR          = "CIDRs"
 	CIDR4_DIR          = "CIDR4"
 	CIDR6_DIR          = "CIDR6"
 	SERVICES_DIR       = "services"
-	
-	// File names
 	SUMMARY_CIDR4_FILE = "CIDR4-summary.lst"
 	SUMMARY_CIDR6_FILE = "CIDR6-summary.lst"
 	SUMMARY_CIDRS_FILE = "CIDRs-summary.lst"
 )
-
-// Path helper functions
 func getCIDRsBasePath() string {
 	return filepath.Join(BASE_CATEGORIES_DIR, CIDRS_DIR)
 }
@@ -162,8 +156,6 @@ func (nc *NetworkCollector) AddNetwork(networkStr string) {
 func (nc *NetworkCollector) GetMergedNetworks() ([]string, []string) {
 	nc.mu.RLock()
 	defer nc.mu.RUnlock()
-
-	// Используем библиотеку cidrmerge для эффективного объединения сетей
 	mergedV4 := cidrmerge.Merge(nc.v4Networks)
 	mergedV6 := cidrmerge.Merge(nc.v6Networks)
 
@@ -186,7 +178,6 @@ type HTTPClient struct {
 }
 
 func NewHTTPClient(userAgent string) *HTTPClient {
-	// Создаем кастомный диалер с таймаутом
 	dialer := &net.Dialer{
 		Timeout:   30 * time.Second,
 		KeepAlive: 30 * time.Second,
@@ -195,7 +186,7 @@ func NewHTTPClient(userAgent string) *HTTPClient {
 	return &HTTPClient{
 		userAgent: userAgent,
 		client: &http.Client{
-			Timeout: 60 * time.Second, // Увеличиваем таймаут для больших файлов
+			Timeout: 60 * time.Second,
 			Transport: &http.Transport{
 				MaxIdleConns:          100,
 				MaxIdleConnsPerHost:   10,
@@ -203,7 +194,6 @@ func NewHTTPClient(userAgent string) *HTTPClient {
 				DisableKeepAlives:     false,
 				ResponseHeaderTimeout: 30 * time.Second,
 				ExpectContinueTimeout: 1 * time.Second,
-				// Используем кастомный диалер
 				DialContext: dialer.DialContext,
 			},
 		},
@@ -234,8 +224,6 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			lastErr = err
 			continue
 		}
-
-		// Устанавливаем User-Agent
 		if c.userAgent != "" {
 			req.Header.Set("User-Agent", c.userAgent)
 		}
@@ -316,8 +304,6 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 
 	g, ctx := errgroup.WithContext(ctx)
 	var v4Networks, v6Networks []string
-
-	// Загружаем IPv4 сети
 	g.Go(func() error {
 		if config.V4URL == "" {
 			return nil
@@ -325,7 +311,7 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 		data, err := client.Download(ctx, config.V4URL)
 		if err != nil {
 			logger.Error("Failed to download IPv4 data for %s: %v", name, err)
-			return nil // Не прерываем выполнение из-за ошибки загрузки
+			return nil
 		}
 
 		collector := NewNetworkCollector()
@@ -337,8 +323,6 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 		v4Networks, _ = collector.GetMergedNetworks()
 		return nil
 	})
-
-	// Загружаем IPv6 сети
 	g.Go(func() error {
 		if config.V6URL == "" {
 			return nil
@@ -362,8 +346,6 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 	if err := g.Wait(); err != nil {
 		return err
 	}
-
-	// Записываем результаты
 	v4File := getServiceCIDR4File(name)
 	v6File := getServiceCIDR6File(name)
 
@@ -432,8 +414,6 @@ func parseASNs(asnData any) ([]int, error) {
 
 func processASNServices(ctx context.Context, client *HTTPClient, services map[string]ServiceConfig, bgpURL string) error {
 	logger.Info("Processing ASN services...")
-
-	// Собираем все ASN сервисы
 	asnServices := make(map[string][]int)
 	for name, config := range services {
 		if config.Type == "asn" && config.ASN != nil {
@@ -450,23 +430,17 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		logger.Info("No ASN services found")
 		return nil
 	}
-
-	// Создаем множество всех нужных ASN для быстрого поиска
 	allASNs := make(map[int][]string)
 	for service, asns := range asnServices {
 		for _, asn := range asns {
 			allASNs[asn] = append(allASNs[asn], service)
 		}
 	}
-
-	// Загружаем BGP данные
 	bgpData, err := client.Download(ctx, bgpURL)
 	if err != nil {
 		logger.Error("Failed to download BGP data: %v", err)
 		return err
 	}
-
-	// Парсим BGP данные и собираем CIDR по сервисам
 	serviceCollectors := make(map[string]*NetworkCollector)
 	for service := range asnServices {
 		serviceCollectors[service] = NewNetworkCollector()
@@ -506,8 +480,6 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 	}
 
 	logger.Info("Processed %d BGP lines total", lineCount)
-
-	// Записываем результаты для каждого сервиса
 	for service, collector := range serviceCollectors {
 		v4Networks, v6Networks := collector.GetMergedNetworks()
 
@@ -532,10 +504,9 @@ func makeSummary(summary []string) error {
     logger.Info("Creating summary files...")
 
     allV4Collector := NewNetworkCollector()
-    allV6Collector := NewNetworkCollector() // Отдельный коллектор для IPv6
+    allV6Collector := NewNetworkCollector()
 
     for _, service := range summary {
-        // Читаем IPv4 файл
         v4File := getServiceCIDR4File(service)
         if data, err := os.ReadFile(v4File); err == nil {
             scanner := bufio.NewScanner(strings.NewReader(string(data)))
@@ -545,24 +516,18 @@ func makeSummary(summary []string) error {
         } else {
             logger.Warn("Could not read IPv4 file for service %s: %v", service, err)
         }
-
-        // Читаем IPv6 файл
         v6File := getServiceCIDR6File(service)
         if data, err := os.ReadFile(v6File); err == nil {
             scanner := bufio.NewScanner(strings.NewReader(string(data)))
             for scanner.Scan() {
-                allV6Collector.AddNetwork(scanner.Text()) // Добавляем в IPv6 коллектор
+                allV6Collector.AddNetwork(scanner.Text())
             }
         } else {
             logger.Warn("Could not read IPv6 file for service %s: %v", service, err)
         }
     }
-
-    // Получаем сети из КОРРЕКТНЫХ коллекторов
     mergedV4, _ := allV4Collector.GetMergedNetworks()
     _, mergedV6 := allV6Collector.GetMergedNetworks()
-
-    // Создаем необходимые директории
     if err := os.MkdirAll(getCIDR4BasePath(), 0755); err != nil {
         return err
     }
@@ -572,8 +537,6 @@ func makeSummary(summary []string) error {
     if err := os.MkdirAll(getCIDRsBasePath(), 0755); err != nil {
         return err
     }
-
-    // Записываем summary файлы
     if err := writeNetworksToFile(getSummaryCIDR4File(), mergedV4); err != nil {
         return err
     }
@@ -581,8 +544,6 @@ func makeSummary(summary []string) error {
     if err := writeNetworksToFile(getSummaryCIDR6File(), mergedV6); err != nil {
         return err
     }
-
-    // Объединенный файл
     combined := make([]string, 0, len(mergedV4)+len(mergedV6))
     combined = append(combined, mergedV4...)
     combined = append(combined, mergedV6...)
@@ -599,8 +560,6 @@ func makeSummary(summary []string) error {
 func main() {
 	start := time.Now()
 	logger.Info("Starting subnet processing...")
-
-	// Загружаем конфигурацию
 	configData, err := os.ReadFile(CONFIG_FILE)
 	if err != nil {
 		logger.Error("Failed to read config file %s: %v", CONFIG_FILE, err)
@@ -612,26 +571,18 @@ func main() {
 		logger.Error("Failed to parse config: %v", err)
 		os.Exit(1)
 	}
-
-	// Создаем директории
 	if err := setupDirectories(config.Services); err != nil {
 		logger.Error("Failed to setup directories: %v", err)
 		os.Exit(1)
 	}
-
-	// Создаем HTTP клиент
 	client := NewHTTPClient(config.Settings.UserAgent)
-
-	// Создаем контекст для URL сервисов
 	urlCtx, urlCancel := context.WithTimeout(context.Background(), 5*time.Minute)
 	defer urlCancel()
-
-	// Обрабатываем URL и single_url сервисы параллельно
 	g, urlCtx := errgroup.WithContext(urlCtx)
-	g.SetLimit(10) // Ограничиваем количество параллельных загрузок
+	g.SetLimit(10)
 
 	for name, serviceConfig := range config.Services {
-		name, serviceConfig := name, serviceConfig // захватываем переменные
+		name, serviceConfig := name, serviceConfig
 		switch serviceConfig.Type {
 		case "url":
 			g.Go(func() error {
@@ -646,20 +597,12 @@ func main() {
 
 	if err := g.Wait(); err != nil {
 		logger.Error("Error processing URL services: %v", err)
-		// Не завершаем программу, продолжаем с ASN сервисами
 	}
-
-	// Создаем отдельный контекст для ASN сервисов с большим таймаутом
 	asnCtx, asnCancel := context.WithTimeout(context.Background(), 20*time.Minute)
 	defer asnCancel()
-
-	// Обрабатываем ASN сервисы
 	if err := processASNServices(asnCtx, client, config.Services, config.Settings.BGPURL); err != nil {
 		logger.Error("Error processing ASN services: %v", err)
-		// Не завершаем программу, продолжаем с созданием summary
 	}
-
-	// Создаем summary
 	if err := makeSummary(config.Settings.Summary); err != nil {
 		logger.Error("Error creating summary: %v", err)
 		os.Exit(1)

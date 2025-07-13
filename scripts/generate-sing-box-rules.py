@@ -29,13 +29,11 @@ def save_json(data, output_path):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def main():
-    # Основной ruleset
     domains = read_lines(DOMAINS_FILE)
     cidrs = read_lines(CIDR4_FILE)
     main_data = create_rules(domains, cidrs)
     save_json(main_data, OUTPUT_MAIN)
 
-    # Ruleset без YouTube
     domains_without_yt = read_lines(DOMAINS_WITHOUT_YT_FILE)
     without_yt_data = create_rules(domains_without_yt, cidrs)
     save_json(without_yt_data, OUTPUT_WITHOUT_YT)

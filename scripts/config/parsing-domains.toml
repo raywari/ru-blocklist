@@ -92,6 +92,7 @@ v2fly = ["youtube"]
 
 [services.TikTok]
 v2fly = ["tiktok"]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=tiktok.com"]
 
 [services."X"]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=x.com&site=x.com"]

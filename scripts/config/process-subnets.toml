@@ -1,6 +1,6 @@
 [settings]
 summary = ["Cloudflare-ECH", "Meta", "X-Twitter"]
-user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; ru-RU) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.208 Safari/537.36"
 bgp_url = "https://bgp.tools/table.txt"
 
 [services.Cloudflare-ECH]
@@ -47,4 +47,8 @@ asn = 14061
 
 [services.Akamai]
 type = "asn"
-asn = [36183, 26008, 20940, 393560, 393234, 18717, 43639, 24319]
+asn = [36183, 26008, 20940, 393560, 393234, 18717, 43639, 24319, 32787]
+
+[services.Google]
+type = "asn"
+asn = 15169

@@ -37,10 +37,10 @@ jobs:
           pip install requests
 
       - name: Run parsing-domains
-        run: go run /scripts/parsing-domains.go
+        run: go run scripts/parsing-domains.go
 
       - name: Run process-domains
-        run: go run /scripts/process-domains.go
+        run: go run scripts/process-domains.go
 
       - name: Commit and push domains changes
         run: |
@@ -52,7 +52,7 @@ jobs:
           git pull origin HEAD:main
 
       - name: Run parsing-subnets
-        run: go run /scripts/parsing-subnets.go
+        run: go run scripts/parsing-subnets.go
 
       - name: Commit and push CIDR changes
         run: |
@@ -65,9 +65,9 @@ jobs:
 
       - name: Generate all configs
         run: |
-          python /scripts/generate-srs.py
-          python /scripts/generate-routing-config.py
-          python /scripts/generate-sing-box-rules.py
+          python scripts/generate-srs.py
+          python scripts/generate-routing-config.py
+          python scripts/generate-sing-box-rules.py
 
       - name: Commit and push all generated configs
         run: |

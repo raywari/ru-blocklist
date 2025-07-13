@@ -443,10 +443,6 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		}
 	}
 
-	if bgpURL == "https://bgp.tools/table.txt" {
-		time.Sleep(3 * time.Second)
-	}
-
 	if len(asnServices) == 0 {
 		logger.Info("No ASN services found")
 		return nil

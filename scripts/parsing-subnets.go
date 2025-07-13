@@ -22,19 +22,20 @@ import (
 )
 
 const (
-	CONFIG_FILE    = "scripts/config/process-subnets.toml"
-	MAX_RETRIES    = 3
-	RETRY_DELAY    = 2 * time.Second
-	BACKOFF_FACTOR = 2
+	CONFIG_FILE         = "scripts/config/process-subnets.toml"
+	MAX_RETRIES         = 3
+	RETRY_DELAY         = 2 * time.Second
+	BACKOFF_FACTOR      = 2
 	BASE_CATEGORIES_DIR = "data"
-	CIDRS_DIR          = "CIDRs"
-	CIDR4_DIR          = "CIDR4"
-	CIDR6_DIR          = "CIDR6"
-	SERVICES_DIR       = "services"
-	SUMMARY_CIDR4_FILE = "CIDR4-summary.lst"
-	SUMMARY_CIDR6_FILE = "CIDR6-summary.lst"
-	SUMMARY_CIDRS_FILE = "CIDRs-summary.lst"
+	CIDRS_DIR           = "CIDRs"
+	CIDR4_DIR           = "CIDR4"
+	CIDR6_DIR           = "CIDR6"
+	SERVICES_DIR        = "services"
+	SUMMARY_CIDR4_FILE  = "CIDR4-summary.lst"
+	SUMMARY_CIDR6_FILE  = "CIDR6-summary.lst"
+	SUMMARY_CIDRS_FILE  = "CIDRs-summary.lst"
 )
+
 func getCIDRsBasePath() string {
 	return filepath.Join(BASE_CATEGORIES_DIR, CIDRS_DIR)
 }
@@ -105,11 +106,11 @@ type Config struct {
 }
 
 type ServiceConfig struct {
-	Type   string `toml:"type"`
-	V4URL  string `toml:"v4_url,omitempty"`
-	V6URL  string `toml:"v6_url,omitempty"`
-	URL    string `toml:"url,omitempty"`
-	ASN    any    `toml:"asn,omitempty"`
+	Type  string `toml:"type"`
+	V4URL string `toml:"v4_url,omitempty"`
+	V6URL string `toml:"v6_url,omitempty"`
+	URL   string `toml:"url,omitempty"`
+	ASN   any    `toml:"asn,omitempty"`
 }
 
 type SettingsConfig struct {
@@ -194,7 +195,7 @@ func NewHTTPClient(userAgent string) *HTTPClient {
 				DisableKeepAlives:     false,
 				ResponseHeaderTimeout: 30 * time.Second,
 				ExpectContinueTimeout: 1 * time.Second,
-				DialContext: dialer.DialContext,
+				DialContext:           dialer.DialContext,
 			},
 		},
 	}
@@ -242,6 +243,21 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			continue
 		}
 
+		if resp.StatusCode == http.StatusTooManyRequests {
+			io.Copy(io.Discard, resp.Body)
+			resp.Body.Close()
+			retryAfter := resp.Header.Get("Retry-After")
+			if retryAfter != "" {
+				if seconds, err := strconv.Atoi(retryAfter); err == nil {
+					delay = time.Duration(seconds) * time.Second
+				} else if t, err := time.Parse(time.RFC1123, retryAfter); err == nil {
+					delay = time.Until(t)
+				}
+			}
+			logger.Warn("HTTP 429. Retrying after %v", delay)
+			continue
+		}
+
 		data, err := io.ReadAll(resp.Body)
 		resp.Body.Close()
 		if err != nil {
@@ -254,6 +270,7 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			logger.Info("Successfully downloaded %s after %d attempts", url, attempt+1)
 		}
 		return string(data), nil
+
 	}
 
 	logger.Error("Failed to download %s after %d attempts: %v", url, maxRetries+1, lastErr)
@@ -426,6 +443,10 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		}
 	}
 
+	if bgpURL == config.Settings.BGPURL {
+		time.Sleep(3 * time.Second)
+	}
+
 	if len(asnServices) == 0 {
 		logger.Info("No ASN services found")
 		return nil
@@ -436,7 +457,7 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 			allASNs[asn] = append(allASNs[asn], service)
 		}
 	}
-	bgpData, err := client.Download(ctx, bgpURL)
+	bgpData, err := client.DownloadWithRetry(ctx, bgpURL, 5)
 	if err != nil {
 		logger.Error("Failed to download BGP data: %v", err)
 		return err
@@ -501,60 +522,60 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 }
 
 func makeSummary(summary []string) error {
-    logger.Info("Creating summary files...")
+	logger.Info("Creating summary files...")
 
-    allV4Collector := NewNetworkCollector()
-    allV6Collector := NewNetworkCollector()
+	allV4Collector := NewNetworkCollector()
+	allV6Collector := NewNetworkCollector()
 
-    for _, service := range summary {
-        v4File := getServiceCIDR4File(service)
-        if data, err := os.ReadFile(v4File); err == nil {
-            scanner := bufio.NewScanner(strings.NewReader(string(data)))
-            for scanner.Scan() {
-                allV4Collector.AddNetwork(scanner.Text())
-            }
-        } else {
-            logger.Warn("Could not read IPv4 file for service %s: %v", service, err)
-        }
-        v6File := getServiceCIDR6File(service)
-        if data, err := os.ReadFile(v6File); err == nil {
-            scanner := bufio.NewScanner(strings.NewReader(string(data)))
-            for scanner.Scan() {
-                allV6Collector.AddNetwork(scanner.Text())
-            }
-        } else {
-            logger.Warn("Could not read IPv6 file for service %s: %v", service, err)
-        }
-    }
-    mergedV4, _ := allV4Collector.GetMergedNetworks()
-    _, mergedV6 := allV6Collector.GetMergedNetworks()
-    if err := os.MkdirAll(getCIDR4BasePath(), 0755); err != nil {
-        return err
-    }
-    if err := os.MkdirAll(getCIDR6BasePath(), 0755); err != nil {
-        return err
-    }
-    if err := os.MkdirAll(getCIDRsBasePath(), 0755); err != nil {
-        return err
-    }
-    if err := writeNetworksToFile(getSummaryCIDR4File(), mergedV4); err != nil {
-        return err
-    }
+	for _, service := range summary {
+		v4File := getServiceCIDR4File(service)
+		if data, err := os.ReadFile(v4File); err == nil {
+			scanner := bufio.NewScanner(strings.NewReader(string(data)))
+			for scanner.Scan() {
+				allV4Collector.AddNetwork(scanner.Text())
+			}
+		} else {
+			logger.Warn("Could not read IPv4 file for service %s: %v", service, err)
+		}
+		v6File := getServiceCIDR6File(service)
+		if data, err := os.ReadFile(v6File); err == nil {
+			scanner := bufio.NewScanner(strings.NewReader(string(data)))
+			for scanner.Scan() {
+				allV6Collector.AddNetwork(scanner.Text())
+			}
+		} else {
+			logger.Warn("Could not read IPv6 file for service %s: %v", service, err)
+		}
+	}
+	mergedV4, _ := allV4Collector.GetMergedNetworks()
+	_, mergedV6 := allV6Collector.GetMergedNetworks()
+	if err := os.MkdirAll(getCIDR4BasePath(), 0755); err != nil {
+		return err
+	}
+	if err := os.MkdirAll(getCIDR6BasePath(), 0755); err != nil {
+		return err
+	}
+	if err := os.MkdirAll(getCIDRsBasePath(), 0755); err != nil {
+		return err
+	}
+	if err := writeNetworksToFile(getSummaryCIDR4File(), mergedV4); err != nil {
+		return err
+	}
 
-    if err := writeNetworksToFile(getSummaryCIDR6File(), mergedV6); err != nil {
-        return err
-    }
-    combined := make([]string, 0, len(mergedV4)+len(mergedV6))
-    combined = append(combined, mergedV4...)
-    combined = append(combined, mergedV6...)
-    sort.Strings(combined)
+	if err := writeNetworksToFile(getSummaryCIDR6File(), mergedV6); err != nil {
+		return err
+	}
+	combined := make([]string, 0, len(mergedV4)+len(mergedV6))
+	combined = append(combined, mergedV4...)
+	combined = append(combined, mergedV6...)
+	sort.Strings(combined)
 
-    if err := writeNetworksToFile(getSummaryCIDRsFile(), combined); err != nil {
-        return err
-    }
+	if err := writeNetworksToFile(getSummaryCIDRsFile(), combined); err != nil {
+		return err
+	}
 
-    logger.Info("Summary created (IPv4: %d, IPv6: %d, Total: %d)", len(mergedV4), len(mergedV6), len(combined))
-    return nil
+	logger.Info("Summary created (IPv4: %d, IPv6: %d, Total: %d)", len(mergedV4), len(mergedV6), len(combined))
+	return nil
 }
 
 func main() {

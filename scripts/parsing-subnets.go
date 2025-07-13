@@ -443,7 +443,7 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		}
 	}
 
-	if bgpURL == config.Settings.BGPURL {
+	if bgpURL == "https://bgp.tools/table.txt" {
 		time.Sleep(3 * time.Second)
 	}
 

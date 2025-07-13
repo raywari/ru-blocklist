@@ -1,0 +1,50 @@
+[settings]
+summary = ["Cloudflare-ECH", "Meta", "X-Twitter"]
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+bgp_url = "https://bgp.tools/table.txt"
+
+[services.Cloudflare-ECH]
+type = "url"
+v4_url = "https://www.cloudflare.com/ips-v4"
+v6_url = "https://www.cloudflare.com/ips-v6"
+
+[services.Cloudflare-ALL]
+type = "asn"
+asn = [13335, 132892, 209242, 139242, 203898, 394536, 395747, 14789, 12731, 174, 18450, 23352, 36351, 133877, 202623]
+
+[services.Discord]
+type = "url"
+v4_url = "https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media"
+v6_url = "https://iplist.opencck.org/?format=text&data=cidr6&site=discord.gg&site=discord.media"
+
+[services.Telegram]
+type = "single_url"
+url = "https://core.telegram.org/resources/cidr.txt"
+
+[services.Meta]
+type = "asn"
+asn = [32934, 63293]
+
+[services.X-Twitter]
+type = "asn"
+asn = 13414
+
+[services.Hetzner]
+type = "asn"
+asn = 24940
+
+[services.OVH]
+type = "asn"
+asn = 16276
+
+[services.Amazon]
+type = "asn"
+asn = 16509
+
+[services.DigitalOcean]
+type = "asn"
+asn = 14061
+
+[services.Akamai]
+type = "asn"
+asn = [36183, 26008, 20940, 393560, 393234, 18717, 43639, 24319]

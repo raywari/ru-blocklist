@@ -1,0 +1,56 @@
+# Missing domains
+# Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
+
+- adafruit.com
+- bbci.co.uk
+- download.screamingfrog.co.uk
+- fastpic.org
+- gvt1.com
+- ichef.bbci.co.uk
+- pbs.twimg.com.cdn.cloudflare.net
+- static.files.bbci.co.uk
+- video.twimg.com.cdn.cloudflare.net
+
+# Missing domains
+# Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+
+- andrevi.ch
+- anilibria.org
+- audiobookbay.lu
+- bbc.co.uk
+- bbci.co.uk
+- boominfo.org
+- bt4gprx.com
+- cisecurity.org
+- cloudtorrents.com
+- eporner.com
+- filebin.net
+- home.by.me
+- ikea.com
+- interactivebrokers.co.uk
+- kinozaltv.life
+- make.com
+- metopera.org
+- oculus.com
+- penguin.com
+- penguinrandomhouse.com
+- semrush.com
+- shinyhardware.co.uk
+- slifki.biz
+- supersliv.biz
+- telegraph.co.uk
+- youtrack.cloud
+
+# Missing domains
+# Source: https://community.antifilter.download/list/domains.lst
+
+- ansys.com
+- bbc.co.uk
+- bbci.co.uk
+- download.screamingfrog.co.uk
+- epg.one
+- ichef.bbci.co.uk
+- pepperl-fuchs.com
+- s3-1.amazonaws.com
+- static.files.bbci.co.uk
+

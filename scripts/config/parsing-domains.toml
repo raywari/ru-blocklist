@@ -70,6 +70,9 @@ v2fly = ["openweather"]
 [services.Notion]
 v2fly = ["notion"]
 
+[services.Miro]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=miro.com"]
+
 [services.Flibusta]
 v2fly = ["flibusta"]
 
@@ -108,6 +111,9 @@ v2fly = ["discord"]
 
 [services.SuperCell]
 v2fly = ["supercell"]
+
+[services.DeviantArt]
+v2fly = ["deviantart"]
 
 [services.OpenAI]
 v2fly = ["openai"]
@@ -156,6 +162,9 @@ v2fly = ["spotify"]
 [services.SoundCloud]
 v2fly = ["soundcloud"]
 
+[services.Tidal]
+domains = ["tidal.com"]
+
 [services.HDRezka]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=hdrezka.ag"]
 
@@ -200,6 +209,42 @@ domains = ["kinobase.org"]
 [services.kinovod]
 domains = ["kinovod.net", "kinovod.pro"]
 
+[services.JetBrains]
+v2fly = ["jetbrains", "jetbrains-ai"]
+
+[services.BestChange]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=bestchange.ru"]
+
+[services.ProtonMail]
+v2fly = ["protonmail"]
+
+[services.Notepad++]
+domains = ["notepad-plus-plus.org"]
+
+[services.Sentry-io]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=sentry.io"]
+
+[services.DeepL]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=deepl.com"]
+
+[services.Canva]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=canva.com"]
+
+[services.10MinuteMail]
+domains = ["10minutemail.com"]
+
+[services.Strava]
+domains = ["strava.com"]
+
+[services.Zapier]
+domains = ["zapier-deployment.com", "zapier.com"]
+
+[services.Whoop]
+domains = ["whoop.com"]
+
+[services.Tuta]
+domains = ["tuta.com"]
+
 ##############
 ###        ###
 ### GROUPS ###
@@ -218,6 +263,16 @@ include = ["discord", "telegram", "viber", "instagram", "facebook", "threads", "
 [groups.AI]
 include = ["google-ai", "elevenlabs", "copilot", "openai", "grok", "deepseek", "perplexity", "huggingface", "anthropic"]
 domains = ["meta.ai"]
+v2fly = ["jetbrains-ai"]
+
+[groups.RU-unblocked]
+v2fly = ["category-ru", "category-gov-ru"]
+
+[groups.Music]
+include ["spotify", "soundcloud", "tidal"]
+
+[groups.Tools]
+include = ["jetbrains", "bestchange", "notion", "miro", "sentry-io", "deepl", "canva", "10minutemail", "strava", "zapier", "whoop", "tuta"]
 
 [groups.Porn]
 v2fly = ["category-porn"]

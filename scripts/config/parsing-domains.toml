@@ -218,7 +218,7 @@ url = ["https://iplist.opencck.org/?format=text&data=domains&site=bestchange.ru"
 [services.ProtonMail]
 v2fly = ["protonmail"]
 
-[services.Notepad++]
+[services."Notepad++"]
 domains = ["notepad-plus-plus.org"]
 
 [services.Sentry-io]

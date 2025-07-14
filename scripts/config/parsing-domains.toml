@@ -269,7 +269,7 @@ v2fly = ["jetbrains-ai"]
 v2fly = ["category-ru", "category-gov-ru"]
 
 [groups.Music]
-include ["spotify", "soundcloud", "tidal"]
+include = ["spotify", "soundcloud", "tidal"]
 
 [groups.Tools]
 include = ["jetbrains", "bestchange", "notion", "miro", "sentry-io", "deepl", "canva", "10minutemail", "strava", "zapier", "whoop", "tuta"]

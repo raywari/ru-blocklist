@@ -267,6 +267,7 @@ v2fly = ["jetbrains-ai"]
 
 [groups.RU-unblocked]
 v2fly = ["category-ru", "category-gov-ru"]
+general = false
 
 [groups.Music]
 include = ["spotify", "soundcloud", "tidal"]

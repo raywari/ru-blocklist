@@ -245,6 +245,10 @@ domains = ["whoop.com"]
 [services.Tuta]
 domains = ["tuta.com"]
 
+[services.AutoDesk]
+v2fly = ["autodesk"]
+general = false
+
 ##############
 ###        ###
 ### GROUPS ###
@@ -267,13 +271,15 @@ v2fly = ["jetbrains-ai"]
 
 [groups.RU-unblocked]
 v2fly = ["category-ru", "category-gov-ru"]
+url = ["https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-raw.lst"]
+domains = ["ru.com", "ru.net", "rt.com", "sputniknews.com", "sputnikglobe.com", "actualidad-rt.com", "africa-rt.com", "esrt.press", "estr.online", "rt-afrique.com", "rtafrica.media", "rtafrique.online", "tass.com", "interfax.com", "1c.com", "2ch.hk", "advmaker.net", "pravda.com", "news-pravda.com"]
 general = false
 
 [groups.Music]
 include = ["spotify", "soundcloud", "tidal"]
 
 [groups.Tools]
-include = ["jetbrains", "bestchange", "notion", "miro", "sentry-io", "deepl", "canva", "10minutemail", "strava", "zapier", "whoop", "tuta"]
+include = ["jetbrains", "bestchange", "notion", "miro", "sentry-io", "deepl", "canva", "10minutemail", "strava", "zapier", "whoop", "tuta", "autodesk"]
 
 [groups.Porn]
 v2fly = ["category-porn"]

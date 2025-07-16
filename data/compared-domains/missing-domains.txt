@@ -21,7 +21,6 @@
 - semrush.com
 - slifki.biz
 - supersliv.biz
-- youtrack.cloud
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst

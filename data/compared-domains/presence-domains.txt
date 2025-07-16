@@ -49,7 +49,6 @@
 - annas-archive.org
 - anthropic.com
 - aol.com
-- api.jetbrains.ai
 - api.service-kp.com
 - arbat.media
 - archive.ph
@@ -820,6 +819,7 @@
 - xvideos-cdn.com
 - xvideos.com
 - yle.fi
+- youtrack.cloud
 - youtu.be
 - youtube-nocookie.com
 - youtube-ui.l.google.com
@@ -1255,6 +1255,7 @@
 - kavkaz-uzel.eu
 - kavkazr.com
 - kemono.party
+- kemono.su
 - kino.pub
 - kinobase.org
 - kinogo.ec

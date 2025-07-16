@@ -56,7 +56,6 @@
 - as6723.net
 - assets.heroku.com
 - att.com
-- autodesk.com
 - avira.com
 - azathabar.com
 - azattyq.org

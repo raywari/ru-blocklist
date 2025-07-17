@@ -12,10 +12,6 @@ v6_url = ["https://www.cloudflare.com/ips-v6"]
 type = "asn"
 asn = [13335, 132892, 209242, 139242, 203898, 394536, 395747, 14789, 12731, 174, 18450, 23352, 36351, 133877, 202623]
 
-[services.Google]
-type = "asn"
-asn = 15169
-
 [services.Discord]
 type = "url"
 v4_url = ["https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media&site=discord.com"]

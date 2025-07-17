@@ -22,18 +22,18 @@ import (
 )
 
 const (
-	CONFIG_FILE         = "scripts/config/process-subnets.toml"
-	MAX_RETRIES         = 3
-	RETRY_DELAY         = 2 * time.Second
-	BACKOFF_FACTOR      = 2
-	BASE_CATEGORIES_DIR = "data"
-	CIDRS_DIR           = "CIDRs"
-	CIDR4_DIR           = "CIDR4"
-	CIDR6_DIR           = "CIDR6"
-	SERVICES_DIR        = "services"
-	SUMMARY_CIDR4_FILE  = "CIDR4-summary.lst"
-	SUMMARY_CIDR6_FILE  = "CIDR6-summary.lst"
-	SUMMARY_CIDRS_FILE  = "CIDRs-summary.lst"
+	CONFIG_FILE          = "scripts/config/process-subnets.toml"
+	MAX_RETRIES          = 3
+	RETRY_DELAY          = 2 * time.Second
+	BACKOFF_FACTOR       = 2
+	BASE_CATEGORIES_DIR  = "data"
+	CIDRS_DIR            = "CIDRs"
+	CIDR4_DIR            = "CIDR4"
+	CIDR6_DIR            = "CIDR6"
+	SERVICES_DIR         = "services"
+	SUMMARY_CIDR4_FILE   = "CIDR4-summary.lst"
+	SUMMARY_CIDR6_FILE   = "CIDR6-summary.lst"
+	SUMMARY_CIDRS_FILE   = "CIDRs-summary.lst"
 )
 
 func getCIDRsBasePath() string {
@@ -106,11 +106,11 @@ type Config struct {
 }
 
 type ServiceConfig struct {
-	Type  string `toml:"type"`
-	V4URL string `toml:"v4_url,omitempty"`
-	V6URL string `toml:"v6_url,omitempty"`
-	URL   string `toml:"url,omitempty"`
-	ASN   any    `toml:"asn,omitempty"`
+	Type  string   `toml:"type"`
+	V4URL []string `toml:"v4_url,omitempty"`
+	V6URL []string `toml:"v6_url,omitempty"`
+	URL   []string `toml:"url,omitempty"`
+	ASN   any      `toml:"asn,omitempty"`
 }
 
 type SettingsConfig struct {
@@ -143,10 +143,8 @@ func (nc *NetworkCollector) AddNetwork(networkStr string) {
 		logger.Warn("Invalid network skipped: %s - %v", networkStr, err)
 		return
 	}
-
 	nc.mu.Lock()
 	defer nc.mu.Unlock()
-
 	if network.IP.To4() != nil {
 		nc.v4Networks = append(nc.v4Networks, network)
 	} else {
@@ -162,14 +160,12 @@ func (nc *NetworkCollector) GetMergedNetworks() ([]string, []string) {
 
 	v4Strings := make([]string, len(mergedV4))
 	v6Strings := make([]string, len(mergedV6))
-
 	for i, net := range mergedV4 {
 		v4Strings[i] = net.String()
 	}
 	for i, net := range mergedV6 {
 		v6Strings[i] = net.String()
 	}
-
 	return v4Strings, v6Strings
 }
 
@@ -219,7 +215,6 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			}
 			delay *= BACKOFF_FACTOR
 		}
-
 		req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 		if err != nil {
 			lastErr = err
@@ -228,21 +223,18 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 		if c.userAgent != "" {
 			req.Header.Set("User-Agent", c.userAgent)
 		}
-
 		resp, err := c.client.Do(req)
 		if err != nil {
 			lastErr = err
 			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, err)
 			continue
 		}
-
 		if resp.StatusCode != http.StatusOK {
 			resp.Body.Close()
 			lastErr = fmt.Errorf("HTTP %d", resp.StatusCode)
 			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, lastErr)
 			continue
 		}
-
 		if resp.StatusCode == http.StatusTooManyRequests {
 			io.Copy(io.Discard, resp.Body)
 			resp.Body.Close()
@@ -257,7 +249,6 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			logger.Warn("HTTP 429. Retrying after %v", delay)
 			continue
 		}
-
 		data, err := io.ReadAll(resp.Body)
 		resp.Body.Close()
 		if err != nil {
@@ -265,14 +256,11 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, err)
 			continue
 		}
-
 		if attempt > 0 {
 			logger.Info("Successfully downloaded %s after %d attempts", url, attempt+1)
 		}
 		return string(data), nil
-
 	}
-
 	logger.Error("Failed to download %s after %d attempts: %v", url, maxRetries+1, lastErr)
 	return "", fmt.Errorf("failed after %d attempts: %w", maxRetries+1, lastErr)
 }
@@ -312,7 +300,6 @@ func writeNetworksToFile(filename string, networks []string) error {
 			return err
 		}
 	}
-
 	return nil
 }
 
@@ -321,41 +308,45 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 
 	g, ctx := errgroup.WithContext(ctx)
 	var v4Networks, v6Networks []string
+
+	// Обработка IPv4 URLs
 	g.Go(func() error {
-		if config.V4URL == "" {
+		if len(config.V4URL) == 0 {
 			return nil
 		}
-		data, err := client.Download(ctx, config.V4URL)
-		if err != nil {
-			logger.Error("Failed to download IPv4 data for %s: %v", name, err)
-			return nil
-		}
-
 		collector := NewNetworkCollector()
-		scanner := bufio.NewScanner(strings.NewReader(data))
-		for scanner.Scan() {
-			collector.AddNetwork(scanner.Text())
+		for _, url := range config.V4URL {
+			data, err := client.Download(ctx, url)
+			if err != nil {
+				logger.Error("Failed to download IPv4 data from %s: %v", url, err)
+				continue
+			}
+			scanner := bufio.NewScanner(strings.NewReader(data))
+			for scanner.Scan() {
+				collector.AddNetwork(scanner.Text())
+			}
 		}
-
 		v4Networks, _ = collector.GetMergedNetworks()
 		return nil
 	})
+
+	// Обработка IPv6 URLs
 	g.Go(func() error {
-		if config.V6URL == "" {
+		if len(config.V6URL) == 0 {
 			return nil
 		}
-		data, err := client.Download(ctx, config.V6URL)
-		if err != nil {
-			logger.Error("Failed to download IPv6 data for %s: %v", name, err)
-			return nil
-		}
-
 		collector := NewNetworkCollector()
-		scanner := bufio.NewScanner(strings.NewReader(data))
-		for scanner.Scan() {
-			collector.AddNetwork(scanner.Text())
+		for _, url := range config.V6URL {
+			data, err := client.Download(ctx, url)
+			if err != nil {
+				logger.Error("Failed to download IPv6 data from %s: %v", url, err)
+				continue
+			}
+			scanner := bufio.NewScanner(strings.NewReader(data))
+			for scanner.Scan() {
+				collector.AddNetwork(scanner.Text())
+			}
 		}
-
 		_, v6Networks = collector.GetMergedNetworks()
 		return nil
 	})
@@ -363,17 +354,15 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 	if err := g.Wait(); err != nil {
 		return err
 	}
+
 	v4File := getServiceCIDR4File(name)
 	v6File := getServiceCIDR6File(name)
-
 	if err := writeNetworksToFile(v4File, v4Networks); err != nil {
 		logger.Error("Failed to write IPv4 file for %s: %v", name, err)
 	}
-
 	if err := writeNetworksToFile(v6File, v6Networks); err != nil {
 		logger.Error("Failed to write IPv6 file for %s: %v", name, err)
 	}
-
 	logger.Info("Completed URL service: %s (IPv4: %d, IPv6: %d)", name, len(v4Networks), len(v6Networks))
 	return nil
 }
@@ -381,31 +370,28 @@ func processURLService(ctx context.Context, client *HTTPClient, name string, con
 func processSingleURLService(ctx context.Context, client *HTTPClient, name string, config ServiceConfig) error {
 	logger.Info("Processing single URL service: %s", name)
 
-	data, err := client.Download(ctx, config.URL)
-	if err != nil {
-		logger.Error("Failed to download data for %s: %v", name, err)
-		return nil
-	}
-
 	collector := NewNetworkCollector()
-	scanner := bufio.NewScanner(strings.NewReader(data))
-	for scanner.Scan() {
-		collector.AddNetwork(scanner.Text())
+	for _, url := range config.URL {
+		data, err := client.Download(ctx, url)
+		if err != nil {
+			logger.Error("Failed to download data from %s: %v", url, err)
+			continue
+		}
+		scanner := bufio.NewScanner(strings.NewReader(data))
+		for scanner.Scan() {
+			collector.AddNetwork(scanner.Text())
+		}
 	}
 
 	v4Networks, v6Networks := collector.GetMergedNetworks()
-
 	v4File := getServiceCIDR4File(name)
 	v6File := getServiceCIDR6File(name)
-
 	if err := writeNetworksToFile(v4File, v4Networks); err != nil {
 		logger.Error("Failed to write IPv4 file for %s: %v", name, err)
 	}
-
 	if err := writeNetworksToFile(v6File, v6Networks); err != nil {
 		logger.Error("Failed to write IPv6 file for %s: %v", name, err)
 	}
-
 	logger.Info("Completed single URL service: %s (IPv4: %d, IPv6: %d)", name, len(v4Networks), len(v6Networks))
 	return nil
 }
@@ -447,17 +433,20 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		logger.Info("No ASN services found")
 		return nil
 	}
+
 	allASNs := make(map[int][]string)
 	for service, asns := range asnServices {
 		for _, asn := range asns {
 			allASNs[asn] = append(allASNs[asn], service)
 		}
 	}
+
 	bgpData, err := client.DownloadWithRetry(ctx, bgpURL, 5)
 	if err != nil {
 		logger.Error("Failed to download BGP data: %v", err)
 		return err
 	}
+
 	serviceCollectors := make(map[string]*NetworkCollector)
 	for service := range asnServices {
 		serviceCollectors[service] = NewNetworkCollector()
@@ -470,20 +459,16 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		if lineCount%100000 == 0 {
 			logger.Info("Processed %d BGP lines", lineCount)
 		}
-
 		line := strings.TrimSpace(scanner.Text())
 		if line == "" {
 			continue
 		}
-
 		parts := strings.Fields(line)
 		if len(parts) < 2 {
 			continue
 		}
-
 		cidr := parts[0]
 		asnStr := parts[len(parts)-1]
-
 		asn, err := strconv.Atoi(asnStr)
 		if err != nil {
 			continue
@@ -495,25 +480,20 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 			}
 		}
 	}
-
 	logger.Info("Processed %d BGP lines total", lineCount)
+
 	for service, collector := range serviceCollectors {
 		v4Networks, v6Networks := collector.GetMergedNetworks()
-
 		v4File := getServiceCIDR4File(service)
 		v6File := getServiceCIDR6File(service)
-
 		if err := writeNetworksToFile(v4File, v4Networks); err != nil {
 			logger.Error("Failed to write IPv4 file for %s: %v", service, err)
 		}
-
 		if err := writeNetworksToFile(v6File, v6Networks); err != nil {
 			logger.Error("Failed to write IPv6 file for %s: %v", service, err)
 		}
-
 		logger.Info("Completed ASN service: %s (IPv4: %d, IPv6: %d)", service, len(v4Networks), len(v6Networks))
 	}
-
 	return nil
 }
 
@@ -533,6 +513,7 @@ func makeSummary(summary []string) error {
 		} else {
 			logger.Warn("Could not read IPv4 file for service %s: %v", service, err)
 		}
+
 		v6File := getServiceCIDR6File(service)
 		if data, err := os.ReadFile(v6File); err == nil {
 			scanner := bufio.NewScanner(strings.NewReader(string(data)))
@@ -543,8 +524,10 @@ func makeSummary(summary []string) error {
 			logger.Warn("Could not read IPv6 file for service %s: %v", service, err)
 		}
 	}
+
 	mergedV4, _ := allV4Collector.GetMergedNetworks()
 	_, mergedV6 := allV6Collector.GetMergedNetworks()
+
 	if err := os.MkdirAll(getCIDR4BasePath(), 0755); err != nil {
 		return err
 	}
@@ -554,18 +537,18 @@ func makeSummary(summary []string) error {
 	if err := os.MkdirAll(getCIDRsBasePath(), 0755); err != nil {
 		return err
 	}
+
 	if err := writeNetworksToFile(getSummaryCIDR4File(), mergedV4); err != nil {
 		return err
 	}
-
 	if err := writeNetworksToFile(getSummaryCIDR6File(), mergedV6); err != nil {
 		return err
 	}
+
 	combined := make([]string, 0, len(mergedV4)+len(mergedV6))
 	combined = append(combined, mergedV4...)
 	combined = append(combined, mergedV6...)
 	sort.Strings(combined)
-
 	if err := writeNetworksToFile(getSummaryCIDRsFile(), combined); err != nil {
 		return err
 	}
@@ -577,9 +560,10 @@ func makeSummary(summary []string) error {
 func main() {
 	start := time.Now()
 	logger.Info("Starting subnet processing...")
+
 	configData, err := os.ReadFile(CONFIG_FILE)
 	if err != nil {
-		logger.Error("Failed to read config file %s: %v", CONFIG_FILE, err)
+		logger.Error("Failed to read config file: %v", err)
 		os.Exit(1)
 	}
 
@@ -588,42 +572,58 @@ func main() {
 		logger.Error("Failed to parse config: %v", err)
 		os.Exit(1)
 	}
+
 	if err := setupDirectories(config.Services); err != nil {
 		logger.Error("Failed to setup directories: %v", err)
 		os.Exit(1)
 	}
-	client := NewHTTPClient(config.Settings.UserAgent)
-	urlCtx, urlCancel := context.WithTimeout(context.Background(), 5*time.Minute)
-	defer urlCancel()
-	g, urlCtx := errgroup.WithContext(urlCtx)
-	g.SetLimit(10)
 
+	ctx := context.Background()
+	client := NewHTTPClient(config.Settings.UserAgent)
+
+	g, ctx := errgroup.WithContext(ctx)
+
+	// Обработка сервисов
 	for name, serviceConfig := range config.Services {
-		name, serviceConfig := name, serviceConfig
+		name := name
+		serviceConfig := serviceConfig
 		switch serviceConfig.Type {
 		case "url":
 			g.Go(func() error {
-				return processURLService(urlCtx, client, name, serviceConfig)
+				return processURLService(ctx, client, name, serviceConfig)
 			})
 		case "single_url":
 			g.Go(func() error {
-				return processSingleURLService(urlCtx, client, name, serviceConfig)
+				return processSingleURLService(ctx, client, name, serviceConfig)
 			})
+		case "asn":
+			// ASN обрабатываются отдельно позже
+		default:
+			logger.Warn("Unknown service type '%s' for %s", serviceConfig.Type, name)
 		}
 	}
 
 	if err := g.Wait(); err != nil {
-		logger.Error("Error processing URL services: %v", err)
-	}
-	asnCtx, asnCancel := context.WithTimeout(context.Background(), 20*time.Minute)
-	defer asnCancel()
-	if err := processASNServices(asnCtx, client, config.Services, config.Settings.BGPURL); err != nil {
-		logger.Error("Error processing ASN services: %v", err)
-	}
-	if err := makeSummary(config.Settings.Summary); err != nil {
-		logger.Error("Error creating summary: %v", err)
-		os.Exit(1)
+		logger.Error("Error processing services: %v", err)
 	}
 
-	logger.Info("Subnet processing completed in %v", time.Since(start))
+	// Обработка ASN сервисов
+	if config.Settings.BGPURL != "" {
+		if err := processASNServices(ctx, client, config.Services, config.Settings.BGPURL); err != nil {
+			logger.Error("Error processing ASN services: %v", err)
+		}
+	} else {
+		logger.Warn("Skipping ASN services: no bgp_url provided")
+	}
+
+	// Создание summary
+	if len(config.Settings.Summary) > 0 {
+		if err := makeSummary(config.Settings.Summary); err != nil {
+			logger.Error("Failed to create summary: %v", err)
+		}
+	} else {
+		logger.Info("No summary services configured")
+	}
+
+	logger.Info("Processing completed in %v", time.Since(start))
 }

@@ -71,11 +71,9 @@ jobs:
           git add data/domains/*
           git add data/compared-domains/*
           
-          # Проверка наличия изменений перед коммитом
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update domains lists"
             
-            # Повторные попытки push с rebase
             for i in {1..3}; do
               if git push; then
                 break
@@ -113,11 +111,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add data/CIDRs/*
           
-          # Проверка наличия изменений перед коммитом
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update CIDR lists"
-            
-            # Повторные попытки push с rebase
+
             for i in {1..3}; do
               if git push; then
                 break
@@ -162,11 +158,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add data/rulesets/*
           
-          # Проверка наличия изменений перед коммитом
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update all generated configs (SRS, routing, sing-box)"
             
-            # Повторные попытки push с rebase
             for i in {1..3}; do
               if git push; then
                 break

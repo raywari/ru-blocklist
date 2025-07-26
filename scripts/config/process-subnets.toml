@@ -14,8 +14,8 @@ asn = [13335, 132892, 209242, 139242, 203898, 394536, 395747, 14789, 12731, 174,
 
 [services.Discord]
 type = "url"
-v4_url = ["https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media&site=discord.com"]
-v6_url = ["https://iplist.opencck.org/?format=text&data=cidr6&site=discord.gg&site=discord.media&site=discord.com"]
+v4_url = ["https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media"]
+v6_url = ["https://iplist.opencck.org/?format=text&data=cidr6&site=discord.gg&site=discord.media"]
 
 [services.Telegram]
 type = "single_url"

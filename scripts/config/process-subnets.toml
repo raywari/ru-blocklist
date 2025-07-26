@@ -14,7 +14,7 @@ asn = [13335, 132892, 209242, 139242, 203898, 394536, 395747, 14789, 12731, 174,
 
 [services.Discord]
 type = "url"
-v4_url = ["https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media"]
+v4_url = ["https://iplist.opencck.org/?format=text&data=cidr4&site=discord.gg&site=discord.media", "https://raw.githubusercontent.com/GhostRooter0953/discord-voice-ips/refs/heads/master/voice_domains/discord-voice-ip-list"]
 v6_url = ["https://iplist.opencck.org/?format=text&data=cidr6&site=discord.gg&site=discord.media"]
 
 [services.Telegram]

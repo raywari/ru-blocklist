@@ -63,6 +63,9 @@ jobs:
       
       - name: Run process-domains
         run: go run scripts/process-domains.go
+
+      - name: Run process-clash
+        run: go run scripts/process-clash.go
       
       - name: Commit and push domains changes
         run: |

@@ -73,6 +73,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add data/domains/*
           git add data/compared-domains/*
+          git add data/rulesets/clash-rules/*
           
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update domains lists"

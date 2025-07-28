@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "getsentry.net",
+        "sentry-cdn.com",
+        "sentry.dev",
+        "sentry.io"
+      ]
+    }
+  ]
+}

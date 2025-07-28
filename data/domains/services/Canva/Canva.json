@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "apps.canva-apps.com",
+        "canva.com",
+        "thirdparty-public-apps-media.canva-apps.com"
+      ]
+    }
+  ]
+}

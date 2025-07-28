@@ -161,6 +161,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/rulesets/*
+          git add data/domains/*
+          git add data/CIDRs/*
           
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update all generated configs (SRS, routing, sing-box)"

@@ -138,11 +138,31 @@ func (nc *NetworkCollector) AddNetwork(networkStr string) {
 		return
 	}
 
+	// Попытка разобрать как CIDR
 	_, network, err := net.ParseCIDR(networkStr)
 	if err != nil {
-		logger.Warn("Invalid network skipped: %s - %v", networkStr, err)
-		return
+		// Если не CIDR, проверим на одиночный IP
+		ip := net.ParseIP(networkStr)
+		if ip == nil {
+			logger.Warn("Invalid network skipped: %s - %v", networkStr, err)
+			return
+		}
+
+		// Автоматически добавляем маску для одиночных IP
+		if ip.To4() != nil {
+			networkStr += "/32"
+		} else {
+			networkStr += "/128"
+		}
+
+		// Повторная попытка разбора после добавления маски
+		_, network, err = net.ParseCIDR(networkStr)
+		if err != nil {
+			logger.Warn("Invalid network skipped after conversion: %s - %v", networkStr, err)
+			return
+		}
 	}
+
 	nc.mu.Lock()
 	defer nc.mu.Unlock()
 	if network.IP.To4() != nil {
@@ -152,11 +172,50 @@ func (nc *NetworkCollector) AddNetwork(networkStr string) {
 	}
 }
 
+// Удаляет подсети, полностью входящие в другие сети
+func removeSubnets(networks []*net.IPNet) []*net.IPNet {
+	if len(networks) == 0 {
+		return networks
+	}
+
+	// Сортируем по длине маски (от меньшей к большей)
+	sort.Slice(networks, func(i, j int) bool {
+		iOnes, _ := networks[i].Mask.Size()
+		jOnes, _ := networks[j].Mask.Size()
+		return iOnes < jOnes
+	})
+
+	result := []*net.IPNet{}
+	for _, net := range networks {
+		contained := false
+		for _, existing := range result {
+			if existing.Contains(net.IP) {
+				existingOnes, _ := existing.Mask.Size()
+				netOnes, _ := net.Mask.Size()
+				if existingOnes <= netOnes {
+					contained = true
+					break
+				}
+			}
+		}
+		if !contained {
+			result = append(result, net)
+		}
+	}
+	return result
+}
+
 func (nc *NetworkCollector) GetMergedNetworks() ([]string, []string) {
 	nc.mu.RLock()
 	defer nc.mu.RUnlock()
+	
+	// Объединяем смежные подсети
 	mergedV4 := cidrmerge.Merge(nc.v4Networks)
 	mergedV6 := cidrmerge.Merge(nc.v6Networks)
+	
+	// Удаляем подсети, полностью входящие в другие сети
+	mergedV4 = removeSubnets(mergedV4)
+	mergedV6 = removeSubnets(mergedV6)
 
 	v4Strings := make([]string, len(mergedV4))
 	v6Strings := make([]string, len(mergedV6))
@@ -183,13 +242,13 @@ func NewHTTPClient(userAgent string) *HTTPClient {
 	return &HTTPClient{
 		userAgent: userAgent,
 		client: &http.Client{
-			Timeout: 60 * time.Second,
+			Timeout: 10 * time.Minute, // Увеличиваем общий таймаут до 10 минут
 			Transport: &http.Transport{
 				MaxIdleConns:          100,
 				MaxIdleConnsPerHost:   10,
 				IdleConnTimeout:       90 * time.Second,
 				DisableKeepAlives:     false,
-				ResponseHeaderTimeout: 30 * time.Second,
+				ResponseHeaderTimeout: 60 * time.Second, // Увеличиваем таймаут заголовков
 				ExpectContinueTimeout: 1 * time.Second,
 				DialContext:           dialer.DialContext,
 			},
@@ -215,7 +274,15 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			}
 			delay *= BACKOFF_FACTOR
 		}
-		req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+		
+		// Создаем контекст с увеличенным таймаутом для больших файлов
+		reqCtx := ctx
+		if strings.Contains(url, "table.txt") || strings.Contains(url, "bgp") {
+			// Для BGP файлов используем контекст без таймаута или с очень большим таймаутом
+			reqCtx = context.Background()
+		}
+		
+		req, err := http.NewRequestWithContext(reqCtx, "GET", url, nil)
 		if err != nil {
 			lastErr = err
 			continue
@@ -223,18 +290,17 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 		if c.userAgent != "" {
 			req.Header.Set("User-Agent", c.userAgent)
 		}
+		
+		logger.Info("Starting download attempt %d for %s", attempt+1, url)
+		start := time.Now()
+		
 		resp, err := c.client.Do(req)
 		if err != nil {
 			lastErr = err
-			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, err)
+			logger.Warn("Download attempt %d failed for %s after %v: %v", attempt+1, url, time.Since(start), err)
 			continue
 		}
-		if resp.StatusCode != http.StatusOK {
-			resp.Body.Close()
-			lastErr = fmt.Errorf("HTTP %d", resp.StatusCode)
-			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, lastErr)
-			continue
-		}
+		
 		if resp.StatusCode == http.StatusTooManyRequests {
 			io.Copy(io.Discard, resp.Body)
 			resp.Body.Close()
@@ -249,16 +315,41 @@ func (c *HTTPClient) DownloadWithRetry(ctx context.Context, url string, maxRetri
 			logger.Warn("HTTP 429. Retrying after %v", delay)
 			continue
 		}
-		data, err := io.ReadAll(resp.Body)
-		resp.Body.Close()
-		if err != nil {
-			lastErr = err
-			logger.Warn("Download attempt %d failed for %s: %v", attempt+1, url, err)
+		
+		if resp.StatusCode != http.StatusOK {
+			resp.Body.Close()
+			lastErr = fmt.Errorf("HTTP %d", resp.StatusCode)
+			logger.Warn("Download attempt %d failed for %s after %v: %v", attempt+1, url, time.Since(start), lastErr)
 			continue
 		}
-		if attempt > 0 {
-			logger.Info("Successfully downloaded %s after %d attempts", url, attempt+1)
+		
+		// Получаем размер файла если доступен
+		contentLength := resp.Header.Get("Content-Length")
+		if contentLength != "" {
+			if size, err := strconv.ParseInt(contentLength, 10, 64); err == nil {
+				logger.Info("Downloading %s (%.2f MB)", url, float64(size)/(1024*1024))
+			}
 		}
+		
+		data, err := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		
+		downloadTime := time.Since(start)
+		
+		if err != nil {
+			lastErr = err
+			logger.Warn("Download attempt %d failed for %s after %v: %v", attempt+1, url, downloadTime, err)
+			continue
+		}
+		
+		if attempt > 0 {
+			logger.Info("Successfully downloaded %s after %d attempts in %v (%.2f MB)", 
+				url, attempt+1, downloadTime, float64(len(data))/(1024*1024))
+		} else {
+			logger.Info("Successfully downloaded %s in %v (%.2f MB)", 
+				url, downloadTime, float64(len(data))/(1024*1024))
+		}
+		
 		return string(data), nil
 	}
 	logger.Error("Failed to download %s after %d attempts: %v", url, maxRetries+1, lastErr)
@@ -286,6 +377,9 @@ func writeNetworksToFile(filename string, networks []string) error {
 		return nil
 	}
 
+	// Сортируем сети перед записью
+	sort.Strings(networks)
+
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -300,6 +394,96 @@ func writeNetworksToFile(filename string, networks []string) error {
 			return err
 		}
 	}
+	return nil
+}
+
+func sortAllFiles(services map[string]ServiceConfig) error {
+	logger.Info("Sorting all service files...")
+	
+	for name := range services {
+		// Сортировка IPv4 файлов
+		v4File := getServiceCIDR4File(name)
+		if err := sortFile(v4File); err != nil {
+			logger.Warn("Failed to sort IPv4 file for %s: %v", name, err)
+		}
+		
+		// Сортировка IPv6 файлов
+		v6File := getServiceCIDR6File(name)
+		if err := sortFile(v6File); err != nil {
+			logger.Warn("Failed to sort IPv6 file for %s: %v", name, err)
+		}
+	}
+	
+	// Сортировка summary файлов
+	summaryFiles := []string{
+		getSummaryCIDR4File(),
+		getSummaryCIDR6File(),
+		getSummaryCIDRsFile(),
+	}
+	
+	for _, file := range summaryFiles {
+		if err := sortFile(file); err != nil {
+			logger.Warn("Failed to sort summary file %s: %v", file, err)
+		}
+	}
+	
+	logger.Info("File sorting completed")
+	return nil
+}
+
+func sortFile(filename string) error {
+	// Проверяем существование файла
+	if _, err := os.Stat(filename); os.IsNotExist(err) {
+		return nil // Файл не существует, пропускаем
+	}
+	
+	// Читаем файл
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return err
+	}
+	
+	if len(data) == 0 {
+		return nil // Пустой файл
+	}
+	
+	// Разбиваем на строки
+	lines := strings.Split(strings.TrimSpace(string(data)), "\n")
+	if len(lines) == 0 {
+		return nil
+	}
+	
+	// Удаляем пустые строки и сортируем
+	validLines := make([]string, 0, len(lines))
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if line != "" {
+			validLines = append(validLines, line)
+		}
+	}
+	
+	if len(validLines) == 0 {
+		return nil
+	}
+	
+	sort.Strings(validLines)
+	
+	// Записываем обратно в файл
+	file, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	
+	writer := bufio.NewWriter(file)
+	defer writer.Flush()
+	
+	for _, line := range validLines {
+		if _, err := writer.WriteString(line + "\n"); err != nil {
+			return err
+		}
+	}
+	
 	return nil
 }
 
@@ -441,11 +625,21 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 		}
 	}
 
-	bgpData, err := client.DownloadWithRetry(ctx, bgpURL, 5)
+	logger.Info("Downloading BGP data from: %s", bgpURL)
+	// Для BGP файлов используем больше попыток и создаем отдельный контекст
+	bgpCtx := context.Background() // Убираем ограничения по времени для BGP файла
+	bgpData, err := client.DownloadWithRetry(bgpCtx, bgpURL, 5) // Больше попыток для BGP
 	if err != nil {
-		logger.Error("Failed to download BGP data: %v", err)
-		return err
+		logger.Error("Failed to download BGP data from %s: %v", bgpURL, err)
+		return fmt.Errorf("failed to download BGP data: %w", err)
 	}
+
+	if len(bgpData) == 0 {
+		logger.Error("Downloaded BGP data is empty")
+		return fmt.Errorf("BGP data is empty")
+	}
+
+	logger.Info("Successfully downloaded BGP data (%.2f MB)", float64(len(bgpData))/(1024*1024))
 
 	serviceCollectors := make(map[string]*NetworkCollector)
 	for service := range asnServices {
@@ -453,34 +647,54 @@ func processASNServices(ctx context.Context, client *HTTPClient, services map[st
 	}
 
 	scanner := bufio.NewScanner(strings.NewReader(bgpData))
+	// Увеличиваем буфер для больших строк
+	buf := make([]byte, 0, 64*1024)
+	scanner.Buffer(buf, 1024*1024)
+	
 	lineCount := 0
+	processedCount := 0
+	
 	for scanner.Scan() {
 		lineCount++
 		if lineCount%100000 == 0 {
-			logger.Info("Processed %d BGP lines", lineCount)
+			logger.Info("Processed %d BGP lines, found %d matching entries", lineCount, processedCount)
 		}
+		
 		line := strings.TrimSpace(scanner.Text())
-		if line == "" {
+		if line == "" || strings.HasPrefix(line, "#") {
 			continue
 		}
+		
 		parts := strings.Fields(line)
 		if len(parts) < 2 {
 			continue
 		}
+		
 		cidr := parts[0]
 		asnStr := parts[len(parts)-1]
+		
+		// Удаляем префикс AS если есть
+		asnStr = strings.TrimPrefix(asnStr, "AS")
+		
 		asn, err := strconv.Atoi(asnStr)
 		if err != nil {
 			continue
 		}
 
 		if services, exists := allASNs[asn]; exists {
+			processedCount++
 			for _, service := range services {
 				serviceCollectors[service].AddNetwork(cidr)
 			}
 		}
 	}
-	logger.Info("Processed %d BGP lines total", lineCount)
+	
+	if err := scanner.Err(); err != nil {
+		logger.Error("Error reading BGP data: %v", err)
+		return fmt.Errorf("error reading BGP data: %w", err)
+	}
+	
+	logger.Info("Processed %d BGP lines total, found %d matching entries", lineCount, processedCount)
 
 	for service, collector := range serviceCollectors {
 		v4Networks, v6Networks := collector.GetMergedNetworks()
@@ -623,6 +837,11 @@ func main() {
 		}
 	} else {
 		logger.Info("No summary services configured")
+	}
+
+	// Сортировка всех файлов в конце
+	if err := sortAllFiles(config.Services); err != nil {
+		logger.Error("Failed to sort files: %v", err)
 	}
 
 	logger.Info("Processing completed in %v", time.Since(start))

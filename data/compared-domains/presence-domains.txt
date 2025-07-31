@@ -578,6 +578,7 @@
 - rezkify.com
 - rezonans.media
 - rferl.org
+- rima.media
 - riperam.org
 - riseup.net
 - roar-review.com
@@ -652,6 +653,7 @@
 - soundcloud.com
 - sovetromantica.com
 - spacelift.io
+- speedtest.net
 - spektr.press
 - spiceworks.com
 - spiegel.de

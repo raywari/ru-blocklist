@@ -249,6 +249,9 @@ domains = ["tuta.com"]
 v2fly = ["autodesk"]
 general = false
 
+[services.SpeedTest]
+v2fly = ["speedtest"]
+
 ##############
 ###        ###
 ### GROUPS ###
@@ -271,8 +274,8 @@ v2fly = ["jetbrains-ai"]
 
 [groups.RU-unblocked]
 v2fly = ["category-ru", "category-gov-ru"]
-url = ["https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-raw.lst"]
-domains = ["ru.com", "ru.net", "rt.com", "sputniknews.com", "sputnikglobe.com", "actualidad-rt.com", "africa-rt.com", "esrt.press", "estr.online", "rt-afrique.com", "rtafrica.media", "rtafrique.online", "tass.com", "interfax.com", "1c.com", "2ch.hk", "advmaker.net", "pravda.com", "news-pravda.com"]
+url = ["https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-raw.lst", "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-banks-ru", "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-only-ru"]
+domains = ["by", "xn--90ais", "2ch.life", "ru.com", "ru.net", "rt.com", "sputniknews.com", "sputnikglobe.com", "actualidad-rt.com", "africa-rt.com", "esrt.press", "estr.online", "rt-afrique.com", "rtafrica.media", "rtafrique.online", "tass.com", "interfax.com", "1c.com", "2ch.hk", "advmaker.net", "pravda.com", "news-pravda.com"]
 general = false
 
 [groups.Music]

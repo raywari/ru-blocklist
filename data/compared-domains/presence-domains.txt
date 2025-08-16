@@ -150,6 +150,7 @@
 - decrypt.day
 - deepl.com
 - deepstatemap.live
+- deezer.com
 - delfi.lt
 - delfi.lv
 - dell.com
@@ -541,6 +542,7 @@
 - privatekeys.pw
 - prnt.sc
 - proactivebackend-pa.googleapis.com
+- production-openaicom-storage.azureedge.net
 - proekt.media
 - prosleduetmedia.com
 - prostovpn.org
@@ -613,6 +615,7 @@
 - seasonvar.ru
 - selezen.org
 - semnasem.org
+- sentry.dev
 - sentry.io
 - sephora.com
 - servarr.com
@@ -726,6 +729,7 @@
 - torproject.org
 - torrenteditor.com
 - torrentgalaxy.to
+- trae.ai
 - trailblazer.me
 - trailhead.com
 - trellix.com
@@ -805,6 +809,7 @@
 - windsurf.com
 - wonderzine.com
 - wpengine.com
+- wunderground.com
 - x.ai
 - x.com
 - xhamster.com
@@ -820,6 +825,7 @@
 - xv-ru.com
 - xvideos-cdn.com
 - xvideos.com
+- yeggi.com
 - yle.fi
 - youtrack.cloud
 - youtu.be

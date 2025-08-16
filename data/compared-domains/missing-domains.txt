@@ -12,8 +12,11 @@
 - bt4gprx.com
 - cisecurity.org
 - cloudtorrents.com
+- code.gist.build
+- delivery.2d.net.co
 - editorx.com
 - eporner.com
+- etahub.com
 - expandrive.com
 - filebin.net
 - hc-ping.com
@@ -29,14 +32,26 @@
 - make.com
 - metopera.org
 - mw2.wiki
+- myparallels.com
 - myqrcode.com
+- notion-emojis.s3-us-west-2.amazonaws.com
 - oculus.com
+- openh264.org
+- openrouter.ai
+- parallels.cn
+- parallels.com
+- parallels.net
+- parallelsaccess.com
 - penguin.com
 - penguinrandomhouse.com
+- redislabs.com
 - semrush.com
 - slifki.biz
 - supersliv.biz
+- tiptop-vpn.com
 - toolbox.app
+- wbgames.com
+- yande.re
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst

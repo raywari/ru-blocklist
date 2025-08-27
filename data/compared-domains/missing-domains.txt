@@ -24,6 +24,9 @@
 - home.by.me
 - iditelesombase.org
 - ikea.com
+- imgur.com
+- jw-russia.org
+- jw.org
 - kaleido.ai
 - kinozaltv.life
 - lostfilm.download
@@ -31,6 +34,7 @@
 - mailerlite.com
 - make.com
 - metopera.org
+- miracleptr.wordpress.com
 - mw2.wiki
 - myparallels.com
 - myqrcode.com
@@ -47,9 +51,12 @@
 - redislabs.com
 - semrush.com
 - slifki.biz
+- sms-activate.io
+- snapgene.com
 - supersliv.biz
 - tiptop-vpn.com
 - toolbox.app
+- uizard.io
 - wbgames.com
 - yande.re
 

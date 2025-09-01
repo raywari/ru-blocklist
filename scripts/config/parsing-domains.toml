@@ -258,6 +258,9 @@ v2fly = ["speedtest"]
 ###        ###
 ##############
 
+[groups.Google-ALL]
+v2fly = ["google"]
+
 [groups.Torrent-Trackers]
 include = ["1337x", "booktracker", "filmitorrent", "kinozal", "newstudio", "nnmclub", "rustorka", "rutor", "rutracker", "thepiratebay", "torrentby", "flibusta", "lostfilm"]
 

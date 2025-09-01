@@ -92,7 +92,6 @@
 - autodesk.net
 - autodesk360.com
 - fastpic.org
-- gvt1.com
 - omtrdc.net
 - pbs.twimg.com.cdn.cloudflare.net
 - sendgrid.net

@@ -166,7 +166,6 @@
 - digitalocean.com
 - dis.gd
 - discord-activities.com
-- discord-attachments-uploads-prd.storage.googleapis.com
 - discord.co
 - discord.com
 - discord.design
@@ -349,7 +348,6 @@
 - jamf.com
 - jetbrains.com
 - jetbrains.space
-- jnn-pa.googleapis.com
 - jut-su.net
 - jut.su
 - kaktus.media
@@ -395,7 +393,6 @@
 - liveuamap.com
 - locals.md
 - lolz.guru
-- lookerstudio.google.com
 - lostfilm.tv
 - lostfilmtv2.site
 - lucid.app
@@ -450,7 +447,6 @@
 - netlify.com
 - networksolutions.com
 - newark.com
-- news.google.com
 - newsru.co.il
 - newsru.com
 - newtimes.ru
@@ -541,7 +537,6 @@
 - primevideo.com
 - privatekeys.pw
 - prnt.sc
-- proactivebackend-pa.googleapis.com
 - production-openaicom-storage.azureedge.net
 - proekt.media
 - prosleduetmedia.com
@@ -673,7 +668,6 @@
 - strana.news
 - strana.today
 - strava.com
-- suggestqueries.google.com
 - supercell.com
 - surfshark.com
 - surveymonkey.com
@@ -800,7 +794,6 @@
 - webtoons.com
 - weebly.com
 - welt.de
-- wide-youtube.l.google.com
 - widgetapp.stream
 - wiki.fextralife.com
 - wikidot.com
@@ -830,15 +823,9 @@
 - youtrack.cloud
 - youtu.be
 - youtube-nocookie.com
-- youtube-ui.l.google.com
 - youtube.com
-- youtubeembeddedplayer.googleapis.com
-- youtubei.googleapis.com
 - youtubekids.com
-- yt-video-upload.l.google.com
-- yt3.googleusercontent.com
 - ytimg.com
-- ytimg.l.google.com
 - yting.com
 - yummyani.me
 - zahav.ru
@@ -870,7 +857,6 @@
 - adobejanus.com
 - adobelogin.com
 - ai.com
-- aistudio.google.com
 - alberta.ca
 - analog.com
 - anilibria.tv
@@ -879,7 +865,6 @@
 - appstorrent.ru
 - aqicn.org
 - atlassian.com
-- bard.google.com
 - bbci.co.uk
 - bitbucket.org
 - bitcoin.org
@@ -919,7 +904,6 @@
 - digitalocean.com
 - dis.gd
 - discord-activities.com
-- discord-attachments-uploads-prd.storage.googleapis.com
 - discord.co
 - discord.com
 - discord.design
@@ -955,7 +939,6 @@
 - forklog.com
 - formula1.com
 - g2a.com
-- gemini.google.com
 - geni.us
 - genius.com
 - ggpht.com
@@ -969,6 +952,7 @@
 - grazie.ai
 - grok.com
 - gtagarage.com
+- gvt1.com
 - habr.com
 - hath.network
 - hbomax.com
@@ -1014,7 +998,6 @@
 - nordaccount.com
 - nordcdn.com
 - nordvpn.com
-- notebooklm.google
 - notepad-plus-plus.org
 - notion.com
 - notion.so
@@ -1142,7 +1125,6 @@
 - wetransfer.com
 - wheather.com
 - whispersystems.org
-- wide-youtube.l.google.com
 - wikiart.org
 - windguru.cz
 - wise.com
@@ -1153,13 +1135,8 @@
 - xhamsterlive.com
 - youtu.be
 - youtube-nocookie.com
-- youtube-ui.l.google.com
 - youtube.com
-- youtube.googleapis.com
-- youtubeembeddedplayer.googleapis.com
-- youtubei.googleapis.com
 - youtubekids.com
-- yt-video-upload.l.google.com
 - yt.be
 - ytimg.com
 - znanija.com
@@ -1188,7 +1165,6 @@
 - archiveofourown.org
 - arm.com
 - atlassian.com
-- bard.google.com
 - bbc.co.uk
 - bbc.com
 - bbci.co.uk
@@ -1255,7 +1231,6 @@
 - forklog.com
 - formula1.com
 - geekyfuroshiki.com
-- gemini.google.com
 - geni.us
 - genius.com
 - gitlab.io
@@ -1326,7 +1301,6 @@
 - navalny.com
 - netapp.com
 - netflix.com
-- news.google.com
 - newstudio.tv
 - newtimes.ru
 - nih.gov
@@ -1459,7 +1433,6 @@
 - xvideos.com
 - yeggi.com
 - youtu.be
-- yt3.googleusercontent.com
 - zetflix.online
 - znanija.com
 - zohomail.com

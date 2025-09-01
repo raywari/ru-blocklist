@@ -1,85 +1,7 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
-- andrevi.ch
-- anilib.me
-- anilibria.org
-- ansys.com
-- apkmirror.com
-- audiobookbay.lu
-- autodesk.com
-- boominfo.org
-- bt4gprx.com
-- cisecurity.org
-- cloudtorrents.com
-- code.gist.build
-- delivery.2d.net.co
-- editorx.com
-- eporner.com
-- etahub.com
-- expandrive.com
-- filebin.net
-- grizzlysms.com
-- hc-ping.com
-- hchk.io
-- home.by.me
-- iditelesombase.org
-- ikea.com
-- imgur.com
-- jw-russia.org
-- jw.org
-- kaleido.ai
-- kinozaltv.life
-- lantern.io
-- lgeapi.com
-- lgthinq.com
-- lostfilm.download
-- lu4.org
-- mailerlite.com
-- make.com
-- metopera.org
-- miracleptr.wordpress.com
-- mw2.wiki
-- myparallels.com
-- myqrcode.com
 - notion-emojis.s3-us-west-2.amazonaws.com
-- oculus.com
-- openh264.org
-- openrouter.ai
-- parallels.cn
-- parallels.com
-- parallels.net
-- parallelsaccess.com
-- penguin.com
-- penguinrandomhouse.com
-- redislabs.com
-- ruscryde.net
-- scryde.io
-- scryde.net
-- scryde.ru
-- scryde.world
-- scryde1.net
-- scryde10.net
-- scryde11.net
-- scryde12.net
-- scryde2.net
-- scryde3.net
-- scryde4.net
-- scryde5.net
-- scryde6.net
-- scryde7.net
-- scryde8.net
-- scryde9.net
-- semrush.com
-- slifki.biz
-- sms-activate.io
-- snapgene.com
-- supersliv.biz
-- tiptop-vpn.com
-- toolbox.app
-- uizard.io
-- wbgames.com
-- yande.re
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
@@ -87,7 +9,6 @@
 - a360.co
 - adafruit.com
 - autocad.com
-- autodesk.com
 - autodesk.io
 - autodesk.net
 - autodesk360.com
@@ -101,7 +22,6 @@
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
-- ansys.com
 - epg.one
 - lostfilm.today
 - melord.net

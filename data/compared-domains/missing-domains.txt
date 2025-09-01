@@ -19,6 +19,7 @@
 - etahub.com
 - expandrive.com
 - filebin.net
+- grizzlysms.com
 - hc-ping.com
 - hchk.io
 - home.by.me
@@ -29,6 +30,9 @@
 - jw.org
 - kaleido.ai
 - kinozaltv.life
+- lantern.io
+- lgeapi.com
+- lgthinq.com
 - lostfilm.download
 - lu4.org
 - mailerlite.com
@@ -49,6 +53,23 @@
 - penguin.com
 - penguinrandomhouse.com
 - redislabs.com
+- ruscryde.net
+- scryde.io
+- scryde.net
+- scryde.ru
+- scryde.world
+- scryde1.net
+- scryde10.net
+- scryde11.net
+- scryde12.net
+- scryde2.net
+- scryde3.net
+- scryde4.net
+- scryde5.net
+- scryde6.net
+- scryde7.net
+- scryde8.net
+- scryde9.net
 - semrush.com
 - slifki.biz
 - sms-activate.io
@@ -63,10 +84,19 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
+- a360.co
 - adafruit.com
+- autocad.com
+- autodesk.com
+- autodesk.io
+- autodesk.net
+- autodesk360.com
 - fastpic.org
 - gvt1.com
+- omtrdc.net
 - pbs.twimg.com.cdn.cloudflare.net
+- sendgrid.net
+- tinkercad.com
 - video.twimg.com.cdn.cloudflare.net
 
 # Missing domains

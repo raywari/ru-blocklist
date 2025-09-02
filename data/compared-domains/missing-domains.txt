@@ -1,7 +1,9 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
+- autodesk.com
 - notion-emojis.s3-us-west-2.amazonaws.com
+- oculus.com
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
@@ -9,6 +11,7 @@
 - a360.co
 - adafruit.com
 - autocad.com
+- autodesk.com
 - autodesk.io
 - autodesk.net
 - autodesk360.com

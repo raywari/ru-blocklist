@@ -62,7 +62,6 @@
 - assets.heroku.com
 - att.com
 - audiobookbay.lu
-- autodesk.com
 - avira.com
 - azathabar.com
 - azattyq.org
@@ -527,7 +526,6 @@
 - oaistatic.com
 - oaiusercontent.com
 - ocstore.com
-- oculus.com
 - ohmyswift.ru
 - oi.legal
 - okx.com
@@ -943,7 +941,6 @@
 - appstorrent.ru
 - aqicn.org
 - atlassian.com
-- autodesk.com
 - bbci.co.uk
 - bitbucket.org
 - bitcoin.org

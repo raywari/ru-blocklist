@@ -2,6 +2,10 @@
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
 - autodesk.com
+- data.cline.bot
+- exchanger.bits.media
+- fansly.com
+- manyvids.com
 - notion-emojis.s3-us-west-2.amazonaws.com
 - oculus.com
 

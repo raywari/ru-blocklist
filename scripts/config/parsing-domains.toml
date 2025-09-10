@@ -87,6 +87,7 @@ url = ["https://iplist.opencck.org/?format=text&data=domains&site=elevenlabs.io"
 
 [services.Telegram]
 v2fly = ["telegram"]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=telegram.org"]
 general = false
 
 [services.YouTube]
@@ -154,6 +155,7 @@ v2fly = ["signal"]
 
 [services.WhatsApp]
 v2fly = ["whatsapp"]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=whatsapp.com]
 general = false
 
 [services.Spotify]

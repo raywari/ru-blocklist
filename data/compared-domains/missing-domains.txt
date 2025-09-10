@@ -5,6 +5,7 @@
 - data.cline.bot
 - exchanger.bits.media
 - fansly.com
+- fbcdn.net
 - manyvids.com
 - notion-emojis.s3-us-west-2.amazonaws.com
 - oculus.com
@@ -30,6 +31,11 @@
 # Source: https://community.antifilter.download/list/domains.lst
 
 - epg.one
+- fbcdn.net
+- instagram.fhrk1-1.fna.fbcdn.net
+- instagram.fkun2-1.fna.fbcdn.net
+- instagram.frix7-1.fna.fbcdn.net
+- instagram.fvno2-1.fna.fbcdn.net
 - lostfilm.today
 - melord.net
 - nsf.gov

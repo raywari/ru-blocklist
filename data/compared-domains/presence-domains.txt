@@ -239,7 +239,6 @@
 - fast-torrent.club
 - fast.com
 - fb.com
-- fbcdn.net
 - fbsbx.com
 - ficbook.net
 - filebin.net
@@ -1300,7 +1299,6 @@
 - exler.ru
 - facebook.com
 - fb.com
-- fbcdn.net
 - fbsbx.com
 - fex.net
 - flashscore.com

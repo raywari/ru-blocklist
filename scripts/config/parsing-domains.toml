@@ -156,6 +156,7 @@ v2fly = ["signal"]
 [services.WhatsApp]
 v2fly = ["whatsapp"]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=whatsapp.com"]
+domains = ["fbcdn.net"]
 general = false
 
 [services.Spotify]

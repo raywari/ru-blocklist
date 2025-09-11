@@ -262,6 +262,7 @@ v2fly = ["speedtest"]
 ##############
 
 [groups.Google-ALL]
+include = ["youtube"]
 v2fly = ["google"]
 
 [groups.Torrent-Trackers]

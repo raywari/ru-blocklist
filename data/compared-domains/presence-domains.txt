@@ -53,7 +53,6 @@
 - ansys.com
 - anthropic.com
 - aol.com
-- api.github.com
 - api.service-kp.com
 - apkmirror.com
 - arbat.media
@@ -286,7 +285,6 @@
 - gfn.am
 - ggpht.com
 - ghostrc.game.idtech.services
-- githubcopilot.com
 - global.fncstatic.com
 - global.platform.seconddinnertech.com
 - glpals.com

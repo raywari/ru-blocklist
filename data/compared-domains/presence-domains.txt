@@ -935,7 +935,6 @@
 - alberta.ca
 - analog.com
 - anilibria.tv
-- api.github.com
 - aplawrence.com
 - appstorrent.ru
 - aqicn.org
@@ -966,7 +965,6 @@
 - cloudflare-dns.com
 - cloudflare-ech.com
 - colta.ru
-- copilot-proxy.githubusercontent.com
 - copilot.microsoft.com
 - crunchyroll.com
 - czx.to
@@ -1234,7 +1232,6 @@
 - anilibria.tv
 - animestars.org
 - ansys.com
-- api.github.com
 - aplawrence.com
 - appstorrent.ru
 - aqicn.org
@@ -1266,7 +1263,6 @@
 - cloudflare-dns.com
 - colta.ru
 - coomer.su
-- copilot-proxy.githubusercontent.com
 - crunchyroll.com
 - cub.red
 - currenttime.tv
@@ -1409,6 +1405,7 @@
 - pixiv.net
 - plab.site
 - polit.ru
+- pornhub.com
 - pornolab.net
 - postfix.org
 - proekt.media

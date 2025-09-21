@@ -272,7 +272,6 @@
 +.api.ai
 +.api.apps.sina.cn
 +.api.game.letvstore.com
-+.api.github.com
 +.api.mobula.sdk.duapps.com
 +.api.service-kp.com
 +.api.tuisong.baidu.com
@@ -323,6 +322,7 @@
 +.atm.sina.com
 +.atm.youku.com
 +.atom-data.io
++.atom.io
 +.atscaleconference.com
 +.att.com
 +.aty.sohu.com
@@ -647,8 +647,6 @@
 +.coova.com
 +.coova.net
 +.coova.org
-+.copilot-proxy.githubusercontent.com
-+.copilot-telemetry.githubusercontent.com
 +.copilot.microsoft.com
 +.coreduo.com
 +.coreextreme.com
@@ -727,6 +725,7 @@
 +.dell.com
 +.dellcdn.com
 +.demdex.net
++.dependabot.com
 +.depositphotos.com
 +.deps.dev
 +.deps.info
@@ -1382,11 +1381,28 @@
 +.gfacecbook.com
 +.gfn.am
 +.ggoogle.com
++.gh.io
++.ghcr.io
 +.ghostrc.game.idtech.services
 +.gia.jd.com
 +.gimg.baidu.com
 +.gipscorp.com
++.git.io
++.github.ai
++.github.blog
++.github.com
++.github.community
++.github.dev
++.github.io
++.githubapp.com
++.githubassets.com
 +.githubcopilot.com
++.githubhackathon.com
++.githubnext.com
++.githubpreview.dev
++.githubstatus.com
++.githubuniverse.com
++.githubusercontent.com
 +.gitlab.com
 +.gitlab.io
 +.gle
@@ -2666,6 +2682,7 @@
 +.myheritage.com
 +.myhulu.com
 +.myjetbrains.com
++.myoctocat.com
 +.myparallels.com
 +.myqrcode.com
 +.myrotvorets.center
@@ -2825,6 +2842,7 @@
 +.openrouter.ai
 +.opensanctions.org
 +.opensea.io
++.opensource.guide
 +.opensourceinsight.dev
 +.opensourceinsights.dev
 +.openstreetmap.com
@@ -3110,6 +3128,7 @@
 +.render-state.to
 +.rentry.co
 +.rentry.org
++.repo.new
 +.republic.ru
 +.res.hunantv.com
 +.res.mi.baidu.com
@@ -3497,6 +3516,7 @@
 +.thefacebook.com
 +.thefacebook.net
 +.thefind.com
++.thegithubshop.com
 +.thegooglestore.com
 +.thehulubraintrust.com
 +.theins.info

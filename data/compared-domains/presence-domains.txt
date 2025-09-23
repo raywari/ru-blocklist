@@ -1087,7 +1087,6 @@
 - openaiapi-site.azureedge.net
 - openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
 - openaicom.imgix.net
-- openaicomproductionae4b.blob.core.windows.net
 - pandasecurity.com
 - patreon.com
 - paypal.com
@@ -1227,6 +1226,7 @@
 - agents.media
 - agentura.ru
 - alberta.ca
+- alphacoders.com
 - amnezia.org
 - analog.com
 - anilibria.tv

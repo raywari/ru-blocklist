@@ -4,6 +4,9 @@
 ###          ###
 ################
 
+[services.GitHub]
+v2fly = ["github"]
+
 [services.TMDB]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=themoviedb.org"]
 v2fly = ["tmdb"]

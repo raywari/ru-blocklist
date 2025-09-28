@@ -1485,6 +1485,7 @@
 - verstka.media
 - viber.com
 - vipdrive.net
+- vndb.org
 - vot-tak.tv
 - vrv.co
 - vyos.io

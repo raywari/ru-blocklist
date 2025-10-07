@@ -159,6 +159,7 @@
 - cyxymu.info
 - daemon-tools.cc
 - data-cdn.mbamupdates.com
+- data.cline.bot
 - decrypt.day
 - deepl.com
 - deepstatemap.live
@@ -228,6 +229,7 @@
 - euroradio.fm
 - eutrp.eu
 - everand.com
+- exchanger.bits.media
 - exler.ru
 - expandrive.com
 - expres.online
@@ -236,6 +238,7 @@
 - f95-zone.to
 - facebook.com
 - facebook.net
+- fansly.com
 - fast-torrent.club
 - fast.com
 - fb.com
@@ -440,6 +443,7 @@
 - mangahub.ru
 - mangapark.net
 - manus.im
+- manyvids.com
 - marvelsnap.com
 - mashable.com
 - mattermost.com
@@ -921,6 +925,7 @@
 - 4pda.to
 - a360.co
 - abook-club.ru
+- adafruit.com
 - adguard.com
 - adobe.activate.com
 - adobe.com
@@ -1013,6 +1018,7 @@
 - etsy.com
 - exler.ru
 - f95zone.to
+- fastpic.org
 - fex.net
 - filmix.biz
 - flibusta.is
@@ -1101,6 +1107,7 @@
 - patreon.com
 - paypal.com
 - pb.wtf
+- pbs.twimg.com.cdn.cloudflare.net
 - pcbway.com
 - pcbway.ru
 - pdq.com
@@ -1134,6 +1141,7 @@
 - searchfloor.org
 - sebeanus.online
 - semnasem.org
+- sendgrid.net
 - sentry.io
 - serpstat.com
 - signal.art
@@ -1299,6 +1307,7 @@
 - ehorussia.com
 - ej.ru
 - envato.com
+- epg.one
 - etsy.com
 - eu-iot-prod.aws.tcljd.com
 - euronews.com
@@ -1360,6 +1369,7 @@
 - linuxiac.com
 - localbitcoins.com
 - lostfilm.run
+- lostfilm.today
 - lostfilm.tv
 - lostfilm.win
 - lostfilmtv5.site
@@ -1373,6 +1383,7 @@
 - medium.com
 - meduza.io
 - megapeer.ru
+- melord.net
 - memohrc.org
 - metacritic.com
 - microchip.com
@@ -1393,6 +1404,7 @@
 - notepad-plus-plus.org
 - novayagazeta.eu
 - novayagazeta.ru
+- nsf.gov
 - ntc.party
 - nxp.com
 - nyaa.si
@@ -1411,6 +1423,7 @@
 - pb.wtf
 - pcbway.com
 - pcbway.ru
+- pepperl-fuchs.com
 - phoenixcontact.com
 - php.su
 - piccy.info
@@ -1502,6 +1515,8 @@
 - vot-tak.tv
 - vrv.co
 - vyos.io
+- vyos.net
+- wallpapercave.com
 - watchguard.com
 - weather.com
 - welt.de

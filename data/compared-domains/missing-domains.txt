@@ -1,29 +1,10 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
-- data.cline.bot
-- exchanger.bits.media
-- fansly.com
-- manyvids.com
 - notion-emojis.s3-us-west-2.amazonaws.com
-
-# Missing domains
-# Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
-
-- adafruit.com
-- fastpic.org
-- pbs.twimg.com.cdn.cloudflare.net
-- sendgrid.net
 
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
-- epg.one
-- lostfilm.today
-- melord.net
-- nsf.gov
-- pepperl-fuchs.com
 - s3-1.amazonaws.com
-- vyos.net
-- wallpapercave.com
 

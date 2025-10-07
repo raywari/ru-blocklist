@@ -1,41 +1,24 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
-- autodesk.com
 - data.cline.bot
 - exchanger.bits.media
 - fansly.com
-- fbcdn.net
 - manyvids.com
 - notion-emojis.s3-us-west-2.amazonaws.com
-- oculus.com
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
-- a360.co
 - adafruit.com
-- autocad.com
-- autodesk.com
-- autodesk.io
-- autodesk.net
-- autodesk360.com
 - fastpic.org
-- omtrdc.net
 - pbs.twimg.com.cdn.cloudflare.net
 - sendgrid.net
-- tinkercad.com
-- video.twimg.com.cdn.cloudflare.net
 
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
 - epg.one
-- fbcdn.net
-- instagram.fhrk1-1.fna.fbcdn.net
-- instagram.fkun2-1.fna.fbcdn.net
-- instagram.frix7-1.fna.fbcdn.net
-- instagram.fvno2-1.fna.fbcdn.net
 - lostfilm.today
 - melord.net
 - nsf.gov

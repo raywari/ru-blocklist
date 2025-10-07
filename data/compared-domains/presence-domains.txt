@@ -62,6 +62,7 @@
 - assets.heroku.com
 - att.com
 - audiobookbay.lu
+- autodesk.com
 - avira.com
 - azathabar.com
 - azattyq.org
@@ -238,6 +239,7 @@
 - fast-torrent.club
 - fast.com
 - fb.com
+- fbcdn.net
 - fbsbx.com
 - ficbook.net
 - filebin.net
@@ -525,6 +527,7 @@
 - oaistatic.com
 - oaiusercontent.com
 - ocstore.com
+- oculus.com
 - ohmyswift.ru
 - oi.legal
 - okx.com
@@ -916,6 +919,7 @@
 
 - 4pda.ru
 - 4pda.to
+- a360.co
 - abook-club.ru
 - adguard.com
 - adobe.activate.com
@@ -939,6 +943,11 @@
 - appstorrent.ru
 - aqicn.org
 - atlassian.com
+- autocad.com
+- autodesk.com
+- autodesk.io
+- autodesk.net
+- autodesk360.com
 - bbci.co.uk
 - bitbucket.org
 - bitcoin.org
@@ -1079,6 +1088,7 @@
 - oaistatic.com
 - oaiusercontent.com
 - oasis.app
+- omtrdc.net
 - omv-extras.org
 - onlineradiobox.com
 - onlinesim.ru
@@ -1168,6 +1178,7 @@
 - tiktokw.eu
 - tiktokw.us
 - timberland.com
+- tinkercad.com
 - tmdb.org
 - torproject.org
 - torrent.by
@@ -1188,6 +1199,7 @@
 - velocidrone.com
 - veritas.com
 - viber.com
+- video.twimg.com.cdn.cloudflare.net
 - vipdrive.net
 - vrv.co
 - vyos.io
@@ -1293,6 +1305,7 @@
 - exler.ru
 - facebook.com
 - fb.com
+- fbcdn.net
 - fbsbx.com
 - fex.net
 - flashscore.com

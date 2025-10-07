@@ -1,14 +1,14 @@
 ################
+###          ###
 ### SERVICES ###
+###          ###
 ################
 
 [services.GitHub]
 v2fly = ["github"]
 
 [services.TMDB]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=themoviedb.org"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=themoviedb.org"]
 v2fly = ["tmdb"]
 
 [services.HBO]
@@ -22,73 +22,47 @@ v2fly = ["primevideo"]
 
 [services.Netflix]
 v2fly = ["netflix"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=netflix.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=netflix.com"]
 
 [services.Intel]
 v2fly = ["intel"]
 
 [services.LostFilm]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=lostfilm.tv"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=lostfilm.tv"]
 
 [services.RuTracker]
 v2fly = ["rutracker"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=rutracker.org"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=rutracker.org"]
 
 [services.1337x]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=1337x.to"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=1337x.to"]
 
 [services.BookTracker]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=booktracker.org"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=booktracker.org"]
 
 [services.FilmiTorrent]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=filmitorrent.net"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=filmitorrent.net"]
 
 [services.Kinozal]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=kinozal.me"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=kinozal.me"]
 
 [services.NewStudio]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=newstudio.tv"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=newstudio.tv"]
 
 [services.NNMClub]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=nnmclub.to"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=nnmclub.to"]
 
 [services.Rustorka]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=rustorka.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=rustorka.com"]
 
 [services.RuTor]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=rutor.info"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=rutor.info"]
 
 [services.ThePirateBay]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=thepiratebay.org"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=thepiratebay.org"]
 
 [services.TorrentBy]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=torrent.by"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=torrent.by"]
 
 [services.OpenStreetMap]
 v2fly = ["openstreetmap"]
@@ -101,9 +75,7 @@ v2fly = ["notion"]
 domains = ["notion-emojis.s3-us-west-2.amazonaws.com"]
 
 [services.Miro]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=miro.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=miro.com"]
 
 [services.Flibusta]
 v2fly = ["flibusta"]
@@ -112,52 +84,35 @@ v2fly = ["flibusta"]
 v2fly = ["google-deepmind", "google-gemini"]
 
 [services.Copilot]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=copilot"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=copilot"]
 
 [services.ElevenLabs]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=elevenlabs.io"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=elevenlabs.io"]
 
 [services.Telegram]
 v2fly = ["telegram"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=telegram.org"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=telegram.org"]
 general = false
 
 [services.YouTube]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=youtube.com",
-    "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Services/youtube.lst"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=youtube.com", "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Services/youtube.lst"]
 v2fly = ["youtube"]
 
 [services.TikTok]
 v2fly = ["tiktok"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=tiktok.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=tiktok.com"]
 
 [services."X"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=x.com&site=x.com"
-]
-v2fly = ["twitter"]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=x.com&site=x.com"]
 domains = ["video.twimg.com.cdn.cloudflare.net"]
+v2fly = ["twitter"]
 
 [services.Grok]
 v2fly = ["xai"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=grok.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=grok.com"]
 
-[services.Discord]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=discord.com&site=discord.gg&site=discord.media"
-]
+[services."Discord"]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=discord.com&site=discord.gg&site=discord.media"]
 v2fly = ["discord"]
 
 [services.SuperCell]
@@ -168,16 +123,13 @@ v2fly = ["deviantart"]
 
 [services.OpenAI]
 v2fly = ["openai"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=chatgpt.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=chatgpt.com"]
 
 [services.Anthropic]
 v2fly = ["anthropic"]
 
 [services.Oculus]
 v2fly = ["oculus"]
-domains = ["oculus.com"]
 general = true
 
 [services.Meta]
@@ -185,15 +137,11 @@ domains = ["meta.ai", "meta.com"]
 
 [services.Instagram]
 v2fly = ["instagram"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=instagram.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=instagram.com"]
 
 [services.Facebook]
 v2fly = ["facebook", "facebook-dev"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=facebook.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=facebook.com"]
 
 [services.Threads]
 v2fly = ["threads"]
@@ -212,9 +160,7 @@ v2fly = ["signal"]
 
 [services.WhatsApp]
 v2fly = ["whatsapp"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=whatsapp.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=whatsapp.com"]
 domains = ["fbcdn.net"]
 general = true
 
@@ -228,25 +174,17 @@ v2fly = ["soundcloud"]
 domains = ["tidal.com"]
 
 [services.HDRezka]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=hdrezka.ag"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=hdrezka.ag"]
 
 [services.LordFilm]
-domains = [
-    "lordfilm.ag", "lordfilm.app", "lordfilm.art", "lordfilm.asia",
-    ...
-    "lordfilm.xyz", "lordfilm.zone"
-]
+domains = ["lordfilm.ag", "lordfilm.app", "lordfilm.art", "lordfilm.asia", "lordfilm.baby", "lordfilm.bar", "lordfilm.beauty", "lordfilm.beer", "lordfilm.best", "lordfilm.bet", "lordfilm.bike", "lordfilm.bio", "lordfilm.biz", "lordfilm.black", "lordfilm.blog", "lordfilm.blue", "lordfilm.bond", "lordfilm.boo", "lordfilm.bot", "lordfilm.buzz", "lordfilm.by", "lordfilm.bz", "lordfilm.ca", "lordfilm.cab", "lordfilm.cafe", "lordfilm.cam", "lordfilm.camera", "lordfilm.care", "lordfilm.casa", "lordfilm.cat", "lordfilm.cc", "lordfilm.center", "lordfilm.ceo", "lordfilm.cfd", "lordfilm.ch", "lordfilm.cheap", "lordfilm.cl", "lordfilm.click", "lordfilm.cloud", "lordfilm.club", "lordfilm.co", "lordfilm.codes", "lordfilm.coffee", "lordfilm.cool", "lordfilm.cx", "lordfilm.cyou", "lordfilm.cz", "lordfilm.dad", "lordfilm.day", "lordfilm.de", "lordfilm.deals", "lordfilm.dev", "lordfilm.digital", "lordfilm.direct", "lordfilm.do", "lordfilm.dog", "lordfilm.ec", "lordfilm.energy", "lordfilm.es", "lordfilm.expert", "lordfilm.fail", "lordfilm.fan", "lordfilm.fans", "lordfilm.farm", "lordfilm.film", "lordfilm.fit", "lordfilm.fun", "lordfilm.fund", "lordfilm.fyi", "lordfilm.gay", "lordfilm.gdn", "lordfilm.glass", "lordfilm.global", "lordfilm.gold", "lordfilm.green", "lordfilm.guru", "lordfilm.hair", "lordfilm.help", "lordfilm.house", "lordfilm.how", "lordfilm.icu", "lordfilm.id", "lordfilm.im", "lordfilm.in", "lordfilm.info", "lordfilm.ink", "lordfilm.io", "lordfilm.irish", "lordfilm.is", "lordfilm.ist", "lordfilm.it", "lordfilm.kim", "lordfilm.la", "lordfilm.land", "lordfilm.li", "lordfilm.life", "lordfilm.limo", "lordfilm.link", "lordfilm.live", "lordfilm.living", "lordfilm.llc", "lordfilm.lol", "lordfilm.love", "lordfilm.ltd", "lordfilm.lu", "lordfilm.mba", "lordfilm.me", "lordfilm.media", "lordfilm.menu", "lordfilm.miami", "lordfilm.ml", "lordfilm.mobi", "lordfilm.moda", "lordfilm.moi", "lordfilm.money", "lordfilm.monster", "lordfilm.mov", "lordfilm.movie", "lordfilm.ms", "lordfilm.net", "lordfilm.network", "lordfilm.news", "lordfilm.ninja", "lordfilm.nl", "lordfilm.nz", "lordfilm.one", "lordfilm.online", "lordfilm.org", "lordfilm.page", "lordfilm.parts", "lordfilm.pe", "lordfilm.pet", "lordfilm.ph", "lordfilm.pics", "lordfilm.pl", "lordfilm.place", "lordfilm.plus", "lordfilm.pro", "lordfilm.pub", "lordfilm.pw", "lordfilm.quest", "lordfilm.red", "lordfilm.rest", "lordfilm.rip", "lordfilm.ro", "lordfilm.rocks", "lordfilm.rodeo", "lordfilm.run", "lordfilm.sale", "lordfilm.sbs", "lordfilm.se", "lordfilm.sh", "lordfilm.shop", "lordfilm.show", "lordfilm.si", "lordfilm.site", "lordfilm.sk", "lordfilm.ski", "lordfilm.so", "lordfilm.solar", "lordfilm.space", "lordfilm.store", "lordfilm.stream", "lordfilm.style", "lordfilm.su", "lordfilm.surf", "lordfilm.sx", "lordfilm.team", "lordfilm.tech", "lordfilm.tel", "lordfilm.tf", "lordfilm.today", "lordfilm.tube", "lordfilm.uk", "lordfilm.uno", "lordfilm.us", "lordfilm.vet", "lordfilm.vg", "lordfilm.video", "lordfilm.vin", "lordfilm.vip", "lordfilm.vision", "lordfilm.wang", "lordfilm.watch", "lordfilm.website", "lordfilm.win", "lordfilm.wine", "lordfilm.work", "lordfilm.works", "lordfilm.world", "lordfilm.ws", "lordfilm.wtf", "lordfilm.xn--6frz82g", "lordfilm.xyz", "lordfilm.zone"]
 
 [services.AWS]
 v2fly = ["aws"]
 general = false
 
 [services.Viber]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=viber.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=viber.com"]
 
 [services.Twitch]
 v2fly = ["twitch"]
@@ -264,14 +202,10 @@ v2fly = ["huggingface"]
 general = false
 
 [services.Doramy-club]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=doramy.club"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=doramy.club"]
 
 [services.filmix]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=filmix.fm"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=filmix.fm"]
 domains = ["filmix.my"]
 
 [services.kinopub]
@@ -287,30 +221,22 @@ domains = ["kinovod.net", "kinovod.pro"]
 v2fly = ["jetbrains", "jetbrains-ai"]
 
 [services.BestChange]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=bestchange.ru"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=bestchange.ru"]
 
 [services.ProtonMail]
 v2fly = ["protonmail"]
 
-[services.Notepad++]
+[services."Notepad++"]
 domains = ["notepad-plus-plus.org"]
 
 [services.Sentry-io]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=sentry.io"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=sentry.io"]
 
 [services.DeepL]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=deepl.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=deepl.com"]
 
 [services.Canva]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=canva.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=canva.com"]
 
 [services.10MinuteMail]
 domains = ["10minutemail.com"]
@@ -329,21 +255,19 @@ domains = ["tuta.com"]
 
 [services.AutoDesk]
 v2fly = ["autodesk"]
-domains = [
-    "autodesk.com", "a360.co", "autodesk.io", "autodesk.net",
-    "autodesk360.com", "tinkercad.com"
-]
-general = false
+domains = ["autodesk.com", "a360.co", "autodesk.io", "autodesk.net", "autodesk360.com", "tinkercad.com"]
+general = true
 
 [services.SpeedTest]
 v2fly = ["speedtest"]
 
 [services.Adobe]
-domains = ["omtrdc.net"]
-
+v2fly = ["adobe"]
 
 ##############
+###        ###
 ### GROUPS ###
+###        ###
 ##############
 
 [groups.Google-ALL]
@@ -351,61 +275,34 @@ include = ["youtube"]
 v2fly = ["google"]
 
 [groups.Torrent-Trackers]
-include = [
-    "1337x", "booktracker", "filmitorrent", "kinozal", "newstudio",
-    "nnmclub", "rustorka", "rutor", "rutracker", "thepiratebay",
-    "torrentby", "flibusta", "lostfilm"
-]
+include = ["1337x", "booktracker", "filmitorrent", "kinozal", "newstudio", "nnmclub", "rustorka", "rutor", "rutracker", "thepiratebay", "torrentby", "flibusta", "lostfilm"]
 
 [groups.Streaming-Services]
 include = ["netflix", "hulu", "primevideo", "hbo"]
 
 [groups.Social]
-include = [
-    "discord", "telegram", "viber", "instagram", "facebook",
-    "threads", "x", "tiktok", "linkedin", "messenger",
-    "signal", "whatsapp"
-]
+include = ["discord", "telegram", "viber", "instagram", "facebook", "threads", "x", "tiktok", "linkedin", "messenger", "signal", "whatsapp"]
 
 [groups.AI]
-include = [
-    "google-ai", "elevenlabs", "copilot", "openai", "grok",
-    "deepseek", "perplexity", "huggingface", "anthropic"
-]
+include = ["google-ai", "elevenlabs", "copilot", "openai", "grok", "deepseek", "perplexity", "huggingface", "anthropic"]
 domains = ["meta.ai"]
 v2fly = ["jetbrains-ai"]
 
 [groups.RU-unblocked]
 v2fly = ["category-ru", "category-gov-ru"]
-url = [
-    "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-raw.lst",
-    "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-banks-ru",
-    "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-only-ru"
-]
-domains = [
-    "by", "xn--90ais", "2ch.life", "ru.com", "ru.net", "rt.com",
-    "sputniknews.com", "sputnikglobe.com", "actualidad-rt.com",
-    "africa-rt.com", "esrt.press", "estr.online", "rt-afrique.com",
-    "rtafrica.media", "rtafrique.online", "tass.com", "interfax.com",
-    "1c.com", "2ch.hk", "advmaker.net", "pravda.com", "news-pravda.com"
-]
+url = ["https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-raw.lst", "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-banks-ru", "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/refs/heads/master/data/category-only-ru"]
+domains = ["by", "xn--90ais", "2ch.life", "ru.com", "ru.net", "rt.com", "sputniknews.com", "sputnikglobe.com", "actualidad-rt.com", "africa-rt.com", "esrt.press", "estr.online", "rt-afrique.com", "rtafrica.media", "rtafrique.online", "tass.com", "interfax.com", "1c.com", "2ch.hk", "advmaker.net", "pravda.com", "news-pravda.com"]
 general = false
 
 [groups.Music]
 include = ["spotify", "soundcloud", "tidal"]
 
 [groups.Tools]
-include = [
-    "jetbrains", "bestchange", "notion", "miro", "sentry-io",
-    "deepl", "canva", "10minutemail", "strava", "zapier",
-    "whoop", "tuta", "autodesk"
-]
+include = ["adobe", "jetbrains", "bestchange", "notion", "miro", "sentry-io", "deepl", "canva", "10minutemail", "strava", "zapier", "whoop", "tuta", "autodesk"]
 
 [groups.Porn]
 v2fly = ["category-porn"]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=beeg.com&site=hqporner.com&site=pornhub.com&site=pornolab.net&site=reddxxx.com&site=redgifs.com&site=redtube.com&site=rule34.xxx&site=xhamster.com&site=xhamsterlive.com&site=xnxx-ru.com&site=xvideos.com"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=beeg.com&site=hqporner.com&site=pornhub.com&site=pornolab.net&site=reddxxx.com&site=redgifs.com&site=redtube.com&site=rule34.xxx&site=xhamster.com&site=xhamsterlive.com&site=xnxx-ru.com&site=xvideos.com"]
 general = false
 
 [groups.Meta-All]
@@ -418,14 +315,8 @@ domains = ["ad.cub.red"]
 general = false
 
 [groups.RU-Media]
-url = [
-    "https://iplist.opencck.org/?format=text&data=domains&site=agents.media&site=agentura.ru&site=bbc.com&site=bellingcat.com&site=cherta.media&site=colta.ru&site=currenttime.tv&site=dept.one&site=doxa.team&site=dw.com&site=echofm.online&site=ehorussia.com&site=ej.ru&site=euronews.com&site=exler.ru&site=golosameriki.com&site=gordonua.com&site=gulagu.net&site=holod.media&site=hrw.org&site=istories.media&site=kasparov.ru&site=kavkaz-uzel.eu&site=korrespondent.net&site=krym.r.com&site=meduza.io&site=memohrc.org&site=moscowtimes.ru&site=navalny.com&site=newtimes.ru&site=novayagazeta.ru&site=ovd.info&site=paperpaper.ru&site=polit.ru&site=proekt.media&site=prostovpn.org&site=radiosvoboda.org&site=semnasem.org&site=svoboda.org&site=tayga.info&site=the-village.ru&site=theins.ru&site=thetruestory.news&site=tvrain.ru&site=unian.net&site=verstka.media&site=vot-tak.tv&site=zona.media",
-    "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/news.lst"
-]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=agents.media&site=agentura.ru&site=bbc.com&site=bellingcat.com&site=cherta.media&site=colta.ru&site=currenttime.tv&site=dept.one&site=doxa.team&site=dw.com&site=echofm.online&site=ehorussia.com&site=ej.ru&site=euronews.com&site=exler.ru&site=golosameriki.com&site=gordonua.com&site=gulagu.net&site=holod.media&site=hrw.org&site=istories.media&site=kasparov.ru&site=kavkaz-uzel.eu&site=korrespondent.net&site=krymr.com&site=meduza.io&site=memohrc.org&site=moscowtimes.ru&site=navalny.com&site=newtimes.ru&site=novayagazeta.ru&site=ovd.info&site=paperpaper.ru&site=polit.ru&site=proekt.media&site=prostovpn.org&site=radiosvoboda.org&site=semnasem.org&site=svoboda.org&site=tayga.info&site=the-village.ru&site=theins.ru&site=thetruestory.news&site=tvrain.ru&site=unian.net&site=verstka.media&site=vot-tak.tv&site=zona.media", "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/news.lst"]
 v2fly = ["category-media-ru"]
 
 [groups.Pirate-Streaming-Services]
-include = [
-    "hdrezka", "kinovod", "kinopub", "kinobase",
-    "filmix", "doramy-club", "lordfilm"
-]
+include = ["hdrezka", "kinovod", "kinopub", "kinobase", "filmix", "doramy-club", "lordfilm"]

@@ -24,10 +24,6 @@ INPUT_DIRS = [
     Path("data/CIDRs")
 ]
 
-# ==================================================
-# БЛОК ДЛЯ SING-BOX-RULES (РАСКОММЕНТИРОВАТЬ ПОТОМ)
-# ==================================================
-
 SPECIAL_FILES = [
     Path("data/domains/domains-summary.lst"),
     Path("data/domains/domains-summary-no-yt.lst")
@@ -125,10 +121,6 @@ def create_combined_rules(bin_path):
     else:
         print("Ошибка при создании объединённых правил", file=sys.stderr)
 
-# ==================================================
-# КОНЕЦ БЛОКА ДЛЯ SING-BOX-RULES
-# ==================================================
-
 def find_lst_files():
     """Находит все .lst файлы в INPUT_DIRS"""
     lst_files = []
@@ -224,15 +216,10 @@ def main():
             for lst_file in lst_files:
                 executor.submit(process_regular_file, lst_file, bin_path)
         
-        """
-        # ==================================================
-        # ВЫЗОВ ФУНКЦИЙ ДЛЯ SING-BOX-RULES (РАСКОММЕНТИРОВАТЬ ПОТОМ)
         for special_file in SPECIAL_FILES:
             if special_file.exists():
                 process_special_file(special_file, bin_path)
         create_combined_rules(bin_path)
-        # ==================================================
-        """
                 
     finally:
         for p in [TARBALL]:

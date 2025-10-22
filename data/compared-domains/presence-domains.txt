@@ -288,7 +288,6 @@
 - getoutline.com
 - getoutline.org
 - gfn.am
-- ggpht.com
 - ghostrc.game.idtech.services
 - global.fncstatic.com
 - global.platform.seconddinnertech.com
@@ -299,7 +298,6 @@
 - golosameriki.com
 - gonitro.com
 - goodreads.com
-- googlevideo.com
 - gpsonextra.net
 - gpu-monkey.com
 - gr-assets.com
@@ -903,11 +901,6 @@
 - yeggi.com
 - yle.fi
 - youtrack.cloud
-- youtu.be
-- youtube-nocookie.com
-- youtube.com
-- youtubekids.com
-- ytimg.com
 - yting.com
 - yummyani.me
 - zahav.ru
@@ -1029,18 +1022,15 @@
 - g2a.com
 - geni.us
 - genius.com
-- ggpht.com
 - githubcopilot.com
 - gitlab.io
 - gnome-look.org
 - googletagmanager.com
-- googlevideo.com
 - gordonua.com
 - grammarly.com
 - grazie.ai
 - grok.com
 - gtagarage.com
-- gvt1.com
 - habr.com
 - hath.network
 - hbomax.com
@@ -1225,12 +1215,6 @@
 - x.ai
 - xhamster.com
 - xhamsterlive.com
-- youtu.be
-- youtube-nocookie.com
-- youtube.com
-- youtubekids.com
-- yt.be
-- ytimg.com
 - znanija.com
 - zohomail.com
 
@@ -1534,7 +1518,6 @@
 - xnxx.com
 - xvideos.com
 - yeggi.com
-- youtu.be
 - zetflix.online
 - znanija.com
 - zohomail.com

@@ -1,11 +1,65 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
+- discord-attachments-uploads-prd.storage.googleapis.com
+- ggpht.com
+- googlevideo.com
+- jnn-pa.googleapis.com
+- lookerstudio.google.com
+- mbk-news.appspot.com
+- news.google.com
 - notion-emojis.s3-us-west-2.amazonaws.com
+- proactivebackend-pa.googleapis.com
+- suggestqueries.google.com
+- wide-youtube.l.google.com
+- youtu.be
+- youtube-nocookie.com
+- youtube-ui.l.google.com
+- youtube.com
+- youtubeembeddedplayer.googleapis.com
+- youtubei.googleapis.com
+- youtubekids.com
+- yt-video-upload.l.google.com
+- yt3.googleusercontent.com
+- ytimg.com
+- ytimg.l.google.com
+
+# Missing domains
+# Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
+
+- aistudio.google.com
+- bard.google.com
+- discord-attachments-uploads-prd.storage.googleapis.com
+- gemini.google.com
+- ggpht.com
+- googlevideo.com
+- gvt1.com
+- music.youtube.com
+- notebooklm.google
+- tokenized.play.google.com
+- wide-youtube.l.google.com
+- youtu.be
+- youtube-nocookie.com
+- youtube-ui.l.google.com
+- youtube.com
+- youtube.googleapis.com
+- youtubeembeddedplayer.googleapis.com
+- youtubei.googleapis.com
+- youtubekids.com
+- yt-video-upload.l.google.com
+- yt.be
+- yt3.ggpht.com
+- ytimg.com
 
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
+- bard.google.com
 - cdn2site.com
+- gemini.google.com
+- news.google.com
 - s3-1.amazonaws.com
+- tokenized.play.google.com
+- youtu.be
+- yt3.googleusercontent.com
 

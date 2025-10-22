@@ -6,5 +6,6 @@
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
+- cdn2site.com
 - s3-1.amazonaws.com
 

@@ -4,6 +4,10 @@
 ###          ###
 ################
 
+[services.Google]
+v2fly = ["google"]
+general = false
+
 [services.GitHub]
 v2fly = ["github"]
 
@@ -269,11 +273,6 @@ v2fly = ["adobe"]
 ### GROUPS ###
 ###        ###
 ##############
-
-[groups.Google-ALL]
-include = ["youtube"]
-v2fly = ["google"]
-general = true
 
 [groups.Torrent-Trackers]
 include = ["1337x", "booktracker", "filmitorrent", "kinozal", "newstudio", "nnmclub", "rustorka", "rutor", "rutracker", "thepiratebay", "torrentby", "flibusta", "lostfilm"]

@@ -4,10 +4,6 @@
 ###          ###
 ################
 
-[services.Google]
-v2fly = ["google"]
-general = false
-
 [services.GitHub]
 v2fly = ["github"]
 
@@ -101,6 +97,11 @@ general = false
 [services.YouTube]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=youtube.com", "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Services/youtube.lst"]
 v2fly = ["youtube"]
+general = true
+
+[services.Google]
+v2fly = ["google"]
+general = false
 
 [services.TikTok]
 v2fly = ["tiktok"]

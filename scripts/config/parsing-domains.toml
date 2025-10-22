@@ -101,7 +101,7 @@ general = true
 
 [services.Google]
 v2fly = ["google"]
-general = false
+general = true
 
 [services.TikTok]
 v2fly = ["tiktok"]

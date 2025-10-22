@@ -4,10 +4,6 @@
 ###          ###
 ################
 
-[services.Google]
-v2fly = ["google"]
-general = false
-
 [services.GitHub]
 v2fly = ["github"]
 
@@ -321,6 +317,10 @@ v2fly = ["category-media-ru"]
 
 [groups.Pirate-Streaming-Services]
 include = ["hdrezka", "kinovod", "kinopub", "kinobase", "filmix", "doramy-club", "lordfilm"]
+
+[groups.Google-ALL]
+v2fly = ["google"]
+general = false
 
 [groups.Google-no-YT-AI]
 v2fly = ["android", "blogspot", "dart", "fastlane", "firebase", "flutter", "golang", "google-ads", "google-deepmind", "google-gemini", "google-play", "google-registry", "google-scholar", "google-trust-services", "googlefcm", "kaggle", "opensourceinsights", "polymer", "v8"]

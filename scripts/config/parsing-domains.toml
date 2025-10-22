@@ -5,7 +5,7 @@
 ################
 
 [services.Google]
-v2fly = [google]
+v2fly = ["google"]
 general = false
 
 [services.GitHub]

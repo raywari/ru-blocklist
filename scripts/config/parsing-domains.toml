@@ -82,6 +82,8 @@ v2fly = ["flibusta"]
 
 [services.Google-AI]
 v2fly = ["google-deepmind", "google-gemini"]
+url = ["https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Services/google_ai.lst"]
+domains = ["lookerstudio.google.com"]
 
 [services.Copilot]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=copilot"]

@@ -3,8 +3,6 @@
 +.ai.google.dev
 +.aisandbox-pa.googleapis.com
 +.aistudio.google.com
-+.alkalicore-pa.clients6.google.com
-+.alkalimakersuite-pa.clients6.google.com
 +.anthropic.com
 +.api.github.com
 +.bard.google.com
@@ -18,6 +16,7 @@
 +.claude.com
 +.claudemcpclient.com
 +.claudeusercontent.com
++.clients6.google.com
 +.copilot-proxy.githubusercontent.com
 +.copilot-telemetry.githubusercontent.com
 +.copilot.microsoft.com
@@ -54,6 +53,7 @@
 +.lgincdnmsftuswe2.azureedge.net
 +.lgincdnvzeuno.azureedge.net
 +.location.microsoft.com
++.lookerstudio.google.com
 +.makersuite.google.com
 +.meta.ai
 +.mobile.events.data.microsoft.com
@@ -80,9 +80,9 @@
 +.servd-anthropic-website.b-cdn.net
 +.services.bingapis.com
 +.sora.com
++.stitch.withgoogle.com
 +.sydney.bing.com
 +.turn.livekit.cloud
 +.us-central1-xi-labs.cloudfunctions.net
-+.webchannel-alkalimakersuite-pa.clients6.google.com
 +.webpubsub.com
 +.x.ai

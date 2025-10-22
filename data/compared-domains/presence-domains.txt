@@ -430,6 +430,7 @@
 - liveuamap.com
 - locals.md
 - lolz.guru
+- lookerstudio.google.com
 - lostfilm.download
 - lostfilm.tv
 - lostfilmtv2.site

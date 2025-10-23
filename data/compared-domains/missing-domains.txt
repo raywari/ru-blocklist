@@ -1,87 +1,7 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
-- andrevi.ch
-- anilib.me
-- anilibria.org
-- ansys.com
-- apkmirror.com
-- audiobookbay.lu
-- boominfo.org
-- bt4gprx.com
-- cisecurity.org
-- cloudtorrents.com
-- code.gist.build
-- data.cline.bot
-- delivery.2d.net.co
-- editorx.com
-- eporner.com
-- etahub.com
-- exchanger.bits.media
-- expandrive.com
-- fansly.com
-- filebin.net
-- grizzlysms.com
-- hc-ping.com
-- hchk.io
-- home.by.me
-- iditelesombase.org
-- ikea.com
-- imgur.com
-- jw-russia.org
-- jw.org
-- kaleido.ai
-- kinozaltv.life
-- lantern.io
-- lgeapi.com
-- lgthinq.com
-- lostfilm.download
-- lu4.org
-- mailerlite.com
-- make.com
-- manyvids.com
-- metopera.org
-- miracleptr.wordpress.com
-- mw2.wiki
-- myparallels.com
-- myqrcode.com
 - notion-emojis.s3-us-west-2.amazonaws.com
-- openh264.org
-- openrouter.ai
-- parallels.cn
-- parallels.com
-- parallels.net
-- parallelsaccess.com
-- penguin.com
-- penguinrandomhouse.com
-- redislabs.com
-- ruscryde.net
-- scryde.io
-- scryde.net
-- scryde.ru
-- scryde.world
-- scryde1.net
-- scryde10.net
-- scryde11.net
-- scryde12.net
-- scryde2.net
-- scryde3.net
-- scryde4.net
-- scryde5.net
-- scryde6.net
-- scryde7.net
-- scryde8.net
-- scryde9.net
-- semrush.com
-- slifki.biz
-- sms-activate.io
-- snapgene.com
-- supersliv.biz
-- tiptop-vpn.com
-- toolbox.app
-- uizard.io
-- wbgames.com
-- yande.re
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
@@ -109,7 +29,6 @@
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
-- ansys.com
 - cdn2site.com
 - epg.one
 - lostfilm.today

@@ -74,6 +74,7 @@ jobs:
           git add data/domains/*
           git add data/compared-domains/*
           git add data/rulesets/clash-rules/*
+          git add scripts/config/parsing-domains.toml
           
           if ! git diff --quiet --exit-code --staged; then
             git commit -m "Update domains lists"
@@ -85,6 +86,8 @@ jobs:
               git pull --rebase
               git add data/domains/*
               git add data/compared-domains/*
+              git add data/rulesets/clash-rules/*
+              git add scripts/config/parsing-domains.toml
               if ! git diff --quiet --exit-code --staged; then
                 git commit --amend --no-edit
               fi

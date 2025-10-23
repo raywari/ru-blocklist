@@ -79,7 +79,6 @@ func runDomainScripts() error {
 
 	logger.Info("Running domain scripts in %s", scriptDir)
 
-
 	if _, err := os.Stat(scriptDir); os.IsNotExist(err) {
 		logger.Info("Scripts directory %s does not exist, skipping", scriptDir)
 		return nil
@@ -105,7 +104,6 @@ func runDomainScripts() error {
 		logger.Info("No Go scripts found in %s", scriptDir)
 		return nil
 	}
-
 
 	originalDir, err := os.Getwd()
 	if err != nil {
@@ -188,13 +186,11 @@ func cleanDomainLine(line string) ([]string, error) {
 	return []string{host}, nil
 }
 
-
 var domainSlicePool = sync.Pool{
 	New: func() interface{} {
 		return make([]string, 0, 10)
 	},
 }
-
 
 var (
 	compiledRegexes = struct {
@@ -204,13 +200,11 @@ var (
 		cache: make(map[string]*regexp.Regexp),
 	}
 
-
 	tldInText        = regexp.MustCompile(`\.([a-zA-Z]{2,})`)
 	cleanupRegex     = regexp.MustCompile(`\([^)]*\)`)
 	symbolClassRegex = regexp.MustCompile(`\[[^\]]*\]`)
 	braceRegex       = regexp.MustCompile(`\{[^}]*\}`)
 	finalDomainRegex = regexp.MustCompile(`[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*`)
-
 
 	dotPlusRegex      = regexp.MustCompile(`\.(.+?)\\\.`)
 	awsPatternRegex   = regexp.MustCompile(`\\\.(.+?)\\\.`)
@@ -219,12 +213,10 @@ var (
 	dashNumericRegex  = regexp.MustCompile(`-\[0-9\]\[0-9\]`)
 	dashLetterRegex   = regexp.MustCompile(`-\[a-e0-9\]`)
 
-
 	domainPartRegex   = regexp.MustCompile(`^[a-zA-Z0-9-]+$`)
 	tldLetterRegex    = regexp.MustCompile(`[a-zA-Z]`)
 	tldValidRegex     = regexp.MustCompile(`^[a-zA-Z]+$`)
 	invalidCharsRegex = regexp.MustCompile(`[()[\]{}|+*?$\\^]`)
-
 
 	standardRegex      = regexp.MustCompile(`([a-zA-Z0-9-]+(?:\[[^\]]*\])*[a-zA-Z0-9-]*)\\?\.\(([^)]+)\)`)
 	domainRegex        = regexp.MustCompile(`[a-zA-Z0-9-]+\.[a-zA-Z]{2,}`)
@@ -237,7 +229,6 @@ var (
 	awsRegex           = regexp.MustCompile(`([a-zA-Z0-9-]+)\.amazonaws\.com`)
 	awsdnsRegex        = regexp.MustCompile(`awsdns(?:-[a-zA-Z0-9]+)*\.([a-zA-Z]{2,})`)
 
-
 	baseRegexes = []*regexp.Regexp{
 		regexp.MustCompile(`\[1-9\]\+`),
 		regexp.MustCompile(`\[0-9\]\+`),
@@ -249,7 +240,6 @@ var (
 
 	baseReplacements = []string{"1", "0", "a", "A", "x", ""}
 )
-
 
 var domainValidationCache = struct {
 	sync.RWMutex
@@ -264,74 +254,54 @@ func handleRegexPattern(pattern string) ([]string, error) {
 		pattern = pattern[:idx]
 	}
 
-
 	domains := extractDomainsFromRegex(pattern)
 	if len(domains) > 0 {
 		return domains, nil
 	}
 
-
 	return nil, nil
 }
 
+// ЖЁСТКО отключаем «простой» парсер: больше не извлекаем домены напрямую из сырых regex-строк.
+// Убрана строка с extractFromSimplePattern(...) — это устраняет ложные срабатывания вроде "0-9a-za-z.com".
 func extractDomainsFromRegex(pattern string) []string {
-
 	domains := domainSlicePool.Get().([]string)
 	domains = domains[:0]
-
 	defer func() {
-
 		if cap(domains) <= 100 {
 			domainSlicePool.Put(domains)
 		}
 	}()
 
-
-
-
-
 	if standardDomains := extractFromStandardRegexPattern(pattern); len(standardDomains) > 0 {
 		domains = append(domains, standardDomains...)
 	}
-
-
 	if altDomains := extractFromAlternativePattern(pattern); len(altDomains) > 0 {
 		domains = append(domains, altDomains...)
 	}
-
-
 	if rangeDomains := extractFromRangePattern(pattern); len(rangeDomains) > 0 {
 		domains = append(domains, rangeDomains...)
 	}
 
-
-	if simpleDomains := extractFromSimplePattern(pattern); len(simpleDomains) > 0 {
-		domains = append(domains, simpleDomains...)
-	}
-
+	// ВАЖНО: жестко вырезано — больше НЕ вызываем extractFromSimplePattern(pattern)
 
 	if len(domains) == 0 {
 		if complexDomains := extractFromComplexPatterns(pattern); len(complexDomains) > 0 {
 			domains = append(domains, complexDomains...)
 		}
 	}
-
-
 	if len(domains) == 0 {
 		if literalDomains := extractFromLiteralDomains(pattern); len(literalDomains) > 0 {
 			domains = append(domains, literalDomains...)
 		}
 	}
 
-
 	result := validateAndCleanDomains(domains)
-
-
 	finalResult := make([]string, len(result))
 	copy(finalResult, result)
-
 	return finalResult
 }
+
 
 func extractFromStandardRegexPattern(pattern string) []string {
 	var domains []string
@@ -347,7 +317,6 @@ func extractFromStandardRegexPattern(pattern string) []string {
 			if baseDomain == "" || len(baseDomain) < 2 {
 				continue
 			}
-
 
 			if isValidTLD(baseDomain) {
 				continue
@@ -372,16 +341,21 @@ func extractFromStandardRegexPattern(pattern string) []string {
 }
 
 func extractBaseDomainFromPattern(pattern string) string {
-
 	result := pattern
+
+	result = regexp.MustCompile(`\[[^]]+\]`).ReplaceAllString(result, "x")
 
 	for i, regex := range baseRegexes {
 		result = regex.ReplaceAllString(result, baseReplacements[i])
 	}
 
-
 	result = strings.ReplaceAll(result, `\`, "")
 
+	result = strings.ReplaceAll(result, "--", "-")
+
+	if strings.Contains(result, "0-9") || strings.Contains(result, "a-z") || strings.Contains(result, "A-Z") {
+		return ""
+	}
 
 	if domainPartRegex.MatchString(result) {
 		return result
@@ -391,20 +365,7 @@ func extractBaseDomainFromPattern(pattern string) string {
 }
 
 func extractFromSimplePattern(pattern string) []string {
-	var domains []string
-
-	matches := domainRegex.FindAllString(pattern, -1)
-
-	for _, match := range matches {
-
-		cleanMatch := strings.ReplaceAll(match, `\`, "")
-
-		if isValidDomainCached(cleanMatch) && !isInvalidDomain(cleanMatch) {
-			domains = append(domains, strings.ToLower(cleanMatch))
-		}
-	}
-
-	return domains
+	return nil
 }
 
 func extractFromAlternativePattern(pattern string) []string {
@@ -416,7 +377,6 @@ func extractFromAlternativePattern(pattern string) []string {
 		if len(match) > 1 {
 			baseDomain := match[1]
 			fullMatch := match[0]
-
 
 			if altStartIndex := strings.Index(fullMatch, "("); altStartIndex != -1 {
 				if altEndIndex := strings.LastIndex(fullMatch, ")"); altEndIndex > altStartIndex {
@@ -435,7 +395,7 @@ func extractFromAlternativePattern(pattern string) []string {
 								domain = baseDomain + "." + cleanAlt
 							}
 
-							if isValidDomainCached(domain) {
+							if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 								domains = append(domains, strings.ToLower(domain))
 							}
 						}
@@ -451,28 +411,25 @@ func extractFromAlternativePattern(pattern string) []string {
 func extractFromRangePattern(pattern string) []string {
 	var domains []string
 
-
 	matches := rangeRegex.FindAllStringSubmatch(pattern, -1)
 	for _, match := range matches {
 		if len(match) > 4 {
 			domain := fmt.Sprintf("%s1.%s", match[1], match[4])
-			if isValidDomainCached(domain) {
+			if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 				domains = append(domains, strings.ToLower(domain))
 			}
 		}
 	}
-
 
 	matches = specificRangeRegex.FindAllStringSubmatch(pattern, -1)
 	for _, match := range matches {
 		if len(match) > 4 {
 			domain := fmt.Sprintf("%s1.%s", match[1], match[4])
-			if isValidDomainCached(domain) {
+			if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 				domains = append(domains, strings.ToLower(domain))
 			}
 		}
 	}
-
 
 	matches = patternWithPrefix.FindAllStringSubmatch(pattern, -1)
 	for _, match := range matches {
@@ -484,7 +441,6 @@ func extractFromRangePattern(pattern string) []string {
 			prefix := getPrefixForCharClass(charClass, quantifier)
 			domain := prefix + baseName
 
-
 			tldMatches := tldInBrackets.FindAllStringSubmatch(pattern, -1)
 			if len(tldMatches) > 0 {
 				tldPart := tldMatches[0][1]
@@ -493,7 +449,7 @@ func extractFromRangePattern(pattern string) []string {
 				for _, tld := range tlds {
 					if isValidTLD(tld) {
 						fullDomain := domain + "." + tld
-						if isValidDomainCached(fullDomain) {
+						if isValidDomainCached(fullDomain) && !isInvalidDomain(fullDomain) {
 							domains = append(domains, strings.ToLower(fullDomain))
 						}
 					}
@@ -531,30 +487,31 @@ func getPrefixForCharClass(charClass, quantifier string) string {
 func extractFromAWSPatterns(pattern string) []string {
 	var domains []string
 
-
 	if strings.Contains(pattern, "amazonaws.com") {
 		matches := awsRegex.FindAllStringSubmatch(pattern, -1)
 		for _, match := range matches {
 			if len(match) > 1 {
 				domain := match[1] + ".amazonaws.com"
-				if isValidDomainCached(domain) {
+				if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 					domains = append(domains, strings.ToLower(domain))
 				}
 			}
 		}
 
 		if len(domains) == 0 {
-			domains = append(domains, "amazonaws.com")
+			base := "amazonaws.com"
+			if isValidDomainCached(base) && !isInvalidDomain(base) {
+				domains = append(domains, base)
+			}
 		}
 	}
-
 
 	if strings.Contains(pattern, "awsdns") {
 		matches := awsdnsRegex.FindAllStringSubmatch(pattern, -1)
 		for _, match := range matches {
 			if len(match) > 2 {
 				domain := "awsdns." + match[2]
-				if isValidDomainCached(domain) {
+				if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 					domains = append(domains, strings.ToLower(domain))
 				}
 			}
@@ -573,7 +530,6 @@ func extractFromComplexPatterns(pattern string) []string {
 		if len(match) > 1 {
 			baseDomain := strings.TrimRight(match[1], ".-")
 
-
 			if strings.Contains(pattern, `.+`) {
 
 				domainParts := extractDomainPartsFromDotPlus(pattern)
@@ -584,7 +540,6 @@ func extractFromComplexPatterns(pattern string) []string {
 				}
 			}
 
-
 			if tldDomains := buildDomainsWithTLD(baseDomain, pattern); len(tldDomains) > 0 {
 				domains = append(domains, tldDomains...)
 			}
@@ -594,30 +549,24 @@ func extractFromComplexPatterns(pattern string) []string {
 	return domains
 }
 
-
 func extractDomainPartsFromDotPlus(pattern string) []string {
 	var parts []string
-
 
 	if strings.Contains(pattern, "amazonaws") {
 		parts = append(parts, "amazonaws")
 	}
 
-
 	if strings.Contains(pattern, "awsdns") {
 
 		awsPart := "awsdns"
-
 
 		if dashNumericRegex.MatchString(pattern) {
 			awsPart = "awsdns-01"
 		}
 
-
 		if strings.Contains(pattern, "awsdns-cn") {
 			awsPart = "awsdns-cn-01"
 		}
-
 
 		if strings.Contains(pattern, "awsdns-cn") && letterRangeRegex.MatchString(pattern) {
 			awsPart = "awsdns-cn-0a"
@@ -626,11 +575,9 @@ func extractDomainPartsFromDotPlus(pattern string) []string {
 		parts = append(parts, awsPart)
 	}
 
-
 	if strings.Contains(pattern, "amzndns") {
 		parts = append(parts, "amzndns")
 	}
-
 
 	dotPlusMatches := dotPlusRegex.FindAllStringSubmatch(pattern, -1)
 	for _, match := range dotPlusMatches {
@@ -651,15 +598,12 @@ func extractDomainPartsFromDotPlus(pattern string) []string {
 	return parts
 }
 
-
 func buildDomainsWithTLD(baseDomain, pattern string) []string {
 	var domains []string
-
 
 	if isValidTLD(baseDomain) || len(baseDomain) < 2 {
 		return domains
 	}
-
 
 	tldMatches := tldInBrackets.FindAllStringSubmatch(pattern, -1)
 	if len(tldMatches) > 0 {
@@ -676,7 +620,6 @@ func buildDomainsWithTLD(baseDomain, pattern string) []string {
 						domains = append(domains, strings.ToLower(domain))
 					}
 				}
-
 
 				domain := baseDomain + "." + tld
 				if isValidDomainCached(domain) && !isInvalidDomain(domain) {
@@ -699,7 +642,6 @@ func buildDomainsWithTLD(baseDomain, pattern string) []string {
 					}
 				}
 
-
 				domain := baseDomain + "." + tld
 				if isValidDomainCached(domain) && !isInvalidDomain(domain) {
 					domains = append(domains, strings.ToLower(domain))
@@ -714,14 +656,11 @@ func buildDomainsWithTLD(baseDomain, pattern string) []string {
 func extractFromLiteralDomains(pattern string) []string {
 	var domains []string
 
-
 	cleaned := pattern
-
 
 	cleaned = strings.ReplaceAll(cleaned, `(^|\.)`, "")
 	cleaned = strings.ReplaceAll(cleaned, `^`, "")
 	cleaned = strings.ReplaceAll(cleaned, `$`, "")
-
 
 	cleaned = strings.ReplaceAll(cleaned, `.+`, "PLACEHOLDER")
 	cleaned = strings.ReplaceAll(cleaned, `.*`, "PLACEHOLDER")
@@ -729,20 +668,15 @@ func extractFromLiteralDomains(pattern string) []string {
 	cleaned = strings.ReplaceAll(cleaned, `?`, "")
 	cleaned = strings.ReplaceAll(cleaned, `*`, "")
 
-
 	cleaned = cleanupRegex.ReplaceAllString(cleaned, "")
 	cleaned = strings.ReplaceAll(cleaned, `|`, " ")
-
 
 	cleaned = symbolClassRegex.ReplaceAllString(cleaned, "1")
 	cleaned = braceRegex.ReplaceAllString(cleaned, "")
 
-
 	cleaned = strings.ReplaceAll(cleaned, `\`, "")
 
-
 	cleaned = strings.ReplaceAll(cleaned, "PLACEHOLDER", "example")
-
 
 	matches := finalDomainRegex.FindAllString(cleaned, -1)
 
@@ -765,9 +699,7 @@ func isValidDomainCached(domain string) bool {
 	}
 	domainValidationCache.RUnlock()
 
-
 	result := isValidDomain(domain)
-
 
 	domainValidationCache.Lock()
 
@@ -784,7 +716,6 @@ func isValidDomain(domain string) bool {
 		return false
 	}
 
-
 	if !strings.Contains(domain, ".") {
 		return false
 	}
@@ -797,7 +728,6 @@ func isValidDomain(domain string) bool {
 		strings.HasPrefix(domain, ".") || strings.HasSuffix(domain, ".") {
 		return false
 	}
-
 
 	parts := strings.Split(domain, ".")
 	if len(parts) < 2 {
@@ -816,12 +746,10 @@ func isValidDomain(domain string) bool {
 		}
 	}
 
-
 	tld := parts[len(parts)-1]
 	if !tldLetterRegex.MatchString(tld) || len(tld) < 2 {
 		return false
 	}
-
 
 	if len(parts) == 2 && isValidTLD(parts[0]) {
 		return false
@@ -835,13 +763,11 @@ func isValidTLD(tld string) bool {
 		return false
 	}
 
-
 	tlds, err := loadTLDs()
 	if err != nil {
 
 		return tldValidRegex.MatchString(tld)
 	}
-
 
 	_, exists := tlds[strings.ToUpper(tld)]
 	return exists
@@ -857,9 +783,7 @@ func loadTLDs() (map[string]struct{}, error) {
 	tldsOnce.Do(func() {
 		tlds = make(map[string]struct{})
 
-
 		tldURL := "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
-
 
 		resp, err := http.Get(tldURL)
 		if err != nil {
@@ -891,40 +815,50 @@ func loadTLDs() (map[string]struct{}, error) {
 	return tlds, tldsErr
 }
 
-
 func isInvalidDomain(domain string) bool {
+	if strings.Contains(domain, "0-9") ||
+		strings.Contains(domain, "a-z") ||
+		strings.Contains(domain, "A-Z") ||
+		strings.Contains(domain, "[") ||
+		strings.Contains(domain, "]") ||
+		strings.Contains(domain, "{") ||
+		strings.Contains(domain, "}") ||
+		strings.Contains(domain, "(") ||
+		strings.Contains(domain, ")") ||
+		strings.Contains(domain, "+") ||
+		strings.Contains(domain, "*") ||
+		strings.Contains(domain, "?") {
+		return true
+	}
+
+	lower := strings.ToLower(domain)
+	if strings.Contains(lower, "placeholder") ||
+		strings.Contains(lower, "regex") ||
+		strings.Contains(lower, "match") {
+		return true
+	}
+
 	parts := strings.Split(domain, ".")
 	if len(parts) < 2 {
 		return true
 	}
 
-
 	if len(parts) == 2 {
 		first := parts[0]
 		second := parts[1]
 
-
 		if isValidTLD(first) && isValidTLD(second) {
 			return true
 		}
-
 
 		if len(first) <= 3 && isValidTLD(first) {
 			return true
 		}
 	}
 
-
 	for i, part := range parts {
 		if len(part) == 1 && i != len(parts)-1 {
-
-			if part != "a" && part != "b" && part != "c" && part != "d" &&
-				part != "e" && part != "f" && part != "g" && part != "h" &&
-				part != "i" && part != "j" && part != "k" && part != "l" &&
-				part != "m" && part != "n" && part != "o" && part != "p" &&
-				part != "q" && part != "r" && part != "s" && part != "t" &&
-				part != "u" && part != "v" && part != "w" && part != "x" &&
-				part != "y" && part != "z" {
+			if part < "a" || part > "z" {
 				return true
 			}
 		}
@@ -933,22 +867,19 @@ func isInvalidDomain(domain string) bool {
 	return false
 }
 
+// Усиливаем финальную валидацию: отбрасываем всё, что похоже на шаблоны (0-9, a-z, скобки и т.п.).
 func validateAndCleanDomains(domains []string) []string {
 	if len(domains) == 0 {
 		return nil
 	}
-
-
 	seen := make(map[string]bool, len(domains))
 	var validDomains []string
-
 	for _, domain := range domains {
-		if !seen[domain] && isValidDomainCached(domain) {
+		if !seen[domain] && isValidDomainCached(domain) && !isInvalidDomain(domain) {
 			seen[domain] = true
 			validDomains = append(validDomains, domain)
 		}
 	}
-
 	return validDomains
 }
 
@@ -1003,7 +934,6 @@ func filterDomains(domains []string) []string {
 	if len(domains) == 0 {
 		return nil
 	}
-
 	uniqueSet := make(map[string]struct{})
 	for _, d := range domains {
 		uniqueSet[d] = struct{}{}
@@ -1012,13 +942,11 @@ func filterDomains(domains []string) []string {
 	for d := range uniqueSet {
 		uniqueDomains = append(uniqueDomains, d)
 	}
-
 	sort.Slice(uniqueDomains, func(i, j int) bool {
 		return strings.Count(uniqueDomains[i], ".") < strings.Count(uniqueDomains[j], ".")
 	})
-
-	trie := newDomainTrie()
 	result := make([]string, 0, len(uniqueDomains))
+	trie := newDomainTrie()
 	for _, d := range uniqueDomains {
 		if !trie.containsSuperdomain(d) {
 			result = append(result, d)
@@ -1252,7 +1180,6 @@ func processServices(ctx context.Context, config Config) (map[string][]string, m
 	allExcluded := make(map[string]struct{})
 	var mu sync.Mutex
 
-
 	var v2flyCategories []string
 	for _, cfg := range config.Services {
 		v2flyCategories = append(v2flyCategories, cfg.V2fly...)
@@ -1290,7 +1217,6 @@ func processServices(ctx context.Context, config Config) (map[string][]string, m
 				logger.Warn("Error processing service %s: %v", name, err)
 				domains = []string{}
 			}
-
 
 			servicePath := filepath.Join(categoriesDir, name, name+".lst")
 			if err := saveDomains(servicePath, domains); err != nil {
@@ -1370,20 +1296,32 @@ func processGroup(ctx context.Context, name string, cfg GroupConfig, v2flyData m
 	return filterDomains(domainList), nil
 }
 
-func processGroups(ctx context.Context, config Config, v2flyData map[string][]string, serviceDomains map[string][]string, serviceGeneral map[string]bool, excluded []string, serviceDomainsForCleanup map[string][]string) (map[string][]string, error) {
+func processGroups(
+	ctx context.Context,
+	config Config,
+	v2flyData map[string][]string,
+	serviceDomains map[string][]string,
+	serviceGeneral map[string]bool,
+	excluded []string,
+	serviceDomainsForCleanup map[string][]string,
+) (map[string][]string, map[string]bool, error) {
+
 	excludedSet := make(map[string]struct{})
 	for _, d := range excluded {
 		excludedSet[d] = struct{}{}
 	}
 
 	groupResults := make(map[string][]string)
+	groupGeneral := make(map[string]bool)
+
 	g, ctx := errgroup.WithContext(ctx)
 	var mu sync.Mutex
 
 	for name, cfg := range config.Groups {
-
 		originalName := name
 		name, cfg := originalName, cfg
+
+		groupGeneral[name] = getGeneralValue(cfg.General)
 
 		g.Go(func() error {
 			domains, err := processGroup(ctx, name, cfg, v2flyData, serviceDomains, serviceGeneral)
@@ -1392,12 +1330,10 @@ func processGroups(ctx context.Context, config Config, v2flyData map[string][]st
 				domains = []string{}
 			}
 
-
 			groupPath := filepath.Join(groupsDir, name, name+".lst")
 			if err := saveDomains(groupPath, domains); err != nil {
 				return fmt.Errorf("save group domains for %s: %w", name, err)
 			}
-
 
 			var filtered []string
 			if getGeneralValue(cfg.General) {
@@ -1420,9 +1356,9 @@ func processGroups(ctx context.Context, config Config, v2flyData map[string][]st
 	}
 
 	if err := g.Wait(); err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return groupResults, nil
+	return groupResults, groupGeneral, nil
 }
 
 func cleanupDomainsFromMainFile(serviceDomainsForCleanup map[string][]string, serviceGeneral map[string]bool, existingDomains map[string]struct{}) map[string]struct{} {
@@ -1436,7 +1372,6 @@ func cleanupDomainsFromMainFile(serviceDomainsForCleanup map[string][]string, se
 			}
 		}
 	}
-
 
 	cleanedDomains := make(map[string]struct{})
 	for domain := range existingDomains {
@@ -1469,12 +1404,10 @@ func loadExistingDomains() (map[string]struct{}, error) {
 	if _, err := os.Stat(domainsFile); os.IsNotExist(err) {
 		return existing, nil
 	}
-
 	data, err := os.ReadFile(domainsFile)
 	if err != nil {
 		return nil, fmt.Errorf("read domains file: %w", err)
 	}
-
 	scanner := bufio.NewScanner(bytes.NewReader(data))
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
@@ -1491,34 +1424,49 @@ func buildMainDomainList(
 	groupDomains map[string][]string,
 	existingDomains map[string]struct{},
 	serviceDomainsForCleanup map[string][]string,
+	groupGeneral map[string]bool,
 ) map[string]struct{} {
 
-	cleanedExistingDomains := cleanupDomainsFromMainFile(serviceDomainsForCleanup, serviceGeneral, existingDomains)
+    mainDomains := make(map[string]struct{})
+    servicesTrue := make(map[string]struct{})
+    servicesFalse := make(map[string]struct{})
 
-	mainDomains := make(map[string]struct{})
+    for name, domains := range serviceDomains {
+        if serviceGeneral[name] {
+            for _, d := range domains {
+                servicesTrue[d] = struct{}{}
+            }
+        } else {
+            for _, d := range domains {
+                servicesFalse[d] = struct{}{}
+            }
+        }
+    }
 
+    for d := range servicesTrue {
+        mainDomains[d] = struct{}{}
+    }
 
-	for d := range cleanedExistingDomains {
-		mainDomains[d] = struct{}{}
-	}
+    for d := range servicesFalse {
+        delete(mainDomains, d)
+    }
 
+    for name, domains := range groupDomains {
+        isGeneral := groupGeneral[name]
+        for _, d := range domains {
+            if isGeneral {
+                if _, excluded := servicesFalse[d]; !excluded {
+                    mainDomains[d] = struct{}{}
+                }
+            } else {
+                if _, protected := servicesTrue[d]; !protected {
+                    delete(mainDomains, d)
+                }
+            }
+        }
+    }
 
-	for name, domains := range serviceDomains {
-		if serviceGeneral[name] {
-			for _, d := range domains {
-				mainDomains[d] = struct{}{}
-			}
-		}
-	}
-
-
-	for _, domains := range groupDomains {
-		for _, d := range domains {
-			mainDomains[d] = struct{}{}
-		}
-	}
-
-	return mainDomains
+    return mainDomains
 }
 
 func excludeDomains(mainDomains map[string]struct{}, excluded []string) []string {
@@ -1529,18 +1477,18 @@ func excludeDomains(mainDomains map[string]struct{}, excluded []string) []string
 		}
 		return result
 	}
-
-
 	excludeTrie := newDomainTrie()
+	excludedSet := make(map[string]struct{}, len(excluded))
 	for _, ex := range excluded {
 		excludeTrie.insert(ex)
+		excludedSet[ex] = struct{}{}
 	}
-
 	finalList := make([]string, 0, len(mainDomains))
 	for d := range mainDomains {
-		if !excludeTrie.containsSuperdomain(d) {
-			finalList = append(finalList, d)
+		if _, ok := excludedSet[d]; ok || excludeTrie.containsSuperdomain(d) {
+			continue
 		}
+		finalList = append(finalList, d)
 	}
 	return finalList
 }
@@ -1551,68 +1499,146 @@ func saveDomainsFile(domains []string) error {
 	return os.WriteFile(domainsFile, []byte(data), 0644)
 }
 
+func mapFromSlice(slice []string) map[string]struct{} {
+	m := make(map[string]struct{}, len(slice))
+	for _, s := range slice {
+		m[s] = struct{}{}
+	}
+	return m
+}
+
 func main() {
 	logger.Info("Starting domain parser...")
 	startTime := time.Now()
-	defer func() {
-		logger.Info("Execution time: %v", time.Since(startTime))
-	}()
-
+	defer func() { logger.Info("Execution time: %v", time.Since(startTime)) }()
 	if err := runDomainScripts(); err != nil {
 		logger.Error("Domain scripts error: %v", err)
 		os.Exit(1)
 	}
-
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-
 	defer func() {
 		if err := os.RemoveAll(v2flyCloneDir); err != nil {
 			logger.Warn("Error cleaning v2fly dir: %v", err)
 		}
 	}()
-
 	config, err := loadConfig()
 	if err != nil {
 		logger.Error("Config error: %v", err)
 		os.Exit(1)
 	}
-
-
 	serviceDomains, serviceGeneral, allExcluded, v2flyData, serviceDomainsForCleanup, err := processServices(ctx, config)
 	if err != nil {
 		logger.Error("Services processing error: %v", err)
 		os.Exit(1)
 	}
-
-
-	groupDomains, err := processGroups(ctx, config, v2flyData, serviceDomains, serviceGeneral, allExcluded, serviceDomainsForCleanup)
+	groupDomains, groupGeneral, err := processGroups(ctx, config, v2flyData, serviceDomains, serviceGeneral, allExcluded, serviceDomainsForCleanup)
 	if err != nil {
 		logger.Error("Groups processing error: %v", err)
 		os.Exit(1)
 	}
-
 	existingDomains, err := loadExistingDomains()
 	if err != nil {
 		logger.Error("Error loading existing domains: %v", err)
 		os.Exit(1)
 	}
-
-
-	mainDomains := buildMainDomainList(
-		serviceDomains,
-		serviceGeneral,
-		groupDomains,
-		existingDomains,
-		serviceDomainsForCleanup,
-	)
-
-	finalDomains := excludeDomains(mainDomains, allExcluded)
-
-	if err := saveDomainsFile(finalDomains); err != nil {
-		logger.Error("Error saving domains file: %v", err)
-		os.Exit(1)
+	addedByServices := make(map[string]struct{})
+	removedByServices := make(map[string]struct{})
+	addedByGroups := make(map[string]struct{})
+	removedByGroups := make(map[string]struct{})
+	for name, domains := range serviceDomains {
+		if serviceGeneral[name] {
+			for _, d := range domains {
+				addedByServices[d] = struct{}{}
+			}
+		} else {
+			for _, d := range domains {
+				removedByServices[d] = struct{}{}
+			}
+		}
 	}
+	for name, domains := range groupDomains {
+		general := groupGeneral[name]
+		if general {
+			for _, d := range domains {
+				if _, forbidden := removedByServices[d]; !forbidden {
+					addedByGroups[d] = struct{}{}
+				}
+			}
+		} else {
+			for _, d := range domains {
+				if _, protected := addedByServices[d]; !protected {
+					removedByGroups[d] = struct{}{}
+				}
+			}
+		}
+	}
+    // Build the final domain list based on priority rules.
+    // Priority order (highest to lowest):
+    // 1. Service removals (general=false) remove domains unconditionally.
+    // 2. Service additions (general=true) add domains.
+    // 3. Group removals (general=false) remove domains unless overridden by service additions.
+    // 4. Group additions (general=true) add domains unless removed by a service.
+    // 5. Existing domains: added if they are not removed by services or groups.
 
-	logger.Info("Domain processing completed successfully")
+    finalDomains := make(map[string]struct{})
+
+    // Step 1: service additions
+    for d := range addedByServices {
+        finalDomains[d] = struct{}{}
+    }
+
+    // Step 2: group additions (only if not removed by a service)
+    for d := range addedByGroups {
+        if _, removed := removedByServices[d]; removed {
+            continue
+        }
+        finalDomains[d] = struct{}{}
+    }
+
+    // Step 3: service removals
+    for d := range removedByServices {
+        delete(finalDomains, d)
+    }
+
+    // Step 4: group removals (only if not protected by a service addition)
+    for d := range removedByGroups {
+        if _, addedByService := addedByServices[d]; addedByService {
+            continue
+        }
+        delete(finalDomains, d)
+    }
+
+    // Step 5: process existing domains. Add existing domains that are not removed by
+    // services or groups. A domain from existing is kept unless it appears in the
+    // service removal set, or in a group removal set not overridden by a service addition.
+    for d := range existingDomains {
+        if _, removedByService := removedByServices[d]; removedByService {
+            continue
+        }
+        if _, removedByGroup := removedByGroups[d]; removedByGroup {
+            // If a service adds this domain, it should remain despite the group removal
+            if _, addedByService := addedByServices[d]; addedByService {
+                finalDomains[d] = struct{}{}
+            }
+            continue
+        }
+        finalDomains[d] = struct{}{}
+    }
+
+    // Convert finalDomains map to a slice for exclusion and saving.
+    keys := make([]string, 0, len(finalDomains))
+    for k := range finalDomains {
+        keys = append(keys, k)
+    }
+
+    // Apply exclusion based on allExcluded. This will remove any domain that matches
+    // an excluded domain or has a superdomain in the excluded list.
+    finalList := excludeDomains(mapFromSlice(keys), allExcluded)
+
+    if err := saveDomainsFile(finalList); err != nil {
+        logger.Error("Error saving domains file: %v", err)
+        os.Exit(1)
+    }
+    logger.Info("Domain processing completed successfully")
 }

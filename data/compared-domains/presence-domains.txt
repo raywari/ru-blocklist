@@ -380,6 +380,7 @@
 - iptv.online
 - is.fi
 - istories.media
+- itdog.info
 - itninja.com
 - itsmycity.ru
 - jamf.com
@@ -933,6 +934,7 @@
 - youtubei.googleapis.com
 - youtubekids.com
 - yt-video-upload.l.google.com
+- yt.be
 - yt3.googleusercontent.com
 - ytimg.com
 - ytimg.l.google.com
@@ -994,6 +996,7 @@
 - bungiestore.com
 - byteoversea.com
 - canva.com
+- cdn-telegram.org
 - cdn.betterttv.net
 - cdninstagram.com
 - certifytheweb.com
@@ -1197,9 +1200,20 @@
 - stulchik.net
 - swagger.io
 - sysdig.com
+- t.me
 - t3.chat
 - tailscale.com
+- tdesktop.com
+- telega.one
+- telegra.ph
+- telegram-cdn.org
+- telegram.dog
+- telegram.me
+- telegram.org
+- telegram.space
+- telesco.pe
 - terraform.io
+- tg.dev
 - themoviedb.org
 - ti.com
 - tidal.com
@@ -1229,6 +1243,7 @@
 - turn.livekit.cloud
 - tutanota.com
 - twimg.com
+- tx.me
 - ubnt.com
 - ufile.io
 - ui.com

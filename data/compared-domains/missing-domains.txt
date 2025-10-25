@@ -9,8 +9,10 @@
 - croxyproxy.com
 - devexpress.com
 - dyson.com
+- e-hentai.org
 - easydmarc.com
 - eneba.com
+- freeones.com
 - gamestop.com
 - genspark.ai
 - gifyu.com
@@ -19,6 +21,7 @@
 - hdrezka.tv
 - hdrzk.org
 - hdstudio.org
+- hitomi.la
 - housebrand.com
 - hume.ai
 - hybrid-analysis.com
@@ -31,16 +34,21 @@
 - modrinth.com
 - myanimelist.net
 - notion-emojis.s3-us-west-2.amazonaws.com
+- nude-moon.org
 - posthog.com
 - quicknode.com
 - qwant.com
+- realbooru.com
 - restream.io
 - rezka.cc
 - rezka.fi
 - rezka.land
 - rezka.tv
+- rule34.us
 - startmail.com
+- theporndude.com
 - tria.ge
+- ukdevilz.com
 - unsplash.com
 - webmd.com
 
@@ -48,24 +56,11 @@
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - adafruit.com
-- cdn-telegram.org
 - fastpic.org
 - gvt1.com
 - pbs.twimg.com.cdn.cloudflare.net
 - pump.fun
 - sendgrid.net
-- t.me
-- tdesktop.com
-- telega.one
-- telegra.ph
-- telegram-cdn.org
-- telegram.dog
-- telegram.me
-- telegram.org
-- telegram.space
-- telesco.pe
-- tg.dev
-- tx.me
 
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst

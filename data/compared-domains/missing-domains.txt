@@ -1,7 +1,48 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
+- arc.net
+- chub.ai
+- clevelandclinic.org
+- coldfilm.city
+- coldfilm.ink
+- croxyproxy.com
+- devexpress.com
+- dyson.com
+- easydmarc.com
+- eneba.com
+- gamestop.com
+- genspark.ai
+- gifyu.com
+- hdrezka.app
+- hdrezka.tech
+- hdrezka.tv
+- hdrzk.org
+- hdstudio.org
+- housebrand.com
+- hume.ai
+- hybrid-analysis.com
+- itch.io
+- kinopub.me
+- lostfilm.tw
+- lostfilm.uno
+- manybooks.net
+- mega.nz
+- modrinth.com
+- myanimelist.net
 - notion-emojis.s3-us-west-2.amazonaws.com
+- posthog.com
+- quicknode.com
+- qwant.com
+- restream.io
+- rezka.cc
+- rezka.fi
+- rezka.land
+- rezka.tv
+- startmail.com
+- tria.ge
+- unsplash.com
+- webmd.com
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst

@@ -94,7 +94,7 @@ url = ["https://iplist.opencck.org/?format=text&data=domains&site=elevenlabs.io"
 [services.Telegram]
 v2fly = ["telegram"]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=telegram.org"]
-general = false
+general = true
 
 [services.YouTube]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=youtube.com", "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Services/youtube.lst"]

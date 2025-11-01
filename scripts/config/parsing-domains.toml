@@ -7,6 +7,10 @@
 [services.GitHub]
 v2fly = ["github"]
 
+[services.Reddit]
+v2fly = ["reddit"]
+general = false
+
 [services.TMDB]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=themoviedb.org"]
 v2fly = ["tmdb"]
@@ -287,7 +291,7 @@ include = ["1337x", "booktracker", "filmitorrent", "kinozal", "newstudio", "nnmc
 include = ["netflix", "hulu", "primevideo", "hbo"]
 
 [groups.Social]
-include = ["discord", "telegram", "viber", "instagram", "facebook", "threads", "x", "tiktok", "linkedin", "messenger", "signal", "whatsapp"]
+include = ["discord", "telegram", "viber", "instagram", "facebook", "threads", "x", "tiktok", "linkedin", "messenger", "signal", "whatsapp", "reddit"]
 
 [groups.AI]
 include = ["google-ai", "elevenlabs", "copilot", "openai", "grok", "deepseek", "perplexity", "huggingface", "anthropic"]

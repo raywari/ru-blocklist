@@ -270,6 +270,10 @@ v2fly = ["speedtest"]
 [services.Adobe]
 v2fly = ["adobe"]
 
+[services.Steam]
+v2fly = ["steam"]
+general = false
+
 ##############
 ###        ###
 ### GROUPS ###

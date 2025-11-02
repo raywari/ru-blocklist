@@ -74,4 +74,5 @@
 - s3-1.amazonaws.com
 - vyos.net
 - wallpapercave.com
+- zimbra.org
 

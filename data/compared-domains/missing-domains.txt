@@ -1,13 +1,18 @@
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
+- aircanada.com
+- akc.org
 - arc.net
+- chesscomfiles.com
 - chub.ai
 - clevelandclinic.org
 - coldfilm.city
 - coldfilm.ink
+- connect.ngrok-agent.com
 - croxyproxy.com
 - devexpress.com
+- diabrowser.com
 - dyson.com
 - e-hentai.org
 - easydmarc.com
@@ -25,6 +30,7 @@
 - housebrand.com
 - hume.ai
 - hybrid-analysis.com
+- indeed.com
 - itch.io
 - kinopub.me
 - lostfilm.tw
@@ -33,6 +39,7 @@
 - mega.nz
 - modrinth.com
 - myanimelist.net
+- netacad.com
 - notion-emojis.s3-us-west-2.amazonaws.com
 - nude-moon.org
 - posthog.com
@@ -45,9 +52,15 @@
 - rezka.land
 - rezka.tv
 - rule34.us
+- siteground.com
+- sonara.ai
 - startmail.com
 - theporndude.com
+- transferwise.com
 - tria.ge
+- twin.me
+- twinlife-systems.com
+- twinme.com
 - ukdevilz.com
 - unsplash.com
 - webmd.com
@@ -74,5 +87,6 @@
 - s3-1.amazonaws.com
 - vyos.net
 - wallpapercave.com
+- zimbra.com
 - zimbra.org
 

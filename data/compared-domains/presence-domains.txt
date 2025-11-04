@@ -60,6 +60,7 @@
 - archiveofourown.org
 - as6723.net
 - assets.heroku.com
+- atlassian.com
 - att.com
 - audiobookbay.lu
 - autodesk.com
@@ -380,7 +381,6 @@
 - iptv.online
 - is.fi
 - istories.media
-- itdog.info
 - itninja.com
 - itsmycity.ru
 - jamf.com
@@ -481,6 +481,7 @@
 - monoprice.com
 - more.fm
 - moscowtimes.ru
+- mouser.com
 - mouser.fi
 - mssg.me
 - mullvad.net
@@ -563,6 +564,7 @@
 - openrouter.ai
 - opensanctions.org
 - opensea.io
+- opentrackr.org
 - opposition-news.com
 - oracle.com
 - ovd.info
@@ -904,6 +906,7 @@
 - wilsoncenter.org
 - windows10spotlight.com
 - windsurf.com
+- wise.com
 - wonderzine.com
 - wpengine.com
 - wunderground.com

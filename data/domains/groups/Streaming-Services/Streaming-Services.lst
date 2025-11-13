@@ -8,7 +8,12 @@ apiproxy-website-nlb-prod-example.amazonaws.com
 brightline.tv
 callhulu.com
 cinemax.com
+d1v5ir2lpwr8os.cloudfront.net
+d22qjgkvxw22r6.cloudfront.net
+d25xi40x97liuc.cloudfront.net
+d27xxe7juh1us6.cloudfront.net
 discomax.com
+dmqdd6hw24ucf.cloudfront.net
 dualstack.apiproxy-example.amazonaws.com
 dualstack.ichnaea-web-example.amazonaws.com
 fast.com
@@ -71,9 +76,13 @@ hulustream.com
 huluteam.com
 hulutv.com
 huluusa.com
+images-eu.ssl-images-amazon.com
+images-fe.ssl-images-amazon.com
+images-na.ssl-images-amazon.com
 joinmaidez.com
 max.com
 maxgo.com
+msh.amazon.co.uk
 mushymush.tv
 myhulu.com
 netflix.ca
@@ -110,6 +119,8 @@ primevideo.info
 primevideo.org
 primevideo.tv
 privacyportal.onetrust.com
+prod.service.minerva.devices.a2z.com
 registerhulu.com
+static.siege-amazon.com
 thehulubraintrust.com
 wwwhuluplus.com

@@ -80,6 +80,7 @@
 
 - cdn2site.com
 - epg.one
+- happycolorapp.com
 - lostfilm.today
 - melord.net
 - nsf.gov

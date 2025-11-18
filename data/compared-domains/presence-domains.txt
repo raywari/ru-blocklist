@@ -24,6 +24,8 @@
 - agents.media
 - ahrefs.com
 - ai.com
+- aircanada.com
+- akc.org
 - allegro.pl
 - alphacoders.com
 - alza.hu
@@ -56,6 +58,7 @@
 - api.service-kp.com
 - apkmirror.com
 - arbat.media
+- arc.net
 - archive.ph
 - archiveofourown.org
 - as6723.net
@@ -124,6 +127,8 @@
 - chaturbate.com
 - cherta.media
 - chess.com
+- chesscomfiles.com
+- chub.ai
 - cisco.com
 - cisecurity.org
 - citrix.com
@@ -131,6 +136,7 @@
 - clashofclans.com
 - clashroyaleapp.com
 - claude.ai
+- clevelandclinic.org
 - clickup.com
 - clip.opus.pro
 - cloudtorrents.com
@@ -142,9 +148,12 @@
 - coingate.com
 - coinpayments.net
 - coinsbee.com
+- coldfilm.city
+- coldfilm.ink
 - coldfilm.xyz
 - colta.ru
 - community.sophos.com
+- connect.ngrok-agent.com
 - contabo.com
 - coomer.su
 - copilot.microsoft.com
@@ -152,6 +161,7 @@
 - coursera.org
 - cpu-monkey.com
 - credly.com
+- croxyproxy.com
 - crunchyroll.com
 - cub.red
 - currenttime.tv
@@ -176,7 +186,9 @@
 - designer.microsoft.com
 - designify.com
 - developer.nvidia.com
+- devexpress.com
 - deviantart.com
+- diabrowser.com
 - digash.live
 - digikey.com
 - digitalcontent.sky
@@ -215,7 +227,10 @@
 - ducati.com
 - dumka.media
 - dw.com
+- dyson.com
+- e-hentai.org
 - e621.net
+- easydmarc.com
 - echofm.online
 - editorx.com
 - edu-cisco.org
@@ -226,6 +241,7 @@
 - ekhokavkaza.com
 - element14.com
 - elevenlabs.io
+- eneba.com
 - epidemz.net.co
 - eporner.com
 - espreso.tv
@@ -284,20 +300,24 @@
 - freedomletters.org
 - freeimages.com
 - freemedia.io
+- freeones.com
 - fxnetworks.com
 - g2a.com
 - gagadget.com
 - gamedistribution.com
 - gamesrepack.com
+- gamestop.com
 - gaming.amazon.com
 - geforcenow.com
 - gelbooru.com
+- genspark.ai
 - germania.one
 - getoutline.com
 - getoutline.org
 - gfn.am
 - ggpht.com
 - ghostrc.game.idtech.services
+- gifyu.com
 - glavred.info
 - glavred.net
 - global.fncstatic.com
@@ -336,11 +356,17 @@
 - hdkinoteatr.com
 - hdrezka.ac
 - hdrezka.ag
+- hdrezka.app
 - hdrezka.me
+- hdrezka.tech
+- hdrezka.tv
+- hdrzk.org
+- hdstudio.org
 - healthline.com
 - hentai-foundry.com
 - herokucdn.com
 - hetzner.com
+- hitomi.la
 - hollisterco.com
 - holod.media
 - home-connect.com
@@ -348,9 +374,12 @@
 - hostgator.com
 - hostinger.com
 - hotels.com
+- housebrand.com
 - hqporner.com
 - hs.fi
 - htmhell.dev
+- hume.ai
+- hybrid-analysis.com
 - ibm.com
 - ibytedtos.com
 - idelreal.org
@@ -364,6 +393,7 @@
 - ilook.tv
 - imgur.com
 - important-stories.com
+- indeed.com
 - indiehackers.com
 - infineon.com
 - insearch.site
@@ -381,6 +411,7 @@
 - iptv.online
 - is.fi
 - istories.media
+- itch.io
 - itninja.com
 - itsmycity.ru
 - jamf.com
@@ -404,6 +435,7 @@
 - kinogo.ec
 - kinogo.la
 - kinogo.uk
+- kinopub.me
 - kinovod.net
 - kinozal.guru
 - kinozal.me
@@ -443,6 +475,8 @@
 - lookerstudio.google.com
 - lostfilm.download
 - lostfilm.tv
+- lostfilm.tw
+- lostfilm.uno
 - lostfilmtv2.site
 - lu4.org
 - lucid.app
@@ -456,6 +490,7 @@
 - mangahub.ru
 - mangapark.net
 - manus.im
+- manybooks.net
 - manyvids.com
 - marvelsnap.com
 - mashable.com
@@ -465,6 +500,7 @@
 - medicalnewstoday.com
 - medium.com
 - meduza.io
+- mega.nz
 - megapeer.ru
 - megapeer.vip
 - merezha.co
@@ -477,6 +513,7 @@
 - mignews.com
 - miracleptr.wordpress.com
 - mixcloud.com
+- modrinth.com
 - mongodb.com
 - monoprice.com
 - more.fm
@@ -490,6 +527,7 @@
 - musical.ly
 - musixmatch.com
 - mw2.wiki
+- myanimelist.net
 - mydoramy.club
 - myheritage.com
 - myjetbrains.com
@@ -498,6 +536,7 @@
 - navalny.com
 - nba.com
 - neo4j.com
+- netacad.com
 - netapp.com
 - netflix.ca
 - netflix.com
@@ -544,6 +583,7 @@
 - novyny.live
 - ntc.party
 - ntp.msn.com
+- nude-moon.org
 - nxp.com
 - oaistatic.com
 - oaiusercontent.com
@@ -605,6 +645,7 @@
 - pornhub.org
 - pornolab.net
 - posle.media
+- posthog.com
 - postimees.ee
 - pravda.com
 - premierleague.com
@@ -623,11 +664,14 @@
 - pscp.tv
 - psiphon.ca
 - qt.io
+- quicknode.com
 - quora.com
 - quora.com.cdn.cloudflare.net
+- qwant.com
 - radiosakharov.org
 - radiosvoboda.org
 - reactflow.dev
+- realbooru.com
 - realist.online
 - recraft.ai
 - reddxxx.com
@@ -643,11 +687,16 @@
 - rentry.org
 - republic.ru
 - research.net
+- restream.io
 - returnyoutubedislikeapi.com
 - reve.art
 - rezka-ua.in
 - rezka.ag
+- rezka.cc
+- rezka.fi
+- rezka.land
 - rezka.my
+- rezka.tv
 - rezkify.com
 - rezonans.media
 - rferl.org
@@ -659,6 +708,7 @@
 - roskomsvoboda.org
 - rublacklist.net
 - rule34.art
+- rule34.us
 - rule34.xxx
 - ruscryde.net
 - rustorka.com
@@ -723,6 +773,7 @@
 - simplix.info
 - singlekey-id.com
 - site.com
+- siteground.com
 - skat.media
 - sketchup.com
 - skiff.com
@@ -743,6 +794,7 @@
 - snyk.io
 - sobesednik.com
 - solarwinds.com
+- sonara.ai
 - sora.com
 - sotaproject.com
 - soundcloud.cloud
@@ -760,6 +812,7 @@
 - squadbustersgame.com
 - squareup.com
 - squietpc.com
+- startmail.com
 - startpage.com
 - statology.org
 - steamstat.info
@@ -801,6 +854,7 @@
 - theins.ru
 - themoviedb.org
 - thepiratebay.org
+- theporndude.com
 - thetruestory.news
 - threads.net
 - threema.ch
@@ -829,7 +883,9 @@
 - trae.ai
 - trailblazer.me
 - trailhead.com
+- transferwise.com
 - trellix.com
+- tria.ge
 - trueblackmetalradio.com
 - truthsocial.com
 - tsmc.com
@@ -843,6 +899,9 @@
 - tvrain.tv
 - tweetdeck.com
 - twimg.com
+- twin.me
+- twinlife-systems.com
+- twinme.com
 - twirpx.com
 - twitpic.com
 - twitter.biz
@@ -860,10 +919,12 @@
 - typing.com
 - uaudio.com
 - uizard.io
+- ukdevilz.com
 - ukr.net
 - ukr.radio
 - ukrtelcdn.net
 - unscreen.com
+- unsplash.com
 - upwork.com
 - usa.one
 - usatoday.com
@@ -895,6 +956,7 @@
 - watermarkremover.io
 - wbgames.com
 - weather.com
+- webmd.com
 - webnames.ca
 - webtoons.com
 - weebly.com
@@ -1330,6 +1392,7 @@
 - bradyid.com
 - broadcom.com
 - canva.com
+- cdn2site.com
 - cdninstagram.com
 - certifytheweb.com
 - chatgpt.com
@@ -1366,6 +1429,7 @@
 - ehorussia.com
 - ej.ru
 - envato.com
+- epg.one
 - etsy.com
 - eu-iot-prod.aws.tcljd.com
 - euronews.com
@@ -1395,6 +1459,7 @@
 - grok.com
 - gulagu.net
 - habr.com
+- happycolorapp.com
 - hdkinoteatr.com
 - hdrezka.fm
 - hetzner.com
@@ -1428,6 +1493,7 @@
 - linuxiac.com
 - localbitcoins.com
 - lostfilm.run
+- lostfilm.today
 - lostfilm.tv
 - lostfilm.win
 - lostfilmtv5.site
@@ -1441,6 +1507,7 @@
 - medium.com
 - meduza.io
 - megapeer.ru
+- melord.net
 - memohrc.org
 - metacritic.com
 - microchip.com
@@ -1462,6 +1529,7 @@
 - notepad-plus-plus.org
 - novayagazeta.eu
 - novayagazeta.ru
+- nsf.gov
 - ntc.party
 - nxp.com
 - nyaa.si
@@ -1480,6 +1548,7 @@
 - pb.wtf
 - pcbway.com
 - pcbway.ru
+- pepperl-fuchs.com
 - phoenixcontact.com
 - php.su
 - piccy.info
@@ -1571,6 +1640,8 @@
 - vot-tak.tv
 - vrv.co
 - vyos.io
+- vyos.net
+- wallpapercave.com
 - watchguard.com
 - weather.com
 - welt.de
@@ -1591,6 +1662,8 @@
 - youtu.be
 - yt3.googleusercontent.com
 - zetflix.online
+- zimbra.com
+- zimbra.org
 - znanija.com
 - zohomail.com
 - zona.media

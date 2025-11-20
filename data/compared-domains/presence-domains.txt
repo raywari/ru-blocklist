@@ -307,7 +307,6 @@
 - gamedistribution.com
 - gamesrepack.com
 - gamestop.com
-- gaming.amazon.com
 - geforcenow.com
 - gelbooru.com
 - genspark.ai
@@ -1015,6 +1014,92 @@
 - zona.media
 
 # Presence domains
+# Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
+
+- alterportal.net
+- amazon.com
+- archlinux.org
+- artstation.com
+- beamng.com
+- bitru.org
+- check-host.net
+- clashverge.dev
+- clerk.com
+- clerk.dev
+- cloudflare.com
+- crdroid.net
+- desec.io
+- discogs.com
+- drpool.io
+- ds-servers.com
+- edx.org
+- ezgif.com
+- fastpic.org
+- feeds.feedburner.com
+- flclash.cc
+- forum.syncthing.net
+- fosshub.com
+- fossorial.io
+- heavyfetish.com
+- hetzner.cloud
+- hetzner.com
+- ikea.com
+- imagedelivery.net
+- inoreader.com
+- iot334.com
+- ipinfo.app
+- ixxx.com
+- izzysoft.de
+- jinxxy.com
+- karing.app
+- lenso.ai
+- magicalchemy.org
+- manjaro.org
+- mirror.chaotic.cx
+- mongodb.com
+- netbird.io
+- nextcloud.com
+- nexusmods.com
+- ocbase.com
+- openrailwaymap.org
+- openwrt.org
+- pastebin.com
+- pinterest.com
+- pixabay.com
+- podkop.net
+- protondb.com
+- protonvpn.com
+- rulet.tv
+- russianfood.com
+- rutracker.org
+- sing-box.sagernet.org
+- smods.ru
+- spankbang.com
+- strava.com
+- succurity.com
+- sxyprn.com
+- sxyprn.net
+- teamviewer.com
+- trueachievements.com
+- tuya-inc.cn
+- tuya.com
+- tuyaaf.com
+- tuyacn.com
+- tuyaeu.com
+- tuyain.com
+- tuyaus.com
+- vod.streamgum.com
+- vrchat.cloud
+- vrchat.com
+- wbagora.com
+- wbgames.com
+- wbinsights.com
+- windowsupdate.com
+- wwnd.space
+- yarnpkg.com
+- zerotier.com
+
+# Presence domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - 4pda.ru
@@ -1117,6 +1202,7 @@
 - etsy.com
 - exler.ru
 - f95zone.to
+- fastpic.org
 - fex.net
 - filmix.biz
 - flibusta.is

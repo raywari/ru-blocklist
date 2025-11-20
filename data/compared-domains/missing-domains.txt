@@ -4,10 +4,14 @@
 - notion-emojis.s3-us-west-2.amazonaws.com
 
 # Missing domains
+# Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
+
+- reddit.com
+
+# Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - adafruit.com
-- fastpic.org
 - gvt1.com
 - pbs.twimg.com.cdn.cloudflare.net
 - pump.fun

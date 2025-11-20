@@ -1,3 +1,4 @@
 https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
 https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 https://community.antifilter.download/list/domains.lst

@@ -72,3 +72,7 @@ asn = 20473
 [services.Oracle]
 type = "asn"
 asn = [31898, 54253, 15519, 11049, 1218, 1219, 46558, 14544, 11506, 18916, 4184, 206209, 1216, 20054, 1217, 23885, 1215, 38538, 20037, 136025, 6142, 395010, 138207, 393773, 11479]
+
+[services.GEOIP-RU]
+type = "single_url"
+url = ["https://raw.githubusercontent.com/v2fly/geoip/refs/heads/release/text/ru.txt"]

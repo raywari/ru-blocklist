@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "51.la",
         "51y5.net",
         "a.adtng.com",
         "aaxads.com",
@@ -49,6 +50,8 @@
         "imglnkc.com",
         "imglnkd.com",
         "innovid.com",
+        "ipinyou.com",
+        "ipinyou.com.cn",
         "jads.co",
         "jl3.yjaxa.top",
         "juicyads.com",
@@ -59,6 +62,7 @@
         "moatads.com",
         "mobwithad.com",
         "najva.com",
+        "optaim.com",
         "pbmp.ali213.net",
         "pinggai0.caixin.com",
         "pinggai1.caixin.com",
@@ -70,7 +74,9 @@
         "pinggai7.caixin.com",
         "pinggai8.caixin.com",
         "pinggai9.caixin.com",
+        "reachmax.cn",
         "realsrv.com",
+        "reyun.com",
         "s4yxaqyq95.com",
         "sabavision.com",
         "shhs-ydd8x2.yjrmss.cn",
@@ -91,6 +97,9 @@
         "yektanet.com",
         "yfanads.cn",
         "yfanads.com",
+        "zhugeapi.com",
+        "zhugeapi.net",
+        "zhugeio.com",
         "zxid-api.mobileservice.cn",
         "zxid-m.mobileservice.cn"
       ]

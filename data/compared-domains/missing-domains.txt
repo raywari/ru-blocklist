@@ -20,5 +20,6 @@
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
+- debian.map.fastlydns.net
 - s3-1.amazonaws.com
 

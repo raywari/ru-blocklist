@@ -15,6 +15,8 @@
 - gvt1.com
 - pbs.twimg.com.cdn.cloudflare.net
 - pump.fun
+- roblox-api.arkoselabs.com
+- roblox.com
 - sendgrid.net
 
 # Missing domains

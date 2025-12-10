@@ -4,6 +4,12 @@
 ###          ###
 ################
 
+[services.Roblox]
+v2fly = ["roblox"]
+
+[services.SnapChat]
+url = ["https://iplist.opencck.org/?format=text&data=domains&site=snapchat.com"]
+
 [services.GitHub]
 v2fly = ["github"]
 

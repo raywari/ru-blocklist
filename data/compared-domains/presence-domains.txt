@@ -1301,7 +1301,6 @@
 - php.su
 - piccy.info
 - pixiv.net
-- plab.site
 - polit.ru
 - pornhub.com
 - pornolab.net
@@ -1321,9 +1320,13 @@
 - republic.ru
 - resp.app
 - rezka.ag
+- roblox-api.arkoselabs.com
+- roblox.com
 - rutor.info
 - rutor.is
 - saverudata.info
+- sc-jpl.com
+- sc-static.net
 - searchfloor.org
 - sebeanus.online
 - semnasem.org
@@ -1337,6 +1340,10 @@
 - skyscanner.com
 - slideshare.net
 - smashwords.com
+- snap-storage-cdn.l.google.com
+- snap.com
+- snapchat.com
+- snapkit.com
 - sndcdn.com
 - soapui.org
 - software-static.download.prss.microsoft.com

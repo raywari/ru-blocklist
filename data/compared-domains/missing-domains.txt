@@ -12,11 +12,11 @@
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - adafruit.com
+- elgato.com
 - gvt1.com
+- mega.co.nz
 - pbs.twimg.com.cdn.cloudflare.net
 - pump.fun
-- roblox-api.arkoselabs.com
-- roblox.com
 - sendgrid.net
 
 # Missing domains

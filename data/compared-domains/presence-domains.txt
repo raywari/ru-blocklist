@@ -1240,7 +1240,6 @@
 - jabra.com
 - jetbrains.ai
 - jetbrains.com
-- kemono.party
 - kino.pub
 - kpapp.link
 - lenovo.com

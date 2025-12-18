@@ -1,9 +1,4 @@
 # Missing domains
-# Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
-
-- notion-emojis.s3-us-west-2.amazonaws.com
-
-# Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
 
 - reddit.com
@@ -25,5 +20,4 @@
 
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
-- s3-1.amazonaws.com
 

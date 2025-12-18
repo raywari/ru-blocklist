@@ -197,7 +197,7 @@ domains = ["lordfilm.ag", "lordfilm.app", "lordfilm.art", "lordfilm.asia", "lord
 
 [services.AWS]
 v2fly = ["aws"]
-general = false
+general = true
 
 [services.Viber]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=viber.com"]

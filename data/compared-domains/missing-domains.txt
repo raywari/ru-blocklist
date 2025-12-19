@@ -20,4 +20,5 @@
 
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
+- photopea.com
 

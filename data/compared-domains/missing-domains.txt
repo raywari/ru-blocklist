@@ -11,7 +11,6 @@
 - gvt1.com
 - kemono.cr
 - mega.co.nz
-- pbs.twimg.com.cdn.cloudflare.net
 - pump.fun
 - sendgrid.net
 

@@ -416,6 +416,7 @@
 +.archive.ph
 +.archiveofourown.org
 +.archlinux.org
++.argotunnel.com
 +.ark.letv.com
 +.arm.com
 +.arnoldrenderer.com
@@ -794,8 +795,11 @@
 +.centrino.net
 +.ceramics-cadcam.com
 +.certifytheweb.com
++.cf-ipfs.com
++.cfargotunnel.com
 +.cfd-tv.com
 +.cfdesign.com
++.cfl.re
 +.cfts1tifqr.com
 +.chaos.com
 +.chat.com
@@ -857,7 +861,30 @@
 +.clip.opus.pro
 +.cloudflare-dns.com
 +.cloudflare-ech.com
++.cloudflare-esni.com
++.cloudflare-gateway.com
++.cloudflare-ipfs.com
++.cloudflare-quic.com
 +.cloudflare.com
++.cloudflare.net
++.cloudflare.tv
++.cloudflareaccess.com
++.cloudflareapps.com
++.cloudflarebolt.com
++.cloudflareclient.com
++.cloudflareinsights.com
++.cloudflareok.com
++.cloudflarepartners.com
++.cloudflareportal.com
++.cloudflarepreview.com
++.cloudflareregistrar.com
++.cloudflareresolve.com
++.cloudflaressl.com
++.cloudflarestatus.com
++.cloudflarestorage.com
++.cloudflarestream.com
++.cloudflaretest.com
++.cloudflarewarp.com
 +.cloudfront.com
 +.cloudfront.net
 +.cloudinsights.com
@@ -1215,6 +1242,7 @@
 +.evalviewer.com
 +.event.pixiv-recommend.net
 +.everand.com
++.every1dns.net
 +.evolver.com
 +.evolver3d.com
 +.evolverpro.com
@@ -2321,6 +2349,7 @@
 +.iptv.online
 +.ironbeast.io
 +.is.fi
++.isbgpsafeyet.com
 +.isdspeed.qq.com
 +.island-of-pleasure.site
 +.isnssdk.com
@@ -3071,6 +3100,7 @@
 +.omtrdc.net
 +.omv-extras.org
 +.on24.com
++.one.one.one
 +.oneapi.com
 +.oneapi.io
 +.onelink.me
@@ -3094,7 +3124,6 @@
 +.opal.google.com
 +.open.stealth.si
 +.openai.com
-+.openai.com.cdn.cloudflare.net
 +.openai.fund
 +.openai.org
 +.openaiapi-site.azureedge.net
@@ -3164,6 +3193,7 @@
 +.p9-tt.byteimg.com
 +.packaging-cadcam.com
 +.packagingcadcam.com
++.pacloudflare.com
 +.pages.dev
 +.palmnews.sina.cn
 +.pandasecurity.com
@@ -3382,12 +3412,12 @@
 +.quietpc.com
 +.quiz.directory
 +.quora.com
-+.quora.com.cdn.cloudflare.net
 +.quoracdn.com
 +.quoracdn.net
 +.qwant.com
 +.qwapi.com
 +.r.l.youku.com
++.r2.dev
 +.radarr.video
 +.radiosakharov.org
 +.radiosvoboda.org
@@ -3777,7 +3807,6 @@
 +.speed.open
 +.speedtest.co
 +.speedtest.net
-+.speedtest.net.cdn.cloudflare.net
 +.speedtestcustom.com
 +.spektr.press
 +.spiceworks.com
@@ -4073,6 +4102,7 @@
 +.truthsocial.com
 +.trv-science.ru
 +.tryalias.com
++.trycloudflare.com
 +.trydesign.com
 +.tsmc.com
 +.tspline.com
@@ -4207,9 +4237,9 @@
 +.vice.com
 +.video-akpcw-cdn-spotify-com.akamaized.net
 +.video.externulls.com
-+.video.twimg.com.cdn.cloudflare.net
 +.videocardz.com
 +.videocardz.net
++.videodelivery.net
 +.videopush.baidu.com
 +.viewpointsfromfacebook.com
 +.vine.co
@@ -4259,6 +4289,7 @@
 +.wan.youku.com
 +.wangmeng.baidu.com
 +.wapwbclick.mobile.sina.cn
++.warp.plus
 +.watchanimeattheoffice.com
 +.watchguard.com
 +.watermarkremover.io
@@ -4318,6 +4349,7 @@
 +.wm.baidu.com
 +.wonderzine.com
 +.woocall.sina.com.cn
++.workers.dev
 +.workplace.com
 +.workplaceusecases.com
 +.worldhack.com

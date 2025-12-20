@@ -7,6 +7,9 @@
 [services.Roblox]
 v2fly = ["roblox"]
 
+[services.Cloudflare]
+v2fly = ["cloudflare"]
+
 [services.SnapChat]
 url = ["https://iplist.opencck.org/?format=text&data=domains&site=snapchat.com"]
 

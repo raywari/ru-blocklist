@@ -1,7 +1,59 @@
 # Missing domains
+# Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
+
+- a-vrv.akamaized.net
+- any.do
+- arduino.cc
+- atv4.dnskp.cc
+- codelinaro.org
+- deckbrew.xyz
+- document360.com
+- document360.io
+- dub.sh
+- git.new
+- kilo.ai
+- kilocode.ai
+- legalshield.com
+- lingq.com
+- magaz.global
+- monolisa.dev
+- musicbrainz.org
+- new.abb.com
+- paddle.com
+- paddlestatus.com
+- paritydeals.com
+- primevue.org
+- profitwell.com
+- radiojar.com
+- scrollrevealjs.org
+- support.anydesk.com
+- swapd.co
+- thetvdb.com
+- tvdevinfo.com
+- urlr.me
+- vod-fy.crunchyrollcdn.com
+- xiaomi.eu
+
+# Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
 
+- adbappcontrol.com
+- capcutstatic.com
+- capcutvod.com
+- cdn-lfs-eu-1.hf.co
+- cdn-lfs-us-1.hf.co
+- cdn-lfs.hf.co
+- cdn-lfs.huggingface.co
+- discourse-cdn.com
+- eaaccounts.akamaized.net
+- friendlyelec.com
+- huggingface.co
+- kyoceradocumentsolutions.com
+- localsend.org
+- opensubtitles.org
 - reddit.com
+- tunemymusic.com
+- xraycore.org
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst

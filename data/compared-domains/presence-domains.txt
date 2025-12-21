@@ -263,6 +263,7 @@
 - fansly.com
 - fast-torrent.club
 - fast.com
+- fastpic.org
 - fb.com
 - fbcdn.net
 - fbsbx.com
@@ -663,6 +664,7 @@
 - pscp.tv
 - psiphon.ca
 - qt.io
+- qualcomm.com
 - quicknode.com
 - quora.com
 - qwant.com
@@ -976,6 +978,7 @@
 - xhamsterlive.com
 - xhcdn.com
 - xnxx-cdn.com
+- xnxx-ru.com
 - xnxx.com
 - xnxx.net
 - xnxx.tv

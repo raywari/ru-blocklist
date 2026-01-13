@@ -3,8 +3,15 @@
 +.aida.googleapis.com
 +.aisandbox-pa.googleapis.com
 +.aistudio.google.com
++.antigravity-pa.googleapis.com
++.antigravity-unleash.goog
++.antigravity.google
++.antigravity.googleapis.com
 +.bard.google.com
 +.clients6.google.com
++.cloudaicompanion.googleapis.com
++.cloudcode-pa.googleapis.com
++.daily-cloudcode-pa.googleapis.com
 +.deepmind.com
 +.deepmind.google
 +.geller-pa.googleapis.com
@@ -18,8 +25,10 @@
 +.labs.google.com
 +.lookerstudio.google.com
 +.makersuite.google.com
++.notebooklm-pa.googleapis.com
 +.notebooklm.google
 +.notebooklm.google.com
++.notebooklm.googleapis.com
 +.opal.google
 +.opal.google.com
 +.proactivebackend-pa.googleapis.com

@@ -6,6 +6,10 @@ aida.googleapis.com
 aisandbox-pa.googleapis.com
 aistudio.google.com
 anthropic.com
+antigravity-pa.googleapis.com
+antigravity-unleash.goog
+antigravity.google
+antigravity.googleapis.com
 api.github.com
 bard.google.com
 browser.events.data.microsoft.com
@@ -19,10 +23,13 @@ claude.com
 claudemcpclient.com
 claudeusercontent.com
 clients6.google.com
+cloudaicompanion.googleapis.com
+cloudcode-pa.googleapis.com
 copilot-proxy.githubusercontent.com
 copilot-telemetry.githubusercontent.com
 copilot.microsoft.com
 d.docs.live.net
+daily-cloudcode-pa.googleapis.com
 deepmind.com
 deepmind.google
 deepseek.com
@@ -62,8 +69,10 @@ lookerstudio.google.com
 makersuite.google.com
 meta.ai
 mobile.events.data.microsoft.com
+notebooklm-pa.googleapis.com
 notebooklm.google
 notebooklm.google.com
+notebooklm.googleapis.com
 oaistatic.com
 oaiusercontent.com
 opal.google

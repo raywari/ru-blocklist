@@ -1638,6 +1638,7 @@
 - pages.dev
 - pandasecurity.com
 - paperpaper.ru
+- parallels.com
 - patreon.com
 - paypal.com
 - pb.wtf

@@ -81,6 +81,7 @@
 
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
+- freecodecamp.org
 - naps2.com
 - photopea.com
 

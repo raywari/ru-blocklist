@@ -252,7 +252,6 @@
 - eutrp.eu
 - everand.com
 - exchanger.bits.media
-- exler.ru
 - expandrive.com
 - expres.online
 - extremetech.com
@@ -321,7 +320,6 @@
 - glavred.info
 - glavred.net
 - global.fncstatic.com
-- global.platform.seconddinnertech.com
 - glpals.com
 - godaddy.com
 - gofile.io
@@ -509,6 +507,7 @@
 - metal-archives.com
 - metla.press
 - metopera.org
+- mezha.net
 - middlewareinventory.com
 - mignews.com
 - miracleptr.wordpress.com
@@ -853,6 +852,7 @@
 - thebell.io
 - theins.press
 - theins.ru
+- themoscowtimes.com
 - themoviedb.org
 - thepiratebay.org
 - theporndude.com
@@ -923,6 +923,8 @@
 - ukdevilz.com
 - ukr.net
 - ukr.radio
+- ukrainer.net
+- ukrinform.net
 - ukrtelcdn.net
 - unscreen.com
 - unsplash.com
@@ -1498,6 +1500,7 @@
 - clamav.net
 - claude.ai
 - cloudflare-dns.com
+- codeium.com
 - colta.ru
 - coomer.su
 - crunchyroll.com
@@ -1745,6 +1748,7 @@
 - wheather.com
 - wikiart.org
 - windguru.cz
+- windsurf.com
 - wixmp.com
 - wunderground.com
 - x.ai

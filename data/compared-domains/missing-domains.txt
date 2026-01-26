@@ -2,6 +2,8 @@
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-raw.lst
 
 - a-vrv.akamaized.net
+- affinity.studio
+- all3dp.com
 - any.do
 - arduino.cc
 - atv4.dnskp.cc
@@ -13,6 +15,7 @@
 - document360.com
 - document360.io
 - dub.sh
+- exler.es
 - filmix.fan
 - git.new
 - kilo.ai
@@ -20,20 +23,26 @@
 - klarna.com
 - legalshield.com
 - lingq.com
+- lyst.com
 - magaz.global
 - mintmobile.com
 - monolisa.dev
 - musicbrainz.org
 - new.abb.com
+- octopus.do
 - paddle.com
 - paddlestatus.com
 - paritydeals.com
 - patreonusercontent.com
+- primark.com
 - primevue.org
 - profitwell.com
+- pronouns.page
 - pvpessence.com
 - radiojar.com
 - scrollrevealjs.org
+- seconddinnertech.com
+- snapgametech.com
 - sophos.com
 - support.anydesk.com
 - swapd.co
@@ -41,29 +50,66 @@
 - tvdevinfo.com
 - urlr.me
 - vod-fy.crunchyrollcdn.com
+- x-minus.pro
 - xiaomi.eu
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Categories/hodca.lst
 
 - adbappcontrol.com
+- ajay.app
+- aniliberty.top
+- artixlinux.org
+- beatmods.com
+- beatsaver.com
+- britishcouncil.org
+- bsmanager.io
 - capcutstatic.com
 - capcutvod.com
 - cdn-lfs-eu-1.hf.co
 - cdn-lfs-us-1.hf.co
 - cdn-lfs.hf.co
 - cdn-lfs.huggingface.co
+- cochrane.org
+- coderabbit.ai
+- customfw.xyz
 - discourse-cdn.com
+- dvprogram.state.gov
 - eaaccounts.akamaized.net
+- flathub.org
 - friendlyelec.com
+- fwupd.org
+- gnome.org
+- gopro.com
+- heltec.org
+- htx.com
 - huggingface.co
+- imgbb.com
+- imigo.ai
 - jellyfin.org
+- joeysretrohandhelds.com
+- kde.org
 - kyoceradocumentsolutions.com
+- libria.fun
 - localsend.org
+- maximoff.su
+- meshtastic.org
+- opencode.ai
 - opensubtitles.org
+- plantuml.com
 - reddit.com
+- resizing.flixster.com
+- rottentomatoes.com
+- sb-cd.com
+- silabs.com
+- storybook.js.org
+- strapi.io
+- tefl.org
+- thelancet.com
 - tunemymusic.com
+- userbenchmark.com
 - xraycore.org
+- youngliving.com
 
 # Missing domains
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
@@ -79,6 +125,7 @@
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst
 
+- adblockplus.org
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
 - freecodecamp.org

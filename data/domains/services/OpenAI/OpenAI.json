@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "cdn.auth0.com",
         "chat.com",
         "chatgpt-async-webps-prod.com",
         "chatgpt.com",

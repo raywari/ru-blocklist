@@ -1240,10 +1240,12 @@
 - host.livekit.cloud
 - hrw.org
 - iichan.hk
+- imagedelivery.net
 - instagram.com
 - intel.com
 - ipburger.com
 - island-of-pleasure.site
+- itch.io
 - jabra.com
 - jetbrains.ai
 - jetbrains.com
@@ -1267,6 +1269,7 @@
 - metacritic.com
 - microchip.com
 - mobile.events.data.microsoft.com
+- modrinth.com
 - mongodb.com
 - monster.ie
 - mouser.com
@@ -1318,6 +1321,7 @@
 - proxyscrape.com
 - qualcomm.com
 - quora.com
+- rbxcdn.com
 - redis.com
 - redtube.com
 - refactoring.guru
@@ -1437,6 +1441,7 @@
 - x.ai
 - xhamster.com
 - xhamsterlive.com
+- xsts.auth.xboxlive.com
 - youtu.be
 - youtube-nocookie.com
 - youtube-ui.l.google.com
@@ -1625,6 +1630,7 @@
 - nnmclub.to
 - nordvpn.com
 - notepad-plus-plus.org
+- notion.com
 - novayagazeta.eu
 - novayagazeta.ru
 - nsf.gov

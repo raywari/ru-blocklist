@@ -115,12 +115,26 @@
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - adafruit.com
+- curseforge.com
+- discourse-cdn.com
+- downloads.gtnewhorizons.com
+- driver.gaomon.net
+- easylist-downloads.adblockplus.org
 - elgato.com
+- essential.gg
+- forgecdn.net
+- gallerycdn.vsassets.io
 - gvt1.com
+- itch.zone
 - kemono.cr
+- maven.neoforged.net
 - mega.co.nz
+- ppy.sh
 - pump.fun
 - sendgrid.net
+- services.gearboxsoftware.com
+- shift.services.gearbox.com
+- warnerbrosgames.com
 
 # Missing domains
 # Source: https://community.antifilter.download/list/domains.lst

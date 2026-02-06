@@ -1552,6 +1552,7 @@
 - gemini.google.com
 - geni.us
 - genius.com
+- githubcopilot.com
 - gitlab.io
 - gnome-look.org
 - golosameriki.com

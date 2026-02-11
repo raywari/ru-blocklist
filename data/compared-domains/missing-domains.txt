@@ -115,14 +115,20 @@
 # Source: https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community.lst
 
 - adafruit.com
+- beammp.com
+- beamng.gmbh
+- beamng.tech
+- bng.gg
 - curseforge.com
 - discourse-cdn.com
 - downloads.gtnewhorizons.com
 - driver.gaomon.net
+- e4mc.link
 - easylist-downloads.adblockplus.org
 - elgato.com
 - essential.gg
 - forgecdn.net
+- fsn1.your-objectstorage.com
 - gallerycdn.vsassets.io
 - gvt1.com
 - itch.zone
@@ -134,6 +140,8 @@
 - sendgrid.net
 - services.gearboxsoftware.com
 - shift.services.gearbox.com
+- telegram.app
+- telegram.dev
 - warnerbrosgames.com
 
 # Missing domains

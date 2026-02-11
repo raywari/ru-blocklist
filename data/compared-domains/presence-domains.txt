@@ -1143,6 +1143,7 @@
 - autodesk360.com
 - bard.google.com
 - bbci.co.uk
+- beamng.com
 - bitbucket.org
 - bitcoin.org
 - bitru.org
@@ -1374,6 +1375,7 @@
 - telega.one
 - telegra.ph
 - telegram-cdn.org
+- telegram.com
 - telegram.dog
 - telegram.me
 - telegram.org
@@ -1424,12 +1426,21 @@
 - vipdrive.net
 - vrv.co
 - vyos.io
+- wa.me
 - watchguard.com
 - weather.com
 - welt.de
 - wetransfer.com
+- whatsapp-plus.info
+- whatsapp-plus.me
+- whatsapp-plus.net
+- whatsapp.cc
 - whatsapp.com
+- whatsapp.info
 - whatsapp.net
+- whatsapp.org
+- whatsapp.tv
+- whatsappbrand.com
 - wheather.com
 - whispersystems.org
 - wide-youtube.l.google.com

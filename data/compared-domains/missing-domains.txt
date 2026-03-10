@@ -130,7 +130,6 @@
 - forgecdn.net
 - fsn1.your-objectstorage.com
 - gallerycdn.vsassets.io
-- gvt1.com
 - itch.zone
 - kemono.cr
 - maven.neoforged.net
@@ -140,6 +139,10 @@
 - sendgrid.net
 - services.gearboxsoftware.com
 - shift.services.gearbox.com
+- signon.goliath.prod.deadorbit.net
+- signon.goliath.prod.gravityshavings.net
+- signon2.deadorbit.net
+- signon2.gravityshavings.net
 - telegram.app
 - telegram.dev
 - warnerbrosgames.com

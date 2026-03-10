@@ -1233,6 +1233,7 @@
 - grazie.ai
 - grok.com
 - gtagarage.com
+- gvt1.com
 - habr.com
 - hath.network
 - hbomax.com

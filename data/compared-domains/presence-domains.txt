@@ -1151,6 +1151,7 @@
 - boosteroid.com
 - bosch-home.com
 - bradyid.com
+- broadcom.com
 - bungiestore.com
 - byteoversea.com
 - canva.com

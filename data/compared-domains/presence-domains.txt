@@ -1151,6 +1151,7 @@
 - boosteroid.com
 - bosch-home.com
 - bradyid.com
+- brawlstarsgame.com
 - broadcom.com
 - bungiestore.com
 - byteoversea.com
@@ -1167,6 +1168,8 @@
 - cisco.com
 - citrix.com
 - clamav.net
+- clashofclans.com
+- clashroyaleapp.com
 - claude.ai
 - cloudflare-dns.com
 - cloudflare-ech.com
@@ -1363,11 +1366,13 @@
 - soundcloud.com
 - sovanews.tv
 - spotify.com
+- squadbustersgame.com
 - stalker2.com
 - stockx.com
 - strava.com
 - streamable.com
 - stulchik.net
+- supercell.com
 - swagger.io
 - sysdig.com
 - t.me

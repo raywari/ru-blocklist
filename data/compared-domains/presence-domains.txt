@@ -1173,6 +1173,7 @@
 - claude.ai
 - cloudflare-dns.com
 - cloudflare-ech.com
+- cloudflareclient.com
 - colta.ru
 - copilot.microsoft.com
 - crunchyroll.com
@@ -1227,6 +1228,7 @@
 - geni.us
 - genius.com
 - ggpht.com
+- ghostrc.game.idtech.services
 - githubcopilot.com
 - gitlab.io
 - gnome-look.org
@@ -1252,6 +1254,7 @@
 - ipburger.com
 - island-of-pleasure.site
 - itch.io
+- itdog.info
 - jabra.com
 - jetbrains.ai
 - jetbrains.com
@@ -1290,6 +1293,7 @@
 - notebooklm.google
 - notepad-plus-plus.org
 - notion.com
+- notion.site
 - notion.so
 - ntc.party
 - nyaa.si
@@ -1365,6 +1369,7 @@
 - sora.com
 - soundcloud.com
 - sovanews.tv
+- spiceworks.com
 - spotify.com
 - squadbustersgame.com
 - stalker2.com

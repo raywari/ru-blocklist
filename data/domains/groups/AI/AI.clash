@@ -42,6 +42,7 @@
 +.edgeservices.bing.com
 +.elevenlabs.io
 +.feedcdn.sapphire.microsoftapp.net
++.firebaseinstallations.googleapis.com
 +.fpt2.microsoft.com
 +.gateway.bingviz.microsoftapp.net
 +.geller-pa.googleapis.com
@@ -101,6 +102,7 @@
 +.servd-anthropic-website.b-cdn.net
 +.services.bingapis.com
 +.sora.com
++.speechs3proto2-pa.googleapis.com
 +.stitch.withgoogle.com
 +.sydney.bing.com
 +.turn.livekit.cloud

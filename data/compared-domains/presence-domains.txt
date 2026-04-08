@@ -19,6 +19,8 @@
 - adidas.com
 - adminforge.de
 - adobe.com
+- adobe.io
+- adobe.net
 - ads-twitter.com
 - adultmult.tv
 - agents.media
@@ -108,7 +110,6 @@
 - canva.com
 - canva.dev
 - capacitorjs.com
-- capcut.com
 - carnegieendowment.org
 - carrefouruae.com
 - cats.com
@@ -136,6 +137,7 @@
 - clashofclans.com
 - clashroyaleapp.com
 - claude.ai
+- claude.com
 - clevelandclinic.org
 - clickup.com
 - clip.opus.pro
@@ -634,6 +636,7 @@
 - pingdom.com
 - piratbit.top
 - pixabay.com
+- pixiv.net
 - platform.activestate.com
 - playboy.com
 - plugshare.com
@@ -819,6 +822,7 @@
 - strana.news
 - strana.today
 - strava.com
+- streamable.com
 - suggestqueries.google.com
 - supercell.com
 - supersliv.biz
@@ -958,6 +962,7 @@
 - walmart.com
 - watchguard.com
 - watermarkremover.io
+- wbagora.com
 - wbgames.com
 - weather.com
 - webmd.com
@@ -965,6 +970,7 @@
 - webtoons.com
 - weebly.com
 - welt.de
+- wetransfer.com
 - whatsapp.biz
 - whatsapp.com
 - whatsapp.net
@@ -1027,10 +1033,13 @@
 
 - alterportal.net
 - amazon.com
+- amazonaws.com
 - archlinux.org
 - artstation.com
 - beamng.com
 - bitru.org
+- capcut.com
+- capcutapi.com
 - check-host.net
 - clashverge.dev
 - clerk.com
@@ -1038,6 +1047,7 @@
 - cloudflare.com
 - crdroid.net
 - desec.io
+- dev.to
 - discogs.com
 - drpool.io
 - ds-servers.com
@@ -1103,6 +1113,7 @@
 - wbinsights.com
 - windowsupdate.com
 - wwnd.space
+- xdaforums.com
 - yarnpkg.com
 - zerotier.com
 

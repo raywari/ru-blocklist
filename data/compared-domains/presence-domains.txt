@@ -1037,6 +1037,7 @@
 - archlinux.org
 - artstation.com
 - beamng.com
+- bitbucket.org
 - bitru.org
 - capcut.com
 - capcutapi.com
@@ -1055,6 +1056,7 @@
 - ezgif.com
 - fastpic.org
 - feeds.feedburner.com
+- filmix.my
 - flclash.cc
 - forum.syncthing.net
 - fosshub.com

@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "lostfilm.download",
         "lostfilm.run",
         "lostfilm.tv",
         "lostfilm.win"

@@ -393,6 +393,7 @@
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
 - freecodecamp.org
+- it-tools.tech
 - naps2.com
 - photopea.com
 

@@ -390,6 +390,7 @@
 # Source: https://community.antifilter.download/list/domains.lst
 
 - adblockplus.org
+- cdn.jsdelivr.net
 - debian.map.fastlydns.net
 - fitgirl-repacks.site
 - freecodecamp.org

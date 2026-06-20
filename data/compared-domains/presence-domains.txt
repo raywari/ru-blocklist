@@ -250,6 +250,7 @@
 - etahub.com
 - etsy.com
 - euronews.com
+- europesays.com
 - euroradio.fm
 - eutrp.eu
 - everand.com
@@ -417,11 +418,10 @@
 - jamf.com
 - jetbrains.com
 - jetbrains.space
+- jetbrains.team
 - jnn-pa.googleapis.com
 - jut-su.net
 - jut.su
-- jw-russia.org
-- jw.org
 - kaktus.media
 - kaleido.ai
 - kamatera.com
@@ -861,6 +861,7 @@
 - thepiratebay.org
 - theporndude.com
 - thetruestory.news
+- threads.com
 - threads.net
 - threema.ch
 - ti.com
@@ -1026,6 +1027,7 @@
 - zedge.net
 - zendesk.com
 - zerkalo.io
+- zerossl.com
 - zona.media
 
 # Presence domains
@@ -1046,6 +1048,8 @@
 - clerk.com
 - clerk.dev
 - cloudflare.com
+- cloudflarestorage.com
+- cloudfront.net
 - crdroid.net
 - desec.io
 - dev.to
@@ -1061,6 +1065,7 @@
 - forum.syncthing.net
 - fosshub.com
 - fossorial.io
+- gitlab.com
 - heavyfetish.com
 - hetzner.cloud
 - hetzner.com

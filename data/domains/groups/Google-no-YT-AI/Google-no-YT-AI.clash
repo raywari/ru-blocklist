@@ -340,6 +340,7 @@
 +.coova.com
 +.coova.net
 +.coova.org
++.crashlytics.com
 +.crossmediapanel.com
 +.crr.com
 +.cs4hs.com
@@ -373,7 +374,6 @@
 +.feedburner.com
 +.fflick.com
 +.financeleadsonline.com
-+.firebase-settings.crashlytics.com
 +.firebase.com
 +.firebase.google.com
 +.firebase.io
@@ -738,7 +738,6 @@
 +.uberproxy.corp.google.com
 +.uberproxy6.corp.google.com
 +.unfiltered.news
-+.update.crashlytics.com
 +.useplannr.com
 +.usvimosquito.com
 +.usvimosquitoproject.com
